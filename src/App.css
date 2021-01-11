@@ -4,6 +4,7 @@
 
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -30,18 +31,32 @@
 
 .App-greating{
   font-family:'Lobster';
-  font-size: 40px;
+  font-size: 60px;
 }
 
 .a1{
   font-family:'Lobster';
-  font-size: 25px;
+  font-size: 40px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.scrollhost::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollhost ::-moz-scrollbar {
+  display: none;
+ 
+}
+
+.scrollhost {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
+}
 
 @keyframes App-logo-spin {
   from {

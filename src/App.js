@@ -18,7 +18,7 @@ class App extends Component{
     this.state ={
       Colsize: 15,
       ColSize: { col1: 8, col2: 8, col3:8},
-      ColColour: {col1: "#F36870", col2: "#FFF593", col3: "#74B2D0"},
+      ColColour: {col: "#FAFAF0", col1: "#f98ba9", col2: "#fdd77c", col3: "#5ed3da"},
     }
   }
 
@@ -32,7 +32,7 @@ class App extends Component{
                 </Route>
                 
                 <Route path="/Art">
-                  <Art BackgroundColor={this.state.ColColour.col2}></Art>
+                  <Art BackgroundColor={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
                 </Route>
 
                 <Route path="/AboutMe">

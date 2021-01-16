@@ -25,10 +25,10 @@ class Pillar extends Component{
                 style={{
                     height: "100vh", 
                     backgroundColor: this.props.BackgroundColor,
-                    paddingTop: "31vh",
+                    paddingTop: "40vh",
                 }}
                 >
-                    <Meta title={<span className="a1">{this.props.Title} </span> }/>
+                    <Meta title={<span className="Title">{this.props.Title} </span> }/>
                 </Card>
             </div>
         );

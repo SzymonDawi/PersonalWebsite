@@ -4,7 +4,6 @@
 
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
@@ -34,9 +33,19 @@
   font-size: 60px;
 }
 
-.a1{
+.Title{
   font-family:'Lobster';
-  font-size: 40px;
+  font-size: 64px;
+}
+
+.SubHeading{
+  font-family:'Lobster';
+  font-size: 36px;
+}
+
+.NoScroll{
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .App-link {

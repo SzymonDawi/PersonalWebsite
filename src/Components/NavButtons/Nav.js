@@ -55,7 +55,7 @@ class Nav extends Component{
                                 <Pillar                         
                                     ChangeSize={this.changeColSize} 
                                     Id={0} 
-                                    BackgroundColor={this.state.ColColour.col1}
+                                    BackgroundColour={this.state.ColColour.col1}
                                     Title="Projects">
                                 </Pillar>    
                             </NavLink>
@@ -65,7 +65,7 @@ class Nav extends Component{
                             <Pillar 
                             ChangeSize={this.changeColSize} 
                             Id={1} 
-                            BackgroundColor={this.state.ColColour.col2}
+                            BackgroundColour={this.state.ColColour.col2}
                             Title="Art"
                             ></Pillar> 
                         </Col>
@@ -74,7 +74,7 @@ class Nav extends Component{
                             <Pillar
                             ChangeSize={this.changeColSize} 
                             Id={2} 
-                            BackgroundColor={this.state.ColColour.col3}
+                            BackgroundColour={this.state.ColColour.col3}
                             Title="About me"
                             ></Pillar> 
                         </Col>

@@ -1,15 +1,15 @@
 import './App.css';
 import React, { Component } from 'react';
 import {Col, Row, Card, Avatar} from 'antd';
-import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, NavLink, Redirect} from 'react-router-dom';
 
 import Pillar from "./Components/Pillar";
 import Projects from "./Components/Projects";
 import Greating from "./Components/Greating";
 import Art from "./Components/Art";
 import AboutMe from "./Components/AboutMe";
-
-
+import PersonalSite from "./Components/PersonalSite";
+import JobRedirect from "./Components/JobRedirect";
 
 class App extends Component{
   constructor(props) {
@@ -19,7 +19,15 @@ class App extends Component{
       Colsize: 15,
       ColSize: { col1: 8, col2: 8, col3:8},
       ColColour: {col: "#FAFAF0", col1: "#f98ba9", col2: "#fdd77c", col3: "#5ed3da"},
+      JobLinks: ["/6cbuKvAR","/Km6ZjB67","/Nr5mmBdC","/z4aRyuau"],
+      JobLinksOpened: [], 
     }
+  }
+
+  linkVisited = (Link) =>{
+    this.state.JobLinksOpened.push(Link);
+    {console.log(Link)}
+    {console.log(this.state.JobLinksOpened)}
   }
 
   render(){
@@ -27,19 +35,29 @@ class App extends Component{
       <div className="App ">
             <Router>
               <Switch>
-                <Route path="/Projects">
-                  <Projects BackgroundColor={this.state.ColColour.col1}></Projects>
+                <Route exact path="/Projects">
+                  <Projects BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></Projects>
                 </Route>
                 
                 <Route path="/Art">
-                  <Art BackgroundColor={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
+                  <Art BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
                 </Route>
 
                 <Route path="/AboutMe">
-                  <AboutMe BackgroundColor={this.state.ColColour.col3}></AboutMe>
+                  <AboutMe BackgroundColour={this.state.ColColour.col3}></AboutMe>
                 </Route>
 
-                <Route path="/">
+                <Route path="/Projects/PersonalWebsite">
+                    <PersonalSite BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></PersonalSite>
+                </Route>     
+
+                {this.state.JobLinks.map((link) => (
+                  <Route exact path={link}>
+                    <JobRedirect Link={link} linkVisited={this.linkVisited}></JobRedirect>
+                  </Route>     
+                ))}
+
+                <Route exact path="/">
                   <Row style={{height: "100vh"}} >
                     <Col span={9} style={{backgroundColor: "#FAFAF0"}}> 
                       <Greating></Greating>
@@ -53,7 +71,7 @@ class App extends Component{
                                 <Pillar                         
                                     ChangeSize={this.changeColSize} 
                                     Id={0} 
-                                    BackgroundColor={this.state.ColColour.col1}
+                                    BackgroundColour={this.state.ColColour.col1}
                                     Title="Projects">
                                 </Pillar>    
                             </NavLink>
@@ -66,7 +84,7 @@ class App extends Component{
                               <Pillar                         
                                   ChangeSize={this.changeColSize} 
                                   Id={1} 
-                                  BackgroundColor={this.state.ColColour.col2}
+                                  BackgroundColour={this.state.ColColour.col2}
                                   Title="Art">
                               </Pillar>    
                           </NavLink>
@@ -79,7 +97,7 @@ class App extends Component{
                               <Pillar                         
                                   ChangeSize={this.changeColSize} 
                                   Id={2} 
-                                  BackgroundColor={this.state.ColColour.col3}
+                                  BackgroundColour={this.state.ColColour.col3}
                                   Title="AboutMe">
                               </Pillar>    
                           </NavLink>

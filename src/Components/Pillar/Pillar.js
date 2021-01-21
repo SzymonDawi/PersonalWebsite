@@ -7,14 +7,6 @@ class Pillar extends Component{
         super(props);
 
       }
-    
-    hover = () =>{
-        //this.props.ChangeSize(this.props.Id, 10);
-    }
-    
-    notHover = () => {
-        //this.props.ChangeSize(this.props.Id, 8);
-    }
 
     render(){
         return(
@@ -24,7 +16,7 @@ class Pillar extends Component{
                 hoverable
                 style={{
                     height: "100vh", 
-                    backgroundColor: this.props.BackgroundColor,
+                    backgroundColor: this.props.BackgroundColour,
                     paddingTop: "40vh",
                 }}
                 >

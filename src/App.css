@@ -36,6 +36,7 @@
 .Title{
   font-family:'Lobster';
   font-size: 64px;
+  
 }
 
 .SubHeading{
@@ -60,9 +61,17 @@
   text-align: left;
 }
 
+.Text-left{
+  text-align: left;
+}
+
 .NoScroll{
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.Scroll-y{
+  overflow-y: auto;
 }
 
 .App-link {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Button, } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
-import { CircularProgress } from '@material-ui/core';
 import { Table, Tag, Space } from 'antd';
 
 import GitRepo from '../GitRepo';
@@ -11,6 +10,14 @@ class PersonalSite extends Component{
         super(props);
 
         this.state ={
+            repoData: {
+                owner: "SzymonDawi",
+                repo: "PersonalWebsite",
+                sha: "271eef70a8bfd866b1dfa5549b659701502aeef1",
+                fileDir: {
+                    
+                }
+            },
         }
       }
 
@@ -154,12 +161,13 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row justify="center" style={{backgroundColor: "#fdd77c", height:"100%"}}>
+                        <Row justify="center" style={{backgroundColor: "#fdd77c",height:"100vh",}}>
                             <Col>
-                                <Row style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Impelemention</p></Row>
-                                <Row>
-                                    <GitRepo Owner="SzymonDawi" Repo="PersonalWebsite"></GitRepo>
+                                <Row justify="center" style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Impelemention</p></Row>
+                                <Row >
+                                    <GitRepo repoData={this.state.repoData}></GitRepo>
                                 </Row>
+                                
                             </Col>
                         </Row>
 

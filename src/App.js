@@ -72,7 +72,9 @@ class App extends Component{
                                     ChangeSize={this.changeColSize} 
                                     Id={0} 
                                     BackgroundColour={this.state.ColColour.col1}
-                                    Title="Projects">
+                                    Title="Projects"
+                                    >
+                                    
                                 </Pillar>    
                             </NavLink>
                         </Col>

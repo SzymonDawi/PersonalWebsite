@@ -47,38 +47,38 @@ class Nav extends Component{
                         </Route>
                         <Route path="/">
                             
-                        <Row style={{height: "100vh"}}>
-                        <Col span={this.state.ColSize.col1} style={{backgroundColor: this.state.ColColour.col1}} onClick={this.toggleGreating}>
-                            <NavLink
-                                to="/Projects"
-                                activeClassName="selected">
-                                <Pillar                         
-                                    ChangeSize={this.changeColSize} 
-                                    Id={0} 
-                                    BackgroundColour={this.state.ColColour.col1}
-                                    Title="Projects">
-                                </Pillar>    
-                            </NavLink>
-                        </Col>
+                        <Row  style={{height: "100vh"}}>
+                            <Col span={this.state.ColSize.col1} style={{backgroundColor: this.state.ColColour.col1}} onClick={this.toggleGreating}>
+                                <NavLink
+                                    to="/Projects"
+                                    activeClassName="selected">
+                                    <Pillar                         
+                                        ChangeSize={this.changeColSize} 
+                                        Id={0} 
+                                        BackgroundColour={this.state.ColColour.col1}
+                                        Title="Projects">
+                                    </Pillar>    
+                                </NavLink>
+                            </Col>
 
-                        <Col span={this.state.ColSize.col2} style={{backgroundColor: this.state.ColColour.col2}}>
-                            <Pillar 
-                            ChangeSize={this.changeColSize} 
-                            Id={1} 
-                            BackgroundColour={this.state.ColColour.col2}
-                            Title="Art"
-                            ></Pillar> 
-                        </Col>
+                            <Col span={this.state.ColSize.col2} style={{backgroundColor: this.state.ColColour.col2}}>
+                                <Pillar 
+                                ChangeSize={this.changeColSize} 
+                                Id={1} 
+                                BackgroundColour={this.state.ColColour.col2}
+                                Title="Art"
+                                ></Pillar> 
+                            </Col>
 
-                        <Col span={this.state.ColSize.col3} style={{backgroundColor: this.state.ColColour.col3}}>
-                            <Pillar
-                            ChangeSize={this.changeColSize} 
-                            Id={2} 
-                            BackgroundColour={this.state.ColColour.col3}
-                            Title="About me"
-                            ></Pillar> 
-                        </Col>
-                    </Row>
+                            <Col span={this.state.ColSize.col3} style={{backgroundColor: this.state.ColColour.col3}}>
+                                <Pillar
+                                ChangeSize={this.changeColSize} 
+                                Id={2} 
+                                BackgroundColour={this.state.ColColour.col3}
+                                Title="About me"
+                                ></Pillar> 
+                            </Col>
+                        </Row>
                         </Route>
                     </Switch>
                 </Router>

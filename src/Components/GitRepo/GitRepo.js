@@ -127,12 +127,12 @@ class GitRepo extends Component{
     render(){
         return(
             <div>
-                <Row style={{ backgroundColor: "#FAFAF0", width: "90vw" }}>
-                    <Col span={5}>
+                <Row style={{ backgroundColor: "#FAFAF0", width: "90vw", height: "80vh" }}>
+                    <Col className="Scroll-y" span={5} style={{height:"80vh", padding: "20px"}}>
                         {!this.state.gotRepo &&  <Skeleton  loading={true} />}
                         {this.state.gotRepo && <DirectoryTree multiple treeData={this.state.fileDir} onSelect={this.onSelect} />}
                     </Col>
-                    <Col className="Text-left Scroll-y" span={19} style={{height:"80vh"}}>
+                    <Col className="Text-left Scroll-y" span={19} style={{height:"80vh", padding: "20px"}}>
                         {!this.state.gotfile && <Skeleton loading={true}/>}
                         {this.state.gotfile && <ReactMarkdown children={this.state.content} />}
                     </Col>

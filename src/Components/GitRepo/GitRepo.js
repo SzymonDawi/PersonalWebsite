@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import { Card, Col, Row, Button, } from 'antd';
 import {Tree} from 'antd';
 import { Skeleton } from 'antd';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const {DirectoryTree} = Tree;
 
@@ -18,6 +20,7 @@ class GitRepo extends Component{
             fileDir: [],
             gotRepo: false,
             gotfile: false,
+            fileType: "",
         }
       }
 
@@ -43,7 +46,6 @@ class GitRepo extends Component{
         
         if(res.data[0].sha !== this.props.repoData.currentCommit){
             this.setState({currentCommit: res.data[0].sha});
-            console.log("updating repo");
         }
     }
 
@@ -56,14 +58,13 @@ class GitRepo extends Component{
         var temp = [];
         var child = [];
         var leaf = false;
-        var isDir = false;
         for(var i = 0; i < res.data.length; i++){
+            var isDir = false;
             if(res.data[i].type == "dir"){
                 isDir = true;
-                //child = await this.getFileDir(res.data[i].path, pos + "-" +i);
+                child = await this.getFileDir(res.data[i].path, pos + "-" +i);
                 leaf = false;
             }else{
-                isDir = false;
                 child = [];
                 leaf = true;
             }
@@ -81,17 +82,17 @@ class GitRepo extends Component{
                 }
             );
         }
-
-        this.setState({fileDir: temp});
         
+        this.setState({fileDir: temp});
+
         if(pos === "0"){
             this.setState({gotRepo: true});
         }
-
+        
         return temp;
     }
 
-    async getFile(Path){
+    async getFile(Path, type){
         var res = await this.state.octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
             owner: this.props.repoData.owner,
             repo: this.props.repoData.repo,
@@ -101,16 +102,25 @@ class GitRepo extends Component{
                 }
             });
             this.setState({gotfile: true})
-            this.setState({content: decode(res.data.content)});
+            if(type === ""){
+                this.setState({content:  decode(res.data.content) });
+            }else{
+                this.setState({content: "```" + type + decode(res.data.content) + " ```"});
+            }
     }
 
     onSelect = (keys: React.Key[], info: any) => {
-        if(info.node.isDir == "dir"){
-            this.getFileDir(keys, info.node.path);
+        if(info.node.isDir){
+
         }else{
+            var type="";
+            if(info.node.title.search(".js") != -1){
+                type = "js";
+            }else if(info.node.title.search(".css") != -1){
+                type =  "css";
+            }
             this.setState({gotfile: false});
-            this.getFile(info.node.path);
-            console.log(info.node.path);
+            this.getFile(info.node.path, type);
         }
     };
 

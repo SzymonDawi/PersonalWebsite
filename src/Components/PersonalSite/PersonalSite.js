@@ -67,6 +67,7 @@ class PersonalSite extends Component{
                                             Make the site mobile friendly. <br></br>
                                             Add a backend for storing project and art paths/descriptions/tags.<br></br>
                                             Add search functionality to the project page, so you can search projects for certain tags.<br></br>
+                                            Optimise the github api calls.
                                         </p> 
                                     </Col>   
                                 </Row>
@@ -103,7 +104,7 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
                         
-                        <Row justify="center" style={{height:"70%", backgroundColor:this.props.BackgroundColour}}>
+                        <Row justify="center" style={{backgroundColor:this.props.BackgroundColour}}>
                             <Col>
                                 <Row justify="center" style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Website mockup</p></Row>
                                 <Row justify="center" >
@@ -143,13 +144,13 @@ class PersonalSite extends Component{
                                     </Col>
 
                                     <Col span={10}>
-                                        <Row justify="center">
+                                        <Row justify="center" style={{width: "774px"}}>
                                             <img style={{width: "774px", height:"432"}} src="/Img/ProjectImg/oldSite.png" />
                                         </Row>
                                     </Col>
                                 </Row>
 
-                                <Row justify="center" style={{height: "50%", paddingTop:"25px"}}>
+                                <Row justify="center" style={{height:"800px", paddingTop:"25px", paddingBottom:"25px"}}>
                                     <iframe 
                                         style={{border: "0px", margingleft:"15px", marginRight:"-15px"}}
                                         width="90%" 
@@ -161,9 +162,9 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row justify="center" style={{backgroundColor: "#fdd77c",height:"100vh",}}>
+                        <Row justify="center" style={{backgroundColor: "#fdd77c", paddingTop: "25px", paddingBottom:"50px"}} >
                             <Col>
-                                <Row justify="center" style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Impelemention</p></Row>
+                                <Row justify="center"> <p className="SubHeading-Lato">Impelemention</p></Row>
                                 <Row >
                                     <GitRepo repoData={this.state.repoData}></GitRepo>
                                 </Row>

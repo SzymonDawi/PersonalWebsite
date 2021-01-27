@@ -5,10 +5,18 @@ import ReactMarkdown from 'react-markdown';
 import { Card, Col, Row, Button, } from 'antd';
 import {Tree} from 'antd';
 import { Skeleton } from 'antd';
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import {javascript} from 'react-syntax-highlighter/dist/esm/languages/prism';
+
+import style from './style';
 
 const {DirectoryTree} = Tree;
+
+const renderers = {
+    code: ({value}) => {
+      return <SyntaxHighlighter style={style} language={javascript} children={value} />
+    }
+  }
 
 class GitRepo extends Component{
     constructor(props) {
@@ -20,17 +28,13 @@ class GitRepo extends Component{
             fileDir: [],
             gotRepo: false,
             gotfile: false,
-            fileType: "",
+            fileType: "md",
         }
       }
 
     componentDidMount = () =>{
         this.checkRepoVersion();
-        this.getFileDir("", "0");
-    }
-
-    componentWillUnmount = () =>{
-        this.checkRepoVersion();
+        this.getFile("/README.md", "md");
         this.getFileDir("", "0");
     }
 
@@ -102,18 +106,18 @@ class GitRepo extends Component{
                 }
             });
             this.setState({gotfile: true})
-            if(type === ""){
+            if(type === "md"){
                 this.setState({content:  decode(res.data.content) });
             }else{
                 this.setState({content: "```" + type + decode(res.data.content) + " ```"});
             }
     }
 
-    onSelect = (keys: React.Key[], info: any) => {
+    onSelect = (keys, info) => {
         if(info.node.isDir){
 
         }else{
-            var type="";
+            var type="md";
             if(info.node.title.search(".js") != -1){
                 type = "js";
             }else if(info.node.title.search(".css") != -1){
@@ -127,14 +131,17 @@ class GitRepo extends Component{
     render(){
         return(
             <div>
-                <Row style={{ backgroundColor: "#FAFAF0", width: "90vw", height: "80vh" }}>
+                <Row style={{ backgroundColor: "#FAFAF0", width: "89vw", height: "80vh", marginLeft:"20px"}}>
                     <Col className="Scroll-y" span={5} style={{height:"80vh", padding: "20px"}}>
                         {!this.state.gotRepo &&  <Skeleton  loading={true} />}
-                        {this.state.gotRepo && <DirectoryTree multiple treeData={this.state.fileDir} onSelect={this.onSelect} />}
+                        {this.state.gotRepo && <DirectoryTree style={{backgroundColor: "#FAFAF0"}} multiple treeData={this.state.fileDir} onSelect={this.onSelect} />}
                     </Col>
                     <Col className="Text-left Scroll-y" span={19} style={{height:"80vh", padding: "20px"}}>
                         {!this.state.gotfile && <Skeleton loading={true}/>}
-                        {this.state.gotfile && <ReactMarkdown children={this.state.content} />}
+                        {this.state.gotfile && <ReactMarkdown 
+                            renderers={renderers} 
+                            children={this.state.content} />
+                        }
                     </Col>
                 </Row>
             </div>

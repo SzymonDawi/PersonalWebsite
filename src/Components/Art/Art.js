@@ -44,7 +44,6 @@ class Art extends Component{
     clickArt = (e) =>{
         this.setState({ArtOpen: true})
         this.setState({ArtPiece: e.src})
-        console.log(e.src)
     }
 
     closeArt = () =>{

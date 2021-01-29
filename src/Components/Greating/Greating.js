@@ -9,25 +9,29 @@ class Greating extends Component{
 
     render(){
         return(
-            <div>
-                <Card 
-                    bordered = {false}
-                    hoverable = {false}
-                    style={{
-                        height: "100vh", 
-                        backgroundColor: "#FAFAF0",
-                        paddingTop: "15vh",
-                    }}
-                    >
-                    <Avatar size={256} src="/img/IMG_0939.JPG"></Avatar>
-                    <p className="App-greating"> Hello! </p>  
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque mauris odio, sed convallis neque pretium ut. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam pretium enim mollis ultrices venenatis. Sed vulputate erat ipsum, sed feugiat justo pellentesque eget. Nulla aliquam nisi tempus porta vulputate. Suspendisse ultrices maximus risus, vel ullamcorper sapien feugiat in. Aliquam ut metus sed turpis pretium feugiat in vitae sapien.
 
-        Nam eleifend consequat accumsan. Nunc id mi augue. Pellentesque malesuada, sem a tempor sagittis, neque elit venenatis tortor, ac consequat lacus nisi id risus. Praesent pretium fermentum tellus ac pretium. In tempor elit nec orci condimentum, id tempor mi lacinia. Cras et tincidunt elit. Integer et efficitur velit.
-                    </p>
-                </Card>
-            </div>
+            <Row justify="center">
+                <Col span={20}>
+                    <Card 
+                        bordered = {false}
+                        hoverable = {false}
+                        style={{
+                            height: "100vh", 
+                            backgroundColor: "#FAFAF0",
+                            paddingTop: "15vh",
+                        }}
+                        >
+                        <Avatar size={256} src="/img/IMG_0939.JPG"></Avatar>
+                        <p className="App-greating"> Hello! </p>  
+                        <p className="P-Lato" style={{marginTop:"-50px"}}>
+                            My name is Szymon Budzyna-Dawidowksi. I am a software and hardware engineer, an amature artist, and an amature actor. 
+                            This is a website I built to showcase my engineering projects and my art. This website is very much a work in progress.
+                            Most of the features are impelemented and its only a matter of creating the content for each section. 
+                            I will be slowly updating my project writeups to a better format, like the one used for my personal website project page.
+                        </p>
+                    </Card>
+                </Col>
+            </Row>
         );
     }
 }

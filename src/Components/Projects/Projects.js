@@ -9,40 +9,30 @@ class Projects extends Component{
 
         this.state ={
             ProjectList: [
-                "Project 1",
-                "Project 2",
-                "Project 3",
-                "Project 4", 
-                "Project 5", 
-                "Project 6",
-                "Project 7",             
-                "Project 8",            
-                "Project 9",   
-                "Project 10", 
-                "Project 11", 
-                "Project 12", 
-                "Project 13", 
-                "Project 14", 
-                "Project 15",
-                "Project 16",
-                "Project 17",
+                {
+                    Name: "Personal Website",
+                    Path: "/Projects/PersonalWebsite",
+                    Description: "How I designed and built this website, to showcase my art and projects. Using ReactJS I implemented the functionality that I needed.",
+                    Redirect: false,
+                    Id: "0",
+                },
             ],
-            Redirect: false,
+            RedirectId: -1,
         }
       }
 
-    clickProject = () => {
-        this.setState({Redirect: true});
+    clickProject = (Id) => {
+        this.setState({RedirectId: Id});
     }
 
     render(){
-        if(this.state.Redirect){
-            return <Redirect push to="/Projects/PersonalWebsite"/> 
+        if(this.state.RedirectId !== -1){
+            return <Redirect push to={this.state.ProjectList[this.state.RedirectId].Path}/> 
         }
         else{
             return(
                 <div>
-                    <Row>
+                    <Row style={{height: "100vh"}} >
                         <Col span={24}>
                             <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
                                 <Col span={5} offset={2}>
@@ -53,7 +43,7 @@ class Projects extends Component{
                                 <Col span={5} offset={2}><p className="Title"> Projects </p>  </Col>
                             </Row>
                             
-                            <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"} }>
+                            <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"}}>
                                 <Col  xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}} > 
                                     <Row justify="center">
                                     {this.state.ProjectList.map((Src) => (
@@ -65,13 +55,11 @@ class Projects extends Component{
                                                 <Card
                                                     bordered={false}
                                                     style={{backgroundColor: "#DCC3C6", width: "100%", height:"100%", cursor: "pointer"}}
-                                                    onClick={this.clickProject}
+                                                    onClick={e => this.clickProject(Src.Id)}
                                                 >   
-                                                    <p className="SubHeading"> {Src}</p>
+                                                    <p className="SubHeading"> {Src.Name}</p>
                                                     <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum justo non luctus convallis. 
-                                                        Maecenas fringilla tellus at ornare efficitur. Fusce ut ante sit amet nunc pretium laoreet. 
-                                                        Etiam laoreet lacus ac mi consectetur faucibus.
+                                                        {Src.Description}
                                                     </p> 
                                                 </Card>
                                         </Col>

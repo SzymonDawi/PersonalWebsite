@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Col, Row, Button, } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { Table, Tag, Space } from 'antd';
+import {Link} from 'react-scroll'
 
 import GitRepo from '../GitRepo';
 
@@ -21,6 +22,10 @@ class PersonalSite extends Component{
         }
       }
 
+    click = () =>{
+        window.location.href="#implementation";
+    }
+
     render(){
         return(
             <div>
@@ -32,15 +37,12 @@ class PersonalSite extends Component{
                                     <p className="SubHeading"> <LeftOutlined />Back </p>
                                 </Button>
                             </Col>
-                            <Col span={5} offset={2}><p className="Title"> Perosnal Website </p>  </Col>
+                            <Col span={5} offset={2}><p className="Title"> Personal Website </p>  </Col>
                         </Row>
 
                         <Row align="middle" justify="center" style={{paddingTop:"5%", paddingBottom:"5%", backgroundColor: this.props.BackgroundColour}}>
-                            <Col span={12}>
-                                <img style={{width: "764px", height:"500px"}} src="/Img/Art/hot_tea_final_final.png" />
-                            </Col>
 
-                            <Col span={10}>
+                            <Col span={10} style={{paddingLeft:"50px"}}>
                                 <Row align="middle">
                                     <Col align="left" span={24}><p className="SubHeading-Lato" >Aim:</p></Col>
                                     <Col align="left" span={24}>
@@ -74,37 +76,41 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row  justify="center" align="middle" style={{backgroundColor: "#f98ba9", height:"500px"}}>
-                            <Col span={4} style={{height:"60%"}}>
-                                <Card
-                                    bordered={false}
-                                    style={{backgroundColor: "#DCC3C6", width: "300px", height:"300px", cursor: "pointer"}}
-                                >
-                                    Step 1:
-                                    Planning.
-                                </Card>
+                        <Row  justify="center" align="middle" style={{backgroundColor: "#f98ba9", paddingTop:"50px", paddingBottom:"50px"}}>
+                            <Col style={{width: "300px"}}>
+                                <Link to="design" spy={true} smooth={true}>
+                                    <Card
+                                        bordered={false}
+                                        style={{ width: "300px", height:"300px", cursor: "pointer"}}
+                                        cover={<img style={{objectFit:"cover"}} src={"/Img/projectImg/DesignWhiteMiddle.jpg"} />}
+                                    >
+                                        <Row justify="center" style={{marginTop:"-215px", backgroundColor: "#f98ba9"}}>
+                                            <Col>
+                                                <p className="SubHeading-Lato">Site mockup</p>
+                                            </Col>
+                                        </Row>
+                                    </Card>
+                                </Link>
                             </Col>
-                            <Col span={4} offset={2} style={{height:"60%"}}>
-                                <Card
-                                    bordered={false}
-                                    style={{backgroundColor: "#DCC3C6", width: "300px", height:"300px", cursor: "pointer"}}
-                                >
-                                    Step 2:
-                                    impelemention
-                                </Card>
-                            </Col>
-                            <Col span={4} offset={2} style={{height:"60%"}}>
-                                <Card
-                                    bordered={false}
-                                    style={{backgroundColor: "#DCC3C6", width: "300px", height:"300px", cursor: "pointer"}}
-                                >
-                                    Step 3:
-                                    Population.
-                                </Card>
+                            <Col offset={3} style={{width: "300px"}} >
+                                <Link to="Implementation" spy={true} smooth={true}>
+                                    <Card
+                                        bordered={false}
+                                        style={{ width: "300px", height:"300px", cursor: "pointer"}}
+                                        cover={<img style={{objectFit:"cover"}} src={"/Img/ProjectImg/codeImplementationWhiteMiddle.jpg"} />}
+                                        onClick={this.click}
+                                    >
+                                        <Row justify="center" style={{marginTop:"-215px", backgroundColor: "#f98ba9"}}>
+                                            <Col>
+                                                <p className="SubHeading-Lato" >Implementation</p>
+                                            </Col>
+                                        </Row>
+                                    </Card>
+                                </Link>
                             </Col>
                         </Row>
                         
-                        <Row justify="center" style={{backgroundColor:this.props.BackgroundColour}}>
+                        <Row id="design" justify="center" style={{backgroundColor:this.props.BackgroundColour}}>
                             <Col>
                                 <Row justify="center" style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Website mockup</p></Row>
                                 <Row justify="center" >
@@ -156,15 +162,15 @@ class PersonalSite extends Component{
                                         width="90%" 
                                         height="100%" 
                                         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FzVDFQvUYGX8Zn0Me5SQyxh%2FPersonal-Site%3Fnode-id%3D0%253A1" 
-                                        allowfullscreen >
+                                        >
                                     </iframe>
                                 </Row>
                             </Col>
                         </Row>
 
-                        <Row justify="center" style={{backgroundColor: "#fdd77c", paddingTop: "25px", paddingBottom:"50px"}} >
+                        <Row id="Implementation" justify="center" style={{backgroundColor: "#f98ba9", paddingTop: "25px", paddingBottom:"50px"}} >
                             <Col>
-                                <Row justify="center"> <p className="SubHeading-Lato">Impelemention</p></Row>
+                                <Row justify="center"> <p className="SubHeading-Lato">Implementation</p></Row>
                                 <Row >
                                     <GitRepo repoData={this.state.repoData}></GitRepo>
                                 </Row>

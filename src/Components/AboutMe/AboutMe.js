@@ -11,7 +11,7 @@ class AboutMe extends Component{
     render(){
         return(
             <Row style={{height: "100vh", backgroundColor: this.props.BackgroundColor}} >
-            <p>AboutMe</p>
+            <p className="SubHeading-Lato">WIP page</p>
             </Row>
         );
     }

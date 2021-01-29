@@ -36,6 +36,7 @@ class App extends Component{
             <Router>
               <Switch>
                 <Route exact path="/Projects">
+                  
                   <Projects BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></Projects>
                 </Route>
                 

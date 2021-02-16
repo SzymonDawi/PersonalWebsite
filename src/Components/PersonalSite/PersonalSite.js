@@ -84,7 +84,7 @@ class PersonalSite extends Component{
                                         style={{ width: "300px", height:"300px", cursor: "pointer"}}
                                         cover={<img style={{objectFit:"cover"}} src={"/Img/projectImg/DesignWhiteMiddle.jpg"} />}
                                     >
-                                        <Row justify="center" style={{marginTop:"-215px", backgroundColor: "#f98ba9"}}>
+                                        <Row justify="center" style={{marginTop:"-215px"}}>
                                             <Col>
                                                 <p className="SubHeading-Lato">Site mockup</p>
                                             </Col>
@@ -100,7 +100,7 @@ class PersonalSite extends Component{
                                         cover={<img style={{objectFit:"cover"}} src={"/Img/ProjectImg/codeImplementationWhiteMiddle.jpg"} />}
                                         onClick={this.click}
                                     >
-                                        <Row justify="center" style={{marginTop:"-215px", backgroundColor: "#f98ba9"}}>
+                                        <Row justify="center" style={{marginTop:"-215px"}}>
                                             <Col>
                                                 <p className="SubHeading-Lato" >Implementation</p>
                                             </Col>
@@ -140,7 +140,7 @@ class PersonalSite extends Component{
                                                 </p>
                                                 <p className="P-Lato">
                                                     When designing the site I wanted it to look different, I wanted it to be memorable. I started with the nav menu.
-                                                    Every website basically has the same nave menu bar at the top. This is probably because its the best solution and doesn't confuse the 
+                                                    Every website basically has the same nav menu bar at the top. This is probably because its the best solution and doesn't confuse the 
                                                     sites visitors. However, since my site is small and doesn't have many pages, I decided that having a different nav menu would be okay. 
                                                     My Nav menu only shows up on the main page. On the sub pages you have to click the back button to get back to the main page. I have 
                                                     three parts to my website; Projects, Art, and About me. Each of these parts have their own colour assosiated wtih them.

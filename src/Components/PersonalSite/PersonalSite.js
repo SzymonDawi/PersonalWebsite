@@ -37,7 +37,7 @@ class PersonalSite extends Component{
                                     <p className="SubHeading"> <LeftOutlined />Back </p>
                                 </Button>
                             </Col>
-                            <Col span={5} offset={2}><p className="Title"> Personal Website </p>  </Col>
+                            <Col span={6} offset={2}><p className="Title"> Personal Website </p>  </Col>
                         </Row>
 
                         <Row align="middle" justify="center" style={{paddingTop:"5%", paddingBottom:"5%", backgroundColor: this.props.BackgroundColour}}>
@@ -76,7 +76,7 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row  justify="center" align="middle" style={{backgroundColor: "#f98ba9", paddingTop:"50px", paddingBottom:"50px"}}>
+                        <Row  justify="center" align="middle" style={{backgroundColor: this.props.AccentColour, paddingTop:"50px", paddingBottom:"50px"}}>
                             <Col style={{width: "300px"}}>
                                 <Link to="design" spy={true} smooth={true}>
                                     <Card
@@ -168,7 +168,7 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row id="Implementation" justify="center" style={{backgroundColor: "#f98ba9", paddingTop: "25px", paddingBottom:"50px"}} >
+                        <Row id="Implementation" justify="center" style={{backgroundColor: this.props.AccentColour, paddingTop: "25px", paddingBottom:"50px"}} >
                             <Col>
                                 <Row justify="center"> <p className="SubHeading-Lato">Implementation</p></Row>
                                 <Row >

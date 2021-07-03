@@ -18,7 +18,7 @@ class App extends Component{
     this.state ={
       Colsize: 15,
       ColSize: { col1: 8, col2: 8, col3:8},
-      ColColour: {col: "#FAFAF0", col1: "#f98ba9", col2: "#fdd77c", col3: "#5ed3da"},
+      ColColour: {col: "#FAFAF0", col1: "#fdbfd0", col2: "#fdd77c", col3: "#5ed3da"},
       JobLinks: ["/6cbuKvAR","/Km6ZjB67","/Nr5mmBdC","/z4aRyuau"],
       JobLinksOpened: [], 
     }

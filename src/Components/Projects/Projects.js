@@ -37,10 +37,10 @@ class Projects extends Component{
                             <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
                                 <Col span={5} offset={2}>
                                     <Button ghost type="text" size="large" href="/" style={{marginTop:"35px"}}>
-                                        <p className="SubHeading"> <LeftOutlined />Back </p>
+                                        <p className="SubHeading"> <LeftOutlined />Back</p>
                                     </Button>
                                 </Col>
-                                <Col span={5} offset={2}><p className="Title"> Projects </p>  </Col>
+                                <Col span={6} offset={2}><p className="Title">Projects</p></Col>
                             </Row>
                             
                             <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"}}>

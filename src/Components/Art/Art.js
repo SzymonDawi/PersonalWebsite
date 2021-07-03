@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Button, } from 'antd';
+import {Affix, Button, Card, Col, Row} from 'antd';
 import {LeftOutlined } from '@ant-design/icons';
 
 class Art extends Component{
@@ -51,47 +51,43 @@ class Art extends Component{
         this.setState({ArtOpen: false})
     }
 
-    handleScroll = () =>{
-        this.setState({ArtPiecePos: window.pageYOffset})
-    }
-
     render(){
         return(
-                <Row>
+            <Row>
+                <Col span={this.state.ArtOpen ? 12 : 24}>
+                    <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
+                        <Col span={5} offset={2}>
+                            <Button ghost type="text" size="large" href="/" style={{marginTop:"35px"}}>
+                                <p className="SubHeading"> <LeftOutlined />Back </p>
+                            </Button>
+                        </Col>
+                        <Col span={6} offset={2}><p className="Title"> Art </p>  </Col>
+                    </Row>
 
-                    <Col span={this.state.ArtOpen ? 12 : 24}>
-                        <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
-                            <Col span={5} offset={2}>
-                                <Button ghost type="text" size="large" href="/" style={{marginTop:"35px"}}>
-                                    <p className="SubHeading"> <LeftOutlined />Back </p>
-                                </Button>
-                            </Col>
-                            <Col span={5} offset={2}><p className="Title"> Art </p>  </Col>
-                        </Row>
+                    <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"} }>
+                        <Col  xxl={{span: this.state.ArtOpen ? 24 : 12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}} > 
+                            <Row justify="center">
+                            {this.state.Art.map((Art) => (
+                                <Col xxl={{span:this.state.ArtOpen ? 8 : 7, offset:1}} xl={{span:this.state.ArtOpen ? 24 : 8, offset:2}} 
+                                    lg={{span:this.state.ArtOpen ? 24 : 8, offset:2}} md={{span:this.state.ArtOpen ? 24 : 12, offset:2}} sm={{span: 24, offset:2}}  xs={{span: 24,  offset:2}}>
+                                    <Card
+                                    bordered={false}
+                                    style={{backgroundColor: this.props.BackgroundColour, width: "100%", height:"100%", marginTop:"50px", cursor: "pointer"}}
+                                    cover={<img id={Art.id} style={{ width: "100%", height:"100%"}} src={Art.src} />}
+                                    onClick={e => this.clickArt(e.target)}
 
-                        <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"} }>
-                            <Col  xxl={{span: this.state.ArtOpen ? 24 : 12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}} > 
-                                <Row justify="center">
-                                {this.state.Art.map((Art) => (
-                                    <Col xxl={{span:this.state.ArtOpen ? 8 : 7, offset:1}} xl={{span:this.state.ArtOpen ? 24 : 8, offset:2}} 
-                                        lg={{span:this.state.ArtOpen ? 24 : 8, offset:2}} md={{span:this.state.ArtOpen ? 24 : 12, offset:2}} sm={{span: 24, offset:2}}  xs={{span: 24,  offset:2}}>
-                                        <Card
-                                        bordered={false}
-                                        style={{backgroundColor: this.props.BackgroundColour, width: "100%", height:"100%", marginTop:"50px", cursor: "pointer"}}
-                                        cover={<img id={Art.id} style={{ width: "100%", height:"100%"}} src={Art.src} />}
-                                        onClick={e => this.clickArt(e.target)}
-
-                                    >   
-                                        </Card>
-                                    </Col>
-                                ))}
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Col>
-                    {this.state.ArtOpen && 
+                                >   
+                                    </Card>
+                                </Col>
+                            ))}
+                            </Row>
+                        </Col>
+                    </Row>
+                </Col>
+                {this.state.ArtOpen && 
                         <Col justify="center" span={12} style={{backgroundColor: this.state.ArtBackground}}>
-                                <Row style={{paddingTop: this.state.ArtPiecePos}}>
+                                <Affix offsetTop={0}>
+                                <Row>
                                     <Col span={5}>
                                         <Button ghost type="text" size="large" onClick={this.closeArt} >
                                             <p className="Title" > x </p>
@@ -119,9 +115,10 @@ class Art extends Component{
                                         </p>
                                     </Col>
                                 </Row>
+                            </Affix>
                         </Col>
-                    }
-                </Row>
+                }
+            </Row>
         );
     }
 }

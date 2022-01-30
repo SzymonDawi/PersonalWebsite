@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Button, } from 'antd';
-import { LeftOutlined } from '@ant-design/icons';
-import { Table, Tag, Space } from 'antd';
-import {Link} from 'react-scroll'
+import {Col, Row,} from 'antd';
 
 import GitRepo from '../GitRepo';
 import Title from '../Title/Title';
@@ -28,7 +25,7 @@ class PersonalSite extends Component{
             <div>
                 <Row>
                     <Col span={24}>
-                        <Title colour={this.props.AccentColour} title="Projects" backUrl="/#/projects"/>
+                        <Title colour={this.props.AccentColour} title="Personal Website" backUrl="/#/projects"/>
 
                         <Row align="middle" justify="center" style={{backgroundColor: this.props.BackgroundColour}}>
 

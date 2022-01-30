@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Button, } from 'antd';
-import { LeftOutlined } from '@ant-design/icons';
 import { Redirect } from 'react-router-dom';
 
 import Title from '../Title/Title';
@@ -14,7 +13,7 @@ class Projects extends Component{
                 {
                     Name: "Personal Website",
                     Path: "/projects/personalwebsite",
-                    Description: "How I designed and built this website, to showcase my art and projects. Using ReactJS I implemented the functionality that I needed.",
+                    Description: "I designed and built this website to showcase my engineering projects and art. In the project I learned how to design in figma and imporoved on my ReactJS skills. This project is mostly finished there are some minor improvements that I will be making in the future." ,// "How I designed and built this website, to showcase my art and projects. Using ReactJS I implemented the functionality that I needed.",
                     ImgPath: "/Img/ProjectImg/website_on_laptop.png",
                     Redirect: false,
                     Id: "0",
@@ -53,7 +52,7 @@ class Projects extends Component{
                                                 <Row>
                                                     <Col span={16}>
                                                     <p className="SubHeading"> {Src.Name}</p>
-                                                    <p>
+                                                    <p className="P-Lato">
                                                         {Src.Description}
                                                     </p> 
 

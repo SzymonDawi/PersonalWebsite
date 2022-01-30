@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Affix, Button, Card, Col, Row} from 'antd';
-import {LeftOutlined } from '@ant-design/icons';
 
 import Title from '../Title/Title';
 
@@ -88,26 +87,16 @@ class Art extends Component{
                                             <p className="Title" > x </p>
                                         </Button>
                                     </Col> 
-                                    <Col span={5} offset={4} style={{paddingTop:"15px"}}><p className="SubHeading"> {this.state.Art[this.state.ArtPiece.id].name} </p></Col>
+                                    <Col span={5} offset={4} style={{paddingTop:"10%"}}><p className="SubHeading"> {this.state.Art[this.state.ArtPiece.id].name} </p></Col>
                                 </Row>
                                 <Row >
-                                    <Col span={24} style={{paddingLeft:"25%"}}>
+                                    <Col span={24} style={{paddingLeft:"10%"}}>
                                         <Card
                                             bordered={false}
-                                            style={{backgroundColor: this.state.ArtBackground, width: "80%", height:"80%"}}
-                                            cover={<img style={{ width: "80%", height:"80%"}} src={this.state.ArtPiece.src} />}
+                                            style={{backgroundColor: this.state.ArtBackground, width: "90%", height:"90%"}}
+                                            cover={<img style={{ width: "100%", height:"100%"}} src={this.state.ArtPiece.src} />}
                                         > 
                                         </Card>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={20} style={{paddingLeft:"25%"}}>
-                                        <p style={{ width: "80%"}}>
-                                        Suspendisse non diam lorem. Morbi ultricies aliquam massa, vel scelerisque lectus luctus eget. 
-                                        Quisque in justo interdum, cursus risus vel, pellentesque ex. Vestibulum ut enim ut tellus fringilla varius. 
-                                        Mauris accumsan sit amet ex sed porttitor. Mauris dictum sit amet quam a semper. Quisque congue tincidunt purus nec placerat. 
-                                        Quisque eget molestie erat. Phasellus euismod ultrices tellus at sollicitudin. Sed blandit aliquet lacus, vitae fringilla nisl mattis eu.
-                                        </p>
                                     </Col>
                                 </Row>
                             </Affix>

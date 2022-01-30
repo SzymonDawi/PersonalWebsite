@@ -9,7 +9,6 @@ import Greating from "./Components/Greating";
 import Art from "./Components/Art";
 import AboutMe from "./Components/AboutMe";
 import PersonalSite from "./Components/PersonalSite";
-import JobRedirect from "./Components/JobRedirect";
 
 class App extends Component{
   constructor(props) {
@@ -33,84 +32,72 @@ class App extends Component{
   render(){
     return (
       <div className="App ">
-            <Router>
-              <Switch>
-                <Route exact path="/projects">
-                  <Projects BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></Projects>
-                </Route>
-                
-                <Route path="/art">
-                  <Art BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
-                </Route>
+        <Router>
+          <Switch>
+            <Route exact path="/projects">
+              <Projects BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></Projects>
+            </Route>
+            
+            <Route path="/art">
+              <Art BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
+            </Route>
 
-                <Route path="/aboutme">
-                  <AboutMe BackgroundColour={this.state.ColColour.col3}></AboutMe>
-                </Route>
+            {/* <Route path="/aboutme">
+              <AboutMe BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col3}></AboutMe>
+            </Route> */}
 
-                <Route path="/projects/personalwebsite">
-                    <PersonalSite BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></PersonalSite>
-                </Route>     
+            <Route path="/projects/personalwebsite">
+              <PersonalSite BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></PersonalSite>
+            </Route>
 
-                {this.state.JobLinks.map((link) => (
-                  <Route exact path={link}>
-                    <JobRedirect Link={link} linkVisited={this.linkVisited}></JobRedirect>
-                  </Route>     
-                ))}
-
-                <Route exact path="/">
-                  <Row style={{height: "100vh"}} >
-                    <Col span={9} style={{backgroundColor: "#FAFAF0"}}> 
-                      <Greating></Greating>
+            <Route exact path="/">
+              <Row style={{height: "100vh"}} >
+                <Col span={9} style={{backgroundColor: "#FAFAF0"}}> 
+                  <Greating></Greating>
+                </Col>
+                <Col span={this.state.Colsize} style={{backgroundColor: "#85D2D0"}}>  
+                  <Row style={{height: "100vh"}}>
+                    <Col span={this.state.ColSize.col1} style={{backgroundColor: this.state.ColColour.col1}} >
+                        <NavLink
+                            to="/projects"
+                            activeClassName="selected">
+                            <Pillar                         
+                                ChangeSize={this.changeColSize} 
+                                Id={0} 
+                                BackgroundColour={this.state.ColColour.col1}
+                                Title="Projects"
+                                >
+                            </Pillar>    
+                        </NavLink>
                     </Col>
-                    <Col span={this.state.Colsize} style={{backgroundColor: "#85D2D0"}}>  
-                      <Row style={{height: "100vh"}}>
-                        <Col span={this.state.ColSize.col1} style={{backgroundColor: this.state.ColColour.col1}} >
-                            <NavLink
-                                to="/projects"
-                                activeClassName="selected">
-                                <Pillar                         
-                                    ChangeSize={this.changeColSize} 
-                                    Id={0} 
-                                    BackgroundColour={this.state.ColColour.col1}
-                                    Title="Projects"
-                                    >
-                                    
-                                </Pillar>    
-                            </NavLink>
-                        </Col>
 
-                        <Col span={this.state.ColSize.col2} style={{backgroundColor: this.state.ColColour.col2}}>
-                          <NavLink
-                              to="/art"
-                              activeClassName="selected">
-                              <Pillar                         
-                                  ChangeSize={this.changeColSize} 
-                                  Id={1} 
-                                  BackgroundColour={this.state.ColColour.col2}
-                                  Title="Art">
-                              </Pillar>    
-                          </NavLink>
-                        </Col>
+                    <Col span={this.state.ColSize.col2} style={{backgroundColor: this.state.ColColour.col2}}>
+                      <NavLink
+                          to="/art"
+                          activeClassName="selected">
+                          <Pillar                         
+                              ChangeSize={this.changeColSize} 
+                              Id={1} 
+                              BackgroundColour={this.state.ColColour.col2}
+                              Title="Art">
+                          </Pillar>    
+                      </NavLink>
+                    </Col>
 
-                        <Col span={this.state.ColSize.col3} style={{backgroundColor: this.state.ColColour.col3}}>
-                          <NavLink
-                              to="/aboutme"
-                              activeClassName="selected">
-                              <Pillar                         
-                                  ChangeSize={this.changeColSize} 
-                                  Id={2} 
-                                  BackgroundColour={this.state.ColColour.col3}
-                                  Title="AboutMe">
-                              </Pillar>    
-                          </NavLink>
-                        </Col>
-                      </Row>
+                    <Col span={this.state.ColSize.col3} style={{backgroundColor: this.state.ColColour.col3}}>
+                      <Pillar                         
+                          ChangeSize={this.changeColSize} 
+                          Id={2} 
+                          BackgroundColour={this.state.ColColour.col3}
+                          Title="WIP">
+                      </Pillar>
                     </Col>
                   </Row>
-                </Route>
-              </Switch>
-            </Router>
-          
+                </Col>
+              </Row>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }

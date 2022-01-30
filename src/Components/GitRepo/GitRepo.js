@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Octokit} from '@octokit/rest';
 import {decode} from 'base-64';
 import ReactMarkdown from 'react-markdown';
-import { Card, Col, Row, Button, } from 'antd';
+import {Col, Row} from 'antd';
 import {Tree} from 'antd';
 import { Skeleton } from 'antd';
 import SyntaxHighlighter from 'react-syntax-highlighter';

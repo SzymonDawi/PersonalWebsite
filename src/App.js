@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import {Col, Row, Card, Avatar} from 'antd';
-import {BrowserRouter as Router, Switch, Route, NavLink, Redirect} from 'react-router-dom';
+import {HashRouter as Router, Switch, Route, NavLink, Redirect} from 'react-router-dom';
 
 import Pillar from "./Components/Pillar";
 import Projects from "./Components/Projects";
@@ -35,20 +35,19 @@ class App extends Component{
       <div className="App ">
             <Router>
               <Switch>
-                <Route exact path="/Projects">
-                  
+                <Route exact path="/projects">
                   <Projects BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></Projects>
                 </Route>
                 
-                <Route path="/Art">
+                <Route path="/art">
                   <Art BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col2}></Art>
                 </Route>
 
-                <Route path="/AboutMe">
+                <Route path="/aboutme">
                   <AboutMe BackgroundColour={this.state.ColColour.col3}></AboutMe>
                 </Route>
 
-                <Route path="/Projects/PersonalWebsite">
+                <Route path="/projects/personalwebsite">
                     <PersonalSite BackgroundColour={this.state.ColColour.col} AccentColour={this.state.ColColour.col1}></PersonalSite>
                 </Route>     
 
@@ -67,7 +66,7 @@ class App extends Component{
                       <Row style={{height: "100vh"}}>
                         <Col span={this.state.ColSize.col1} style={{backgroundColor: this.state.ColColour.col1}} >
                             <NavLink
-                                to="/Projects"
+                                to="/projects"
                                 activeClassName="selected">
                                 <Pillar                         
                                     ChangeSize={this.changeColSize} 
@@ -82,7 +81,7 @@ class App extends Component{
 
                         <Col span={this.state.ColSize.col2} style={{backgroundColor: this.state.ColColour.col2}}>
                           <NavLink
-                              to="/Art"
+                              to="/art"
                               activeClassName="selected">
                               <Pillar                         
                                   ChangeSize={this.changeColSize} 
@@ -95,7 +94,7 @@ class App extends Component{
 
                         <Col span={this.state.ColSize.col3} style={{backgroundColor: this.state.ColColour.col3}}>
                           <NavLink
-                              to="/AboutMe"
+                              to="/aboutme"
                               activeClassName="selected">
                               <Pillar                         
                                   ChangeSize={this.changeColSize} 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Affix, Button, Card, Col, Row} from 'antd';
 import {LeftOutlined } from '@ant-design/icons';
 
+import Title from '../Title/Title';
+
 class Art extends Component{
     constructor(props) {
         super(props);
@@ -55,14 +57,7 @@ class Art extends Component{
         return(
             <Row>
                 <Col span={this.state.ArtOpen ? 12 : 24}>
-                    <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
-                        <Col span={5} offset={2}>
-                            <Button ghost type="text" size="large" href="/" style={{marginTop:"35px"}}>
-                                <p className="SubHeading"> <LeftOutlined />Back </p>
-                            </Button>
-                        </Col>
-                        <Col span={6} offset={2}><p className="Title"> Art </p>  </Col>
-                    </Row>
+                    <Title colour={this.props.AccentColour} title="Art" backUrl="/" />
 
                     <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"} }>
                         <Col  xxl={{span: this.state.ArtOpen ? 24 : 12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}} > 

@@ -5,6 +5,7 @@ import { Table, Tag, Space } from 'antd';
 import {Link} from 'react-scroll'
 
 import GitRepo from '../GitRepo';
+import Title from '../Title/Title';
 
 class PersonalSite extends Component{
     constructor(props) {
@@ -22,25 +23,14 @@ class PersonalSite extends Component{
         }
       }
 
-    click = () =>{
-        window.location.href="#implementation";
-    }
-
     render(){
         return(
             <div>
                 <Row>
                     <Col span={24}>
-                        <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
-                            <Col span={5} offset={2}>
-                                <Button ghost type="text" size="large" href="/Projects" style={{marginTop:"35px"}}>
-                                    <p className="SubHeading"> <LeftOutlined />Back </p>
-                                </Button>
-                            </Col>
-                            <Col span={6} offset={2}><p className="Title"> Personal Website </p>  </Col>
-                        </Row>
+                        <Title colour={this.props.AccentColour} title="Projects" backUrl="/#/projects"/>
 
-                        <Row align="middle" justify="center" style={{paddingTop:"5%", paddingBottom:"5%", backgroundColor: this.props.BackgroundColour}}>
+                        <Row align="middle" justify="center" style={{backgroundColor: this.props.BackgroundColour}}>
 
                             <Col span={10} style={{paddingLeft:"50px"}}>
                                 <Row align="middle">
@@ -74,45 +64,15 @@ class PersonalSite extends Component{
                                     </Col>   
                                 </Row>
                             </Col>
-                        </Row>
 
-                        <Row  justify="center" align="middle" style={{backgroundColor: this.props.AccentColour, paddingTop:"50px", paddingBottom:"50px"}}>
-                            <Col style={{width: "300px"}}>
-                                <Link to="design" spy={true} smooth={true}>
-                                    <Card
-                                        bordered={false}
-                                        style={{ width: "300px", height:"300px", cursor: "pointer"}}
-                                        cover={<img style={{objectFit:"cover"}} src={"/Img/projectImg/DesignWhiteMiddle.jpg"} />}
-                                    >
-                                        <Row justify="center" style={{marginTop:"-215px"}}>
-                                            <Col>
-                                                <p className="SubHeading-Lato">Site mockup</p>
-                                            </Col>
-                                        </Row>
-                                    </Card>
-                                </Link>
-                            </Col>
-                            <Col offset={3} style={{width: "300px"}} >
-                                <Link to="Implementation" spy={true} smooth={true}>
-                                    <Card
-                                        bordered={false}
-                                        style={{ width: "300px", height:"300px", cursor: "pointer"}}
-                                        cover={<img style={{objectFit:"cover"}} src={"/Img/ProjectImg/codeImplementationWhiteMiddle.jpg"} />}
-                                        onClick={this.click}
-                                    >
-                                        <Row justify="center" style={{marginTop:"-215px"}}>
-                                            <Col>
-                                                <p className="SubHeading-Lato" >Implementation</p>
-                                            </Col>
-                                        </Row>
-                                    </Card>
-                                </Link>
+                            <Col lg={{span: 8}} md={{span: 0}} xs={{span: 0}}>
+                                <img src="/Img/ProjectImg/website_on_laptop.png" style={{width: "600px", marginLeft:"50px"}}></img>
                             </Col>
                         </Row>
                         
                         <Row id="design" justify="center" style={{backgroundColor:this.props.BackgroundColour}}>
                             <Col>
-                                <Row justify="center" style={{paddingTop: "25px"}} > <p className="SubHeading-Lato">Website mockup</p></Row>
+                                <Row justify="center"> <p className="SubHeading-Lato">Website mockup</p></Row>
                                 <Row justify="center" >
                                     <Col span={13}>
                                         
@@ -158,6 +118,7 @@ class PersonalSite extends Component{
 
                                 <Row justify="center" style={{height:"800px", paddingTop:"25px", paddingBottom:"25px"}}>
                                     <iframe 
+                                        title='figma'
                                         style={{border: "0px", margingleft:"15px", marginRight:"-15px"}}
                                         width="90%" 
                                         height="100%" 
@@ -168,7 +129,7 @@ class PersonalSite extends Component{
                             </Col>
                         </Row>
 
-                        <Row id="Implementation" justify="center" style={{backgroundColor: this.props.AccentColour, paddingTop: "25px", paddingBottom:"50px"}} >
+                        <Row justify="center" style={{paddingTop: "25px", paddingBottom:"50px"}} >
                             <Col>
                                 <Row justify="center"> <p className="SubHeading-Lato">Implementation</p></Row>
                                 <Row >

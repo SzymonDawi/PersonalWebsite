@@ -3,6 +3,8 @@ import { Card, Col, Row, Button, } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { Redirect } from 'react-router-dom';
 
+import Title from '../Title/Title';
+
 class Projects extends Component{
     constructor(props) {
         super(props);
@@ -11,8 +13,9 @@ class Projects extends Component{
             ProjectList: [
                 {
                     Name: "Personal Website",
-                    Path: "/Projects/PersonalWebsite",
+                    Path: "/projects/personalwebsite",
                     Description: "How I designed and built this website, to showcase my art and projects. Using ReactJS I implemented the functionality that I needed.",
+                    ImgPath: "/Img/ProjectImg/website_on_laptop.png",
                     Redirect: false,
                     Id: "0",
                 },
@@ -34,37 +37,36 @@ class Projects extends Component{
                 <div>
                     <Row style={{height: "100vh"}} >
                         <Col span={24}>
-                            <Row style={{backgroundColor: this.props.AccentColour, paddingTop:"20px", height:"150px"} } > 
-                                <Col span={5} offset={2}>
-                                    <Button ghost type="text" size="large" href="/" style={{marginTop:"35px"}}>
-                                        <p className="SubHeading"> <LeftOutlined />Back</p>
-                                    </Button>
-                                </Col>
-                                <Col span={6} offset={2}><p className="Title">Projects</p></Col>
-                            </Row>
+                            <Title colour={this.props.AccentColour} title="Projects" backUrl="/" />
                             
                             <Row justify="center"  style={{backgroundColor: this.props.BackgroundColour, paddingBottom:"50px"}}>
-                                <Col  xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}} > 
-                                    <Row justify="center">
+                                <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
+                                    
                                     {this.state.ProjectList.map((Src) => (
-                                        <Col xxl={{span: 7, offset:1}} xl={{span: 8, offset:2}} 
-                                            lg={{span: 8, offset:2}} md={{span: 12, offset:2}} 
-                                            sm={{span: 24, offset:2}}  xs={{span: 24,  offset:2}}
-                                            style={{paddingTop:"50px"}}
-                                        >   
-                                                <Card
-                                                    bordered={false}
-                                                    style={{backgroundColor: "#DCC3C6", width: "100%", height:"100%", cursor: "pointer"}}
-                                                    onClick={e => this.clickProject(Src.Id)}
-                                                >   
+
+                                        <Row justify="center" style={{height: "300px", paddingTop:"30px"}}>
+                                            <Card
+                                                bordered={false}
+                                                style={{backgroundColor: this.props.BackgroundColour, width: "100%", height:"100%", cursor: "pointer" , borderRadius: "25px", border: "5px solid " + this.props.AccentColour}}
+                                                onClick={e => this.clickProject(Src.Id)}
+                                            >   
+                                                <Row>
+                                                    <Col span={16}>
                                                     <p className="SubHeading"> {Src.Name}</p>
                                                     <p>
                                                         {Src.Description}
                                                     </p> 
-                                                </Card>
-                                        </Col>
+
+                                                    </Col>
+                                            
+                                                    <Col lg={{span: 8}} md={{span: 0}} xs={{span: 0}}>
+                                                        <img src={Src.ImgPath} style={{width: "300px", marginTop:"-50px"}}></img>
+                                                    </Col>
+                                                </Row>
+                                            </Card>
+                                        </Row>
                                     ))}
-                                    </Row>
+
                                 </Col>
                             </Row>
                         </Col>

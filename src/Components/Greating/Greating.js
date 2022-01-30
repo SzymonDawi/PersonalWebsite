@@ -21,7 +21,7 @@ class Greating extends Component{
                             paddingTop: "25vh",
                         }}
                         >
-                        <Avatar size={256} src="/img/IMG_0939.JPG"></Avatar>
+                        <Avatar size={256} src="/Img/IMG_0939.JPG"></Avatar>
                         <p className="App-greating"> Hello! </p>  
                         <Row justify="center">
                             <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>

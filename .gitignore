@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+# frontend
+/public
+
+# backend
+/env
+
 # testing
 /coverage
 

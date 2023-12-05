@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+# frontend
+/public
+
+# backend
+/env
+
 # testing
 /coverage
 
@@ -18,6 +24,7 @@
 .env.test.local
 .env.production.local
 .eslintcache
+.vs
 
 npm-debug.log*
 yarn-debug.log*

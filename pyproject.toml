@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Personal Website"
+version = "0.1.0"
+description = ""
+authors = ["Szymon"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.2"
+wagtail = "^5.2"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

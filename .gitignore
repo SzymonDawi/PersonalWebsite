@@ -10,6 +10,7 @@
 
 # backend
 /env
+/src/__pycache__
 
 # testing
 /coverage

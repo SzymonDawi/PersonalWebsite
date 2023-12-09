@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 Django = "^4.2"
 wagtail = "^5.2"
+ariadne = "^0.21"
+ariadne-django = "^0.3.0"
 
 
 

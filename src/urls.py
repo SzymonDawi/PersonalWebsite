@@ -7,12 +7,15 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from src.search import views as search_views
+from src.graphql_api import views as graphql_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("src.search/", search_views.search, name="search"),
+    path("api/graphql/", graphql_views.GraphQLView.as_view()),
+    path("api/auth/", include("rest_framework.urls")),
 ]
 
 

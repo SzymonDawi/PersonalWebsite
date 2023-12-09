@@ -12,6 +12,64 @@ files = [
 ]
 
 [[package]]
+name = "anyio"
+version = "4.1.0"
+description = "High level compatibility layer for multiple asynchronous event loop implementations"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "anyio-4.1.0-py3-none-any.whl", hash = "sha256:56a415fbc462291813a94528a779597226619c8e78af7de0507333f700011e5f"},
+    {file = "anyio-4.1.0.tar.gz", hash = "sha256:5a0bec7085176715be77df87fc66d6c9d70626bd752fcc85f57cdbee5b3760da"},
+]
+
+[package.dependencies]
+idna = ">=2.8"
+sniffio = ">=1.1"
+
+[package.extras]
+doc = ["Sphinx (>=7)", "packaging", "sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
+test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypothesis (>=4.0)", "psutil (>=5.9)", "pytest (>=7.0)", "pytest-mock (>=3.6.1)", "trustme", "uvloop (>=0.17)"]
+trio = ["trio (>=0.23)"]
+
+[[package]]
+name = "ariadne"
+version = "0.21"
+description = "Ariadne is a Python library for implementing GraphQL servers."
+optional = false
+python-versions = "*"
+files = [
+    {file = "ariadne-0.21-py2.py3-none-any.whl", hash = "sha256:dba401b9dfdeab3f913025c2d798e27dc45374bad8ff7d40786470b3ecd60633"},
+    {file = "ariadne-0.21.tar.gz", hash = "sha256:1d7f9fca17f5828a360417b7191310d4fe1506010f358470576450934ac0613b"},
+]
+
+[package.dependencies]
+graphql-core = ">=3.2.0,<3.3"
+starlette = ">0.17,<1.0"
+typing-extensions = ">=3.6.0"
+
+[package.extras]
+asgi-file-uploads = ["python-multipart (>=0.0.5)"]
+dev = ["black", "mypy", "pylint"]
+telemetry = ["opentelemetry-api"]
+test = ["aiodataloader", "freezegun", "graphql-sync-dataloaders", "httpx", "opentelemetry-api", "opentracing", "pytest", "pytest-asyncio", "pytest-benchmark", "pytest-cov", "pytest-mock", "python-multipart (>=0.0.5)", "syrupy", "werkzeug"]
+tracing = ["opentracing"]
+
+[[package]]
+name = "ariadne-django"
+version = "0.3.0"
+description = "ariadne_django is a python library for integrating django with ariadne."
+optional = false
+python-versions = "*"
+files = [
+    {file = "ariadne_django-0.3.0-py3-none-any.whl", hash = "sha256:3c638993e2cf1d2f579ec8735a7dfdbb57d5420c8eb2ae09b93880746e2764c6"},
+    {file = "ariadne_django-0.3.0.tar.gz", hash = "sha256:19aca29d35398564ea59749a9c28b79cf11cf79f6fbb3d017d7e15d56157ae96"},
+]
+
+[package.dependencies]
+ariadne = ">=0.13.0"
+django = ">=2.2.0"
+
+[[package]]
 name = "asgiref"
 version = "3.7.2"
 description = "ASGI specs, helper code, and adapters"
@@ -315,6 +373,17 @@ files = [
 ]
 
 [[package]]
+name = "graphql-core"
+version = "3.2.3"
+description = "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL."
+optional = false
+python-versions = ">=3.6,<4"
+files = [
+    {file = "graphql-core-3.2.3.tar.gz", hash = "sha256:06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676"},
+    {file = "graphql_core-3.2.3-py3-none-any.whl", hash = "sha256:5766780452bd5ec8ba133f8bf287dc92713e3868ddd83aee4faab9fc3e303dc3"},
+]
+
+[[package]]
 name = "html5lib"
 version = "1.1"
 description = "HTML parser based on the WHATWG HTML specification"
@@ -555,6 +624,17 @@ files = [
 ]
 
 [[package]]
+name = "sniffio"
+version = "1.3.0"
+description = "Sniff out which async library your code is running under"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "sniffio-1.3.0-py3-none-any.whl", hash = "sha256:eecefdce1e5bbfb7ad2eeaabf7c1eeb404d7757c379bd1f7e5cce9d8bf425384"},
+    {file = "sniffio-1.3.0.tar.gz", hash = "sha256:e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"},
+]
+
+[[package]]
 name = "soupsieve"
 version = "2.5"
 description = "A modern CSS selector implementation for Beautiful Soup."
@@ -582,6 +662,23 @@ doc = ["sphinx"]
 test = ["pytest", "pytest-cov"]
 
 [[package]]
+name = "starlette"
+version = "0.33.0"
+description = "The little ASGI library that shines."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "starlette-0.33.0-py3-none-any.whl", hash = "sha256:6d492f0f7dfb2dd646ac7d80444af4989cd5c5c78f622fac99e39a66c3e01f06"},
+    {file = "starlette-0.33.0.tar.gz", hash = "sha256:8c21f9592451b2016300c5bbc54b181063367b62720a4048656c070319238897"},
+]
+
+[package.dependencies]
+anyio = ">=3.4.0,<5"
+
+[package.extras]
+full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyaml"]
+
+[[package]]
 name = "telepath"
 version = "0.3.1"
 description = "A library for exchanging data between Python and JavaScript"
@@ -594,6 +691,17 @@ files = [
 
 [package.extras]
 docs = ["mkdocs (>=1.1,<1.2)", "mkdocs-material (>=6.2,<6.3)"]
+
+[[package]]
+name = "typing-extensions"
+version = "4.8.0"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "typing_extensions-4.8.0-py3-none-any.whl", hash = "sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0"},
+    {file = "typing_extensions-4.8.0.tar.gz", hash = "sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"},
+]
 
 [[package]]
 name = "tzdata"
@@ -694,4 +802,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "black (==22.3.0)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "fcea31fe1c514900adc0270fcf886fb5be8a79748f00a6328c7ade3572ed0577"
+content-hash = "fa57d9087a5ddb4ea7ee0c7cdf668b7e53be82ed9f64a1c52ba5b1f7b42c1d8a"

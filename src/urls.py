@@ -1,13 +1,12 @@
 from django.conf import settings
-from django.urls import include, path
 from django.contrib import admin
-
-from wagtail.admin import urls as wagtailadmin_urls
+from django.urls import include, path
 from wagtail import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from src.search import views as search_views
 from src.graphql_api import views as graphql_views
+from src.search import views as search_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),

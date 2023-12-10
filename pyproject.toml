@@ -11,8 +11,15 @@ Django = "^4.2"
 wagtail = "^5.2"
 ariadne = "^0.21"
 ariadne-django = "^0.3.0"
+ruff = "^0.1.7"
 
-
+[tool.ruff.lint]
+select = [
+    "E", 
+    "F",
+    "I"
+]
+ignore = ["F403", "E501"]
 
 [build-system]
 requires = ["poetry-core"]

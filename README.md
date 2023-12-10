@@ -5,6 +5,7 @@
 - Django 4.2
 - Ariadne 0.21
 - Graphql
+- Ruff 0.1.7
 
 ### Setup
 

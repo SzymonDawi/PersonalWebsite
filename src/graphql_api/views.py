@@ -4,6 +4,7 @@ import rest_framework.views
 
 from src.graphql_api import schema
 
+
 class GraphQLView(ariadne_django.views.GraphQLView, rest_framework.views.APIView):
     schema = schema.schema
     playground_options = {
@@ -20,7 +21,7 @@ class GraphQLView(ariadne_django.views.GraphQLView, rest_framework.views.APIView
     ]
 
     def extract_data_from_json_request(self, request):
-        # override BaseGraphQLView, 
+        # override BaseGraphQLView,
         # rest-framework view handles JSON decode, avoids this error
         # "You cannot acccess body after reading from request's data stream"
         return request.data

@@ -6,7 +6,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npm run lint:py",
+    "lint:py": "poetry run ruff check src/",
+    "fix": "npm run fix:py",
+    "fix:py": "poetry run ruff format src/ && poetry run ruff check src/ --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",

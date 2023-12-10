@@ -5,6 +5,7 @@
 - Django 4.2
 - Ariadne 0.21
 - Graphql
+- Ruff 0.1.7
 
 ### Setup
 
@@ -71,4 +72,14 @@ poetry run python manage.py migrate
 
 ```shell
 poetry run python manage.py runserver
+```
+
+#### Lint check
+```shell
+npm run lint
+```
+
+#### Fix formatting issues
+```shell
+npm run fix
 ```

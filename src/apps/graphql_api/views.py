@@ -2,7 +2,7 @@ import ariadne_django.views
 import rest_framework.authentication
 import rest_framework.views
 
-from src.graphql_api import schema
+from src.apps.graphql_api import schema
 
 
 class GraphQLView(ariadne_django.views.GraphQLView, rest_framework.views.APIView):

@@ -12,7 +12,7 @@ def watch_schema(sender, **kwargs):
 
 
 class GraphqlApiConfig(AppConfig):
-    name = "graphql_api"
+    name = "src.apps.graphql_api"
 
     def ready(self):
         autoreload_started.connect(watch_schema)

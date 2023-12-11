@@ -5,8 +5,8 @@ from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from src.graphql_api import views as graphql_views
-from src.search import views as search_views
+from src.apps.graphql_api import views as graphql_views
+from src.apps.search import views as search_views
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),

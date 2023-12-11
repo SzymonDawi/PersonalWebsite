@@ -3,7 +3,7 @@ schema {
 }
 
 type Query {
-    home: String!
+    home: Home!
 }
 
 type Home {

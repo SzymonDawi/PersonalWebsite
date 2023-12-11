@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "src.common",
-    "src.home",
-    "src.search",
+    "src.apps.common",
+    "src.apps.home",
+    "src.apps.search",
     "ariadne_django",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

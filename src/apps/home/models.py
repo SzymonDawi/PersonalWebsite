@@ -2,7 +2,7 @@ from django.db import models as django_models
 from wagtail import models
 from wagtail.admin import panels
 
-from src.common import models as common_models
+from src.apps.common import models as common_models
 
 
 class Link(models.Orderable):

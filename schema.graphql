@@ -5,3 +5,21 @@ schema {
 type Query {
     home: String!
 }
+
+type Home {
+    greating: String!
+    description: String!
+    links: [ExternalLink!]!
+}
+
+type ExternalLink {
+    label: String!
+    url: String!
+    icon_slug: IconType!
+}
+
+enum IconType {
+    GITHUB,
+    LINKEDIN,
+    INSTAGRAM,
+}

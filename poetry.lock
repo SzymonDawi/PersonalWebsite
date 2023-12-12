@@ -791,6 +791,23 @@ docs = ["Sphinx (>=1.5.2)", "myst-parser (==0.18.1)", "pyenchant (>=3.1.1,<4)", 
 testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-frontdoor (>=1.0,<1.1)", "black (==22.3.0)", "boto3 (>=1.28,<2)", "coverage (>=3.7.0)", "curlylint (==0.13.1)", "django-pattern-library (>=0.7,<0.8)", "djhtml (==1.5.2)", "doc8 (==0.8.1)", "factory-boy (>=3.2)", "freezegun (>=0.3.8)", "polib (>=1.1,<2.0)", "python-dateutil (>=2.7)", "pytz (>=2014.7)", "ruff (==0.0.290)", "semgrep (==1.40.0)", "tblib (>=2.0,<3.0)"]
 
 [[package]]
+name = "wagtail-headless-preview"
+version = "0.7.0"
+description = "Enhance Wagtail previews in headless setups."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wagtail_headless_preview-0.7.0-py3-none-any.whl", hash = "sha256:105a62e130b7cfe3f39b1ff2cf8aef5080f578e98553af02fb4099cdacf5dfa9"},
+    {file = "wagtail_headless_preview-0.7.0.tar.gz", hash = "sha256:730e86ea2de91602b64cc2412b5ff3e0b3f3679e3767eb417c109c9110209c07"},
+]
+
+[package.dependencies]
+Wagtail = ">=4.1"
+
+[package.extras]
+testing = ["coverage[toml] (>=7.0,<8.0)", "django-cors-headers", "tox (>=4)"]
+
+[[package]]
 name = "webencodings"
 version = "0.5.1"
 description = "Character encoding aliases for legacy web content"
@@ -828,4 +845,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "black (==22.3.0)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "46121f424c3e4ee0d045d7192e8ffa8da3d12c3babc37cd24b5e69851ba7a7f1"
+content-hash = "ca1b31023b6bdac202c5c4ffd13d44a1b0b332441a84cf67ba79fa7efc30822e"

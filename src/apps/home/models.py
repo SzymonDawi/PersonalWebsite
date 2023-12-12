@@ -14,7 +14,7 @@ class Link(models.Orderable):
     )
 
 
-class HomePage(models.Page):
+class HomePage(common_models.BasePage):
     greating = django_models.CharField(max_length=255, default="Hello!")
     description = django_models.TextField(blank=True, null=False)
 

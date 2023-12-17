@@ -4,7 +4,16 @@ import { Col, Row, Card, Avatar, Space} from 'antd';
 import {GithubOutlined, LinkedinOutlined, InstagramOutlined} from '@ant-design/icons';
 import styles from "../_styles/greeting.module.css";
 
-const Greeting = () => {
+interface Data {
+    data: {
+        greeting: string;
+        description: string;
+        links: [{icon_slug: string; label: string; url: string;}]
+    }
+}
+
+const Greeting = ({ data }: Data) => {
+    console.log(data)
     return(
         <Row>
             <Col>
@@ -14,15 +23,10 @@ const Greeting = () => {
                     bordered = {false}
                     hoverable = {false}>
                     <Avatar size={256} src="/Img/IMG_0939.JPG"></Avatar>
-                    <p className={styles.greetingTitle}>Hello!</p>  
+                    <p className={styles.greetingTitle}>{data.greeting}</p>  
                     <Row justify="center" style={{marginTop: "-70px"}}>
                         <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>
-                            <p className="P-Lato" >
-                                My name is Szymon Budzyna-Dawidowksi. I am 25 year old software and hardware engineer. 
-                                I graduated in computer systems engineering from the university of auckland in 2022.
-                                This is a website I built to showcase my engineering projects and my art. 
-                                The engineering projects section of my website is going to be updated in the near future. 
-                            </p>
+                            <p className="P-Lato" >{data.description}</p>
                         </Col>
                     </Row>
                     <Row justify="center">

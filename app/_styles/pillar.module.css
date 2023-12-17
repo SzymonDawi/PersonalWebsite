@@ -1,4 +1,7 @@
 .fullCard{
     height: "100vh";
+}
+
+.fullCardTitle{
     padding-top: "40vh";
 }

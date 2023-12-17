@@ -18,6 +18,7 @@ const Pillar = (props: Props) => {
         className={props.className}
         bordered = {false}
         hoverable
+        style={{paddingTop: "40vh"}}
         >
             <Meta title={<span className="title">{props.title} </span> }/>
         </Card>

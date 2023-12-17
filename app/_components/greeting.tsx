@@ -36,7 +36,7 @@ const Greeting = () => {
                                 <LinkedinOutlined style={{fontSize: "25px"}}/>
                             </a>
                             <a className={styles.greetingLink} 
-                            href="https://www.instagram.com/drawidowski/">
+                            href="https://www.instagram.com/szyart_/">
                                 <InstagramOutlined style={{fontSize: "25px"}}/>
                             </a>
                         </Space>

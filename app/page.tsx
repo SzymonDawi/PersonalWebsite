@@ -5,12 +5,36 @@ import {Col, Row} from 'antd';
 import Pillar from "./_components/pillar";
 import Greeting from "./_components/greeting";
 import home_page_styles from "./_styles/home_page.module.css";
+import { gql, useQuery, Provider } from 'urql';
+
+const TodosQuery = gql`
+  query {
+    home {
+      greating
+      description
+      links {
+        label
+        url
+        icon_slug
+      }
+    }
+  }
+`;
 
 export default function Home() {
+  const [result, reexecuteQuery] = useQuery({
+    query: TodosQuery,
+  });
+
+  const { data, fetching, error } = result;
+
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Oh no... {error.message}</p>;
+
   return (
     <Row className="main">
         <Col span={9}> 
-          <Greeting></Greeting>
+          <Greeting data={data.home}></Greeting>
         </Col>
         <Col span={15}>  
           <Row className="fullRow">

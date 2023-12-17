@@ -13,6 +13,7 @@ ariadne = "^0.21"
 ariadne-django = "^0.3.0"
 ruff = "^0.1.7"
 wagtail-headless-preview = "^0.7.0"
+django-cors-headers = "^4.3.1"
 
 [tool.ruff.lint]
 select = [

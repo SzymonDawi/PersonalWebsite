@@ -7,7 +7,7 @@ type Query {
 }
 
 type Home {
-    greating: String!
+    greeting: String!
     description: String!
     links: [ExternalLink!]!
 }

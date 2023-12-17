@@ -15,11 +15,11 @@ class Link(models.Orderable):
 
 
 class HomePage(common_models.BasePage):
-    greating = django_models.CharField(max_length=255, default="Hello!")
+    greeting = django_models.CharField(max_length=255, default="Hello!")
     description = django_models.TextField(blank=True, null=False)
 
     content_panels = models.Page.content_panels + [
-        panels.FieldPanel("greating"),
+        panels.FieldPanel("greeting"),
         panels.FieldPanel("description"),
         panels.InlinePanel("homepage_link", label="Links", min_num=1),
     ]

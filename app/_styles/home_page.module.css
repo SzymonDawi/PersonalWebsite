@@ -1,0 +1,14 @@
+.projectPillar{
+  background-color: var(--project-accent-colour);
+  height: 100vh;
+}
+
+.artPillar{
+  background-color: var(--art-accent-colour);
+  height: 100vh;
+}
+
+.aboutMePillar{
+  background-color: var(--about-me-accent-colour);
+  height: 100vh;
+}

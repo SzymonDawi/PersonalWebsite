@@ -1,0 +1,20 @@
+.test{
+    height: "100vh"; 
+}
+
+.greeting{
+    background-color: var(--base-colour);
+}
+
+.greetingTitle{
+    font-family:'Lora';
+    font-size: 60px;
+}
+
+.greetingDescription{
+    margin-top: "-70px";
+}
+
+.greetingLink {
+    color: #000000;
+  }

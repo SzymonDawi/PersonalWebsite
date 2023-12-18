@@ -13,10 +13,9 @@ interface Data {
 }
 
 const Greeting = ({ data }: Data) => {
-    console.log(data)
     return(
         <Row>
-            <Col>
+            <Col span={24}>
                 <Card 
                     className = {styles.greeting}
                     style={{height: "100vh", paddingTop: "20vh"}}

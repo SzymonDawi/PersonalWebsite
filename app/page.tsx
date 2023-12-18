@@ -6,11 +6,12 @@ import Pillar from "./_components/pillar";
 import Greeting from "./_components/greeting";
 import home_page_styles from "./_styles/home_page.module.css";
 import { gql, useQuery, Provider } from 'urql';
+import Loader from './_components/loader';
 
 const TodosQuery = gql`
   query {
     home {
-      greating
+      greeting
       description
       links {
         label
@@ -28,7 +29,7 @@ export default function Home() {
 
   const { data, fetching, error } = result;
 
-  if (fetching) return <p>Loading...</p>;
+  if (fetching) return <Loader/>;
   if (error) return <p>Oh no... {error.message}</p>;
 
   return (

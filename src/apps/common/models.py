@@ -9,6 +9,8 @@ from wagtail.admin import panels
 from wagtail.images.models import AbstractImage, AbstractRendition, Image
 from wagtail_headless_preview.models import HeadlessMixin, PagePreview
 
+from src.settings import base as base_settings
+
 PREVIEW_TOKEN_HEADER = "PREVIEW-TOKEN"
 
 
@@ -134,3 +136,7 @@ class CustomRendition(AbstractRendition):
 
     class Meta:
         unique_together = (("image", "filter_spec", "focal_point_key"),)
+
+    @property
+    def url(self):
+        return f"{base_settings.BACKEND_URL}{self.file.url}"

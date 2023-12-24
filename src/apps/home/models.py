@@ -17,8 +17,17 @@ class Link(models.Orderable):
 class HomePage(common_models.BasePage):
     greeting = django_models.CharField(max_length=255, default="Hello!")
     description = django_models.TextField(blank=True, null=False)
+    image = django_models.ForeignKey(
+        "common.CustomImage",
+        null=True,
+        blank=True,
+        on_delete=django_models.SET_NULL,
+        related_name="home_page_image",
+        help_text="The image shown on the home page",
+    )
 
     content_panels = models.Page.content_panels + [
+        panels.FieldPanel("image"),
         panels.FieldPanel("greeting"),
         panels.FieldPanel("description"),
         panels.InlinePanel("homepage_link", label="Links", min_num=1),

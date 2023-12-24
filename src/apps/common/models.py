@@ -3,8 +3,10 @@ from urllib.parse import urljoin, urlparse
 from django.core import signing
 from django.db import models as django_models
 from django.utils.http import urlencode
+from django.utils.translation import gettext_lazy as _
 from wagtail import models
 from wagtail.admin import panels
+from wagtail.images.models import AbstractImage, AbstractRendition, Image
 from wagtail_headless_preview.models import HeadlessMixin, PagePreview
 
 PREVIEW_TOKEN_HEADER = "PREVIEW-TOKEN"
@@ -114,3 +116,21 @@ class BasePage(HeadlessMixin, models.Page):
             return preview
         else:
             return cls.objects.live().first()
+
+
+class CustomImage(AbstractImage):
+    admin_form_fields = Image.admin_form_fields + ()
+
+    class Meta(AbstractImage.Meta):
+        verbose_name = _("image")
+        verbose_name_plural = _("images")
+        permissions = [("choose_image", "Can choose image")]
+
+
+class CustomRendition(AbstractRendition):
+    image = django_models.ForeignKey(
+        CustomImage, on_delete=django_models.CASCADE, related_name="renditions"
+    )
+
+    class Meta:
+        unique_together = (("image", "filter_spec", "focal_point_key"),)

@@ -6,7 +6,29 @@ type Query {
     home: Home!
 }
 
+type Image {
+    rendition(
+        max: String
+        min: String
+        fill: String
+        width: String
+        height: String
+        scale: String
+        format: String
+        jpegquality: String
+        webpquality: String
+        bgcolor: String
+    ): ImageRendition!
+}
+
+type ImageRendition {
+    url: String!
+    width: Int!
+    height: Int!
+}
+
 type Home {
+    image: Image!
     greeting: String!
     description: String!
     links: [ExternalLink!]!

@@ -44,10 +44,8 @@ def resolve_icon_slug(obj, *_):
 
 @image.field("rendition")
 def resolve_image_rendition(obj: common_models.CustomImage, *_, **kwargs):
-    print("test--------------------------------")
     # assume that all kwargs are rendition parameters
     filters = "|".join([f"{key}-{val}" for key, val in kwargs.items()])
-    print(filters)
     rendition = obj.get_rendition(filters)
     return rendition
 

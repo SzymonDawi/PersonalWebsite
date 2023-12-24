@@ -175,10 +175,12 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 WAGTAIL_HEADLESS_PREVIEW = {
     "CLIENT_URLS": {
         "default": "http://localhost:3000",
-    }, 
+    },
     "SERVE_BASE_URL": None,
     "REDIRECT_ON_PREVIEW": False,
     "ENFORCE_TRAILING_SLASH": True,
 }
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+
+WAGTAILIMAGES_IMAGE_MODEL = "common.CustomImage"

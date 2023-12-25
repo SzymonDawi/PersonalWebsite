@@ -10,7 +10,8 @@
     "lint:ts": "next lint",
     "lint:py": "poetry run ruff check src/",
     "fix": "npm run fix:py",
-    "fix:py": "poetry run ruff format src/ && poetry run ruff check src/ --fix"
+    "fix:py": "poetry run ruff format src/ && poetry run ruff check src/ --fix",
+    "generate:types": "graphql-codegen"
   },
   "dependencies": {
     "antd": "^5.12.2",
@@ -20,11 +21,15 @@
     "urql": "^4.0.6"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@graphql-codegen/typescript-urql": "^4.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "typescript": "^5"
+    "graphql": "^16.8.1",
+    "typescript": "^5.3.3"
   }
 }

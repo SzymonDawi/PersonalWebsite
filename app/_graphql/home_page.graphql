@@ -1,0 +1,16 @@
+query Home {
+    home {
+        image {
+            rendition(max: "500x500"){
+                url
+            }
+        }
+        greeting
+        description
+        links {
+            label
+            url
+            icon_slug
+        }
+    }
+}

@@ -17,6 +17,7 @@
 **/__pycache__/
 *.sqlite3
 .ruff_cache
+media
 
 # next.js
 .next/

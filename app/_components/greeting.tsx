@@ -3,16 +3,24 @@
 import { Col, Row, Card, Avatar, Space} from 'antd';
 import {GithubOutlined, LinkedinOutlined, InstagramOutlined} from '@ant-design/icons';
 import styles from "../_styles/greeting.module.css";
+import {  IconType, useHomeQuery } from '../_types/generated';
+import Loader from '../_components/loader';
 
-interface Data {
-    data: {
-        greeting: string;
-        description: string;
-        links: [{icon_slug: string; label: string; url: string;}]
+function getLinkIconComponent(iconType: IconType) {
+    if (iconType === IconType.Github){
+        return(<GithubOutlined style={{fontSize: "25px"}}/>)   
+    } else if (iconType === IconType.Instagram){
+        return(<InstagramOutlined style={{fontSize: "25px"}}/>)   
+    } else if (iconType === IconType.Linkedin){
+        return(<LinkedinOutlined style={{fontSize: "25px"}}/>)   
     }
 }
 
-const Greeting = ({ data }: Data) => {
+const Greeting = () => {
+    const [{ data, fetching, error }] = useHomeQuery();
+  
+    if (error) return <p>Oh no... {error.message}</p>;
+
     return(
         <Row>
             <Col span={24}>
@@ -21,27 +29,25 @@ const Greeting = ({ data }: Data) => {
                     style={{height: "100vh", paddingTop: "20vh"}}
                     bordered = {false}
                     hoverable = {false}>
-                    <Avatar size={256} src="/Img/IMG_0939.JPG"></Avatar>
-                    <p className={styles.greetingTitle}>{data.greeting}</p>  
+                    { fetching && <Loader/>}
+                    <Avatar size={256} src={data?.home.image.rendition.url}></Avatar>
+                    <p className={styles.greetingTitle} style={{marginTop: "-5px"}}>{data?.home.greeting}</p>  
                     <Row justify="center" style={{marginTop: "-70px"}}>
                         <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>
-                            <p className="P-Lato" >{data.description}</p>
+                            <p className="P-Lato" >{data?.home.description}</p>
                         </Col>
                     </Row>
                     <Row justify="center">
                         <Space>
-                            <a className={styles.greetingLink} 
-                            href="https://github.com/SzymonDawi">
-                                <GithubOutlined style={{fontSize: "25px"}}/>
-                            </a>
-                            <a className={styles.greetingLink} 
-                            href="https://www.linkedin.com/in/szymon-dawidowski/">
-                                <LinkedinOutlined style={{fontSize: "25px"}}/>
-                            </a>
-                            <a className={styles.greetingLink} 
-                            href="https://www.instagram.com/szyart_/">
-                                <InstagramOutlined style={{fontSize: "25px"}}/>
-                            </a>
+                            {data?.home.links.map(link => {
+                                return(
+                                    <a key={link.label} className={styles.greetingLink} 
+                                    href={link.url} 
+                                    target="_blank">
+                                        {getLinkIconComponent(link.icon_slug)}
+                                    </a>
+                                )
+                            })}
                         </Space>
                     </Row>
                 </Card>

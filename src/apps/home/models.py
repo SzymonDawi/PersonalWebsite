@@ -32,3 +32,5 @@ class HomePage(common_models.BasePage):
         panels.FieldPanel("description"),
         panels.InlinePanel("homepage_link", label="Links", min_num=1),
     ]
+
+    parent_page_types = []

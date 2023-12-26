@@ -36,6 +36,7 @@ BACKEND_URL = env("BACKEND_URL")
 INSTALLED_APPS = [
     "src.apps.common",
     "src.apps.home",
+    "src.apps.projects",
     "src.apps.search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

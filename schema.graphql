@@ -4,6 +4,25 @@ schema {
 
 type Query {
     home: Home!
+    projects: Projects!
+}
+
+type Home {
+    image: Image!
+    greeting: String!
+    description: String!
+    links: [ExternalLink!]!
+}
+
+type Projects {
+    title: String!
+    projects: [Project!]!
+}
+
+type Project {
+    title: String!
+    hero_description: String!
+    hero_image: Image!
 }
 
 type Image {
@@ -25,13 +44,6 @@ type ImageRendition {
     url: String!
     width: Int!
     height: Int!
-}
-
-type Home {
-    image: Image!
-    greeting: String!
-    description: String!
-    links: [ExternalLink!]!
 }
 
 type ExternalLink {

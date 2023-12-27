@@ -4,7 +4,8 @@ schema {
 
 type Query {
     home: Home!
-    projects: Projects!
+    projects: [Project!]!
+    project(slug: String!): Project!
 }
 
 type Home {
@@ -14,15 +15,46 @@ type Home {
     links: [ExternalLink!]!
 }
 
-type Projects {
-    title: String!
-    projects: [Project!]!
+type Project {
+    hero_title: String!
+    hero_description: String!
+    hero_bullet_title: String!
+    hero_bullets: [String!]!
+    hero_image: Image!
+    body: [ProjectStreamBlock!]!
 }
 
-type Project {
+union ProjectStreamBlock = FigmaBlock | ProcessBlock | GithubBlock
+
+type FigmaBlock {
+    url: String!
+}
+
+type GithubBlock {
     title: String!
-    hero_description: String!
-    hero_image: Image!
+    repo: String!
+    owner: String!
+}
+
+type ProcessBlock {
+    title: String!
+    items: [ProcessBlockItem!]
+}
+
+union ProcessBlockItem = ProcessParagraph | ProcessImage | ProcessTitle
+
+type ProcessParagraph {
+    title: String
+    paragraph: String!
+    image: Image
+}
+
+type ProcessImage {
+    image: Image!
+}
+
+type ProcessTitle {
+    title: String!
 }
 
 type Image {

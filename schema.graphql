@@ -5,7 +5,7 @@ schema {
 type Query {
     home: Home!
     projects: [Project!]!
-    project(slug: String!): Project 
+    project(slug: String!): Project!
 }
 
 type Home {

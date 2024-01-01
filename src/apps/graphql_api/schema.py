@@ -73,6 +73,11 @@ def resolve_project_bullets(obj, *_):
     return bullets
 
 
+@project.field("list_view_title")
+def resolve_project_list_view_title(obj, *_):
+    return obj.list_view_title or obj.title
+
+
 @project.field("body")
 def resolve_project_body(obj, *_):
     return list(obj.body.raw_data)

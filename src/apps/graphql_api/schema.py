@@ -74,7 +74,7 @@ def resolve_project_bullets(obj, *_):
 
 
 @project.field("list_view_title")
-def resolve_list_view_title(obj, *_):
+def resolve_project_list_view_title(obj, *_):
     return obj.list_view_title or obj.title
 
 

@@ -16,6 +16,9 @@ type Home {
 }
 
 type Project {
+    list_view_image: Image!
+    list_view_title: String!
+    year: String!
     hero_title: String!
     hero_description: String!
     hero_bullet_title: String!

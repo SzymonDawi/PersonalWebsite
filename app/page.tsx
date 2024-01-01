@@ -2,9 +2,9 @@
 
 import {Col, Row} from 'antd';
 
-import Pillar from "./_components/pillar";
-import Greeting from "./_components/greeting";
-import home_page_styles from "./_styles/home_page.module.css";
+import Pillar from "./components/pillar";
+import Greeting from "./components/greeting";
+import home_page_styles from "./styles/home_page.module.css";
 
 export default function Home() {
   return (

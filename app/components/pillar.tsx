@@ -2,7 +2,7 @@
 
 import { Card } from 'antd';
 
-import styles from "../_styles/pillar.module.css";
+import styles from "../styles/pillar.module.css";
 
 const { Meta } = Card;
 

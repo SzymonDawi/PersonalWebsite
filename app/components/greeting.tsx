@@ -2,9 +2,9 @@
 
 import { Col, Row, Card, Avatar, Space} from 'antd';
 import {GithubOutlined, LinkedinOutlined, InstagramOutlined} from '@ant-design/icons';
-import styles from "../_styles/greeting.module.css";
-import {  IconType, useHomeQuery } from '../_types/generated';
-import Loader from '../_components/loader';
+import styles from "../styles/greeting.module.css";
+import {  IconType, useHomeQuery } from '../types/generated';
+import Loader from '../components/loader';
 
 function getLinkIconComponent(iconType: IconType) {
     if (iconType === IconType.Github){

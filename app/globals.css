@@ -8,6 +8,18 @@
   --about-me-accent-colour: #5ED3DA;
 }
 
+.projectComponent{
+  background-color: var(--project-accent-colour);
+}
+
+.artComponent{
+  background-color: var(--art-accent-colour);
+}
+
+.aboutMeComponent{
+  background-color: var(--about-me-accent-colour);
+}
+
 body {
   margin: 0px;
   padding: 0px;

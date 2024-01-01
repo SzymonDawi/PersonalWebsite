@@ -1,7 +1,7 @@
 'use client';
 
 import { Row, Col} from "antd";
-import styles from "../_styles/loader.module.css";
+import styles from "../styles/loader.module.css";
 
 const Loader = () => {
     return(

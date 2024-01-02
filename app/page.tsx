@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link'
+
 import {Col, Row} from 'antd';
 
 import Pillar from "./components/pillar";
@@ -15,11 +17,13 @@ export default function Home() {
         <Col span={15}>  
           <Row className="fullRow">
             <Col span={8} className={home_page_styles.projectPillar}>
+              <Link href="/projects">
                 <Pillar 
                     className={home_page_styles.projectPillar}                        
                     title="Projects"
                     >
                 </Pillar>    
+              </Link>
             </Col>
 
             <Col span={8} className={home_page_styles.artPillar}>

@@ -1,0 +1,11 @@
+query Projects {
+    projects {
+        list_view_image {
+            rendition(max: "1000x1000"){
+                url
+            }
+        }
+        list_view_title
+        year
+    }
+}

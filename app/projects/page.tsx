@@ -4,7 +4,7 @@ import {Col, Row, Card} from 'antd';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
-import { useProjectsQuery } from '../_types/generated';
+import { useProjectsQuery } from '../types/generated';
 
 export default function Home() {
     const [{ data, fetching, error }] = useProjectsQuery();

@@ -24,6 +24,18 @@ export type ExternalLink = {
   url: Scalars['String']['output'];
 };
 
+export type FigmaBlock = {
+  __typename?: 'FigmaBlock';
+  url: Scalars['String']['output'];
+};
+
+export type GithubBlock = {
+  __typename?: 'GithubBlock';
+  owner: Scalars['String']['output'];
+  repo: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
 export type Home = {
   __typename?: 'Home';
   description: Scalars['String']['output'];
@@ -64,15 +76,67 @@ export type ImageRendition = {
   width: Scalars['Int']['output'];
 };
 
+export type ProcessBlock = {
+  __typename?: 'ProcessBlock';
+  items?: Maybe<Array<ProcessBlockItem>>;
+  title: Scalars['String']['output'];
+};
+
+export type ProcessBlockItem = ProcessImage | ProcessParagraph | ProcessTitle;
+
+export type ProcessImage = {
+  __typename?: 'ProcessImage';
+  image: Image;
+};
+
+export type ProcessParagraph = {
+  __typename?: 'ProcessParagraph';
+  image?: Maybe<Image>;
+  paragraph: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProcessTitle = {
+  __typename?: 'ProcessTitle';
+  title: Scalars['String']['output'];
+};
+
+export type Project = {
+  __typename?: 'Project';
+  body: Array<ProjectStreamBlock>;
+  hero_bullet_title: Scalars['String']['output'];
+  hero_bullets: Array<Scalars['String']['output']>;
+  hero_description: Scalars['String']['output'];
+  hero_image: Image;
+  hero_title: Scalars['String']['output'];
+  list_view_image: Image;
+  list_view_title: Scalars['String']['output'];
+  year: Scalars['String']['output'];
+};
+
+export type ProjectStreamBlock = FigmaBlock | GithubBlock | ProcessBlock;
+
 export type Query = {
   __typename?: 'Query';
   home: Home;
+  project: Project;
+  projects: Array<Project>;
+};
+
+
+export type QueryProjectArgs = {
+  slug: Scalars['String']['input'];
 };
 
 export type HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HomeQuery = { __typename?: 'Query', home: { __typename?: 'Home', greeting: string, description: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, links: Array<{ __typename?: 'ExternalLink', label: string, url: string, icon_slug: IconType }> } };
+
+export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
 
 
 export const HomeDocument = gql`
@@ -96,4 +160,21 @@ export const HomeDocument = gql`
 
 export function useHomeQuery(options?: Omit<Urql.UseQueryArgs<HomeQueryVariables>, 'query'>) {
   return Urql.useQuery<HomeQuery, HomeQueryVariables>({ query: HomeDocument, ...options });
+};
+export const ProjectsDocument = gql`
+    query Projects {
+  projects {
+    list_view_image {
+      rendition(max: "1000x1000") {
+        url
+      }
+    }
+    list_view_title
+    year
+  }
+}
+    `;
+
+export function useProjectsQuery(options?: Omit<Urql.UseQueryArgs<ProjectsQueryVariables>, 'query'>) {
+  return Urql.useQuery<ProjectsQuery, ProjectsQueryVariables>({ query: ProjectsDocument, ...options });
 };

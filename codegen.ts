@@ -5,7 +5,7 @@ const config: CodegenConfig = {
   documents: ["./app/**/*.graphql"],
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
-    "./app/_types/generated.ts": {
+    "./app/types/generated.ts": {
       plugins: [      
         "typescript",
         "typescript-operations",

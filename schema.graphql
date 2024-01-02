@@ -16,6 +16,7 @@ type Home {
 }
 
 type Project {
+    slug: String!
     list_view_image: Image!
     list_view_title: String!
     year: String!

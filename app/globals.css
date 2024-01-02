@@ -38,6 +38,13 @@ body {
 .title{
   font-family:'Lora';
   font-size: 54px;
+  margin: 0
+}
+
+.sub-title{
+  font-family:'Lora';
+  font-size: 30px;
+  margin: 0
 }
 
 .P-Lato{
@@ -46,4 +53,8 @@ body {
   line-height: 20px;
   font-weight: normal;
   text-align: left;
+}
+
+.nav-back-button{
+  color: #000000;
 }

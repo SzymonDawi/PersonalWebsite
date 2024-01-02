@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import {Col, Row, Button} from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 
@@ -12,13 +14,15 @@ interface Props {
 const Title = (props: Props) => {
 
     return(
-        <Row className={props.componentCat} style={{height:"75px"} }> 
+        <Row align="middle" className={props.componentCat} style={{height:"75px"}}> 
             <Col span={5} offset={2}>
-                <Button ghost type="text" size="large" href={props.backUrl} style={{marginTop:"20px"}}>
-                    <p className="SubHeading"> <LeftOutlined />Back</p>
-                </Button>
+                <Link className="nav-back-button" href={props.backUrl}>
+                    <p className="sub-title"> <LeftOutlined />Back</p>
+                </Link>
             </Col>
-            <Col span={6} offset={2}><p className="Title">{props.title}</p></Col>
+            <Col span={6} offset={2}>
+                <h1 className="title">{props.title}</h1>
+            </Col>
         </Row>
     )
 }

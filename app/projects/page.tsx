@@ -1,45 +1,35 @@
 'use client';
 
-import {Col, Row} from 'antd';
+import {Col, Row, Card} from 'antd';
 
 import Title from "../components/title";
+import Loader from "../components/loader";
+import { useProjectsQuery } from '../_types/generated';
 
 export default function Home() {
-  return (
-    <Row className="main">
-        <Col span={24}>
-            <Title componentCat="projectComponent" title="Projects" backUrl="/" />
-            
-            <Row justify="center" className="projectComponent" style={{paddingBottom:"50px"}}>
-                <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
-                    
-                    {/* {ProjectList.map((Src) => (
+    const [{ data, fetching, error }] = useProjectsQuery();
 
-                        <Row justify="center" style={{height: "300px", paddingTop:"30px"}}>
-                            <Card
-                                bordered={false}
-                                style={{backgroundColor: this.props.BackgroundColour, width: "100%", height:"100%", cursor: "pointer" , borderRadius: "25px", border: "5px solid " + this.props.AccentColour}}
-                                onClick={e => this.clickProject(Src.Id)}
-                            >   
-                                <Row>
-                                    <Col span={16}>
-                                    <p className="SubHeading"> {Src.Name}</p>
-                                    <p className="P-Lato">
-                                        {Src.Description}
-                                    </p> 
+    if (error) return <p>Oh no... {error.message}</p>;
 
-                                    </Col>
-                            
-                                    <Col lg={{span: 8}} md={{span: 0}} xs={{span: 0}}>
-                                        <img src={Src.ImgPath} style={{width: "300px", marginTop:"-50px"}}></img>
-                                    </Col>
+    return (
+        <Row className="main">
+            <Col span={24}>
+                <Title componentCat="projectComponent" title="Projects" backUrl="/" />
+
+                <Row justify="center" style={{paddingBottom:"50px", height:"100vh"}}>
+                    <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
+                        { fetching && <Loader/>}
+
+                        {data?.projects.map(project => {
+                            return(
+                                <Row key={project.list_view_title}  justify="center" style={{cursor: "pointer", height: "540px", paddingTop:"30px"}}>
+                                    <img src={project.list_view_image.rendition.url}></img>
                                 </Row>
-                            </Card>
-                        </Row>
-                    ))} */}
-                </Col>
-            </Row>
-        </Col>
-    </Row>
-  )
+                            )
+                        })}
+                    </Col>
+                </Row>
+            </Col>
+        </Row>
+    )
 }

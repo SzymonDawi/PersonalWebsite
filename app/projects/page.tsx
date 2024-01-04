@@ -1,6 +1,8 @@
 'use client';
 
-import {Col, Row, Card} from 'antd';
+import {Col, Row} from 'antd';
+
+import Link from 'next/link';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
@@ -21,9 +23,12 @@ export default function Home() {
                         { fetching && <Loader/>}
 
                         {data?.projects.map(project => {
+                            const project_url = "/project/" + project.slug;
                             return(
-                                <Row key={project.list_view_title}  justify="center" style={{cursor: "pointer", height: "540px", paddingTop:"30px"}}>
-                                    <img src={project.list_view_image.rendition.url}></img>
+                                <Row key={project.slug}  justify="center" style={{cursor: "pointer", height: "540px", paddingTop:"30px"}}>
+                                    <Link href={project_url}>
+                                        <img src={project.list_view_image.rendition.url}></img>
+                                    </Link>
                                 </Row>
                             )
                         })}

@@ -1,5 +1,6 @@
 query Projects {
     projects {
+        slug
         list_view_image {
             rendition(max: "1000x1000"){
                 url

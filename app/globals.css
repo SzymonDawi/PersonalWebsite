@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root {
   --base-colour: #FAFAF0;
@@ -36,18 +37,21 @@ body {
 }
 
 .title{
-  font-family:'Lora';
+  color: #3E343C;
+  font-family:'Lobster';
   font-size: 54px;
   margin: 0
 }
 
 .sub-title{
+  color: #3E343C;
   font-family:'Lora';
   font-size: 30px;
   margin: 0
 }
 
 .P-Lato{
+    color: #3E343C;
   font-family: 'Lato';
   font-size: 18px;
   line-height: 20px;

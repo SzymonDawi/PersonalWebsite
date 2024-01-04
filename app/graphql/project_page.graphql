@@ -1,0 +1,51 @@
+query Project($Slug: String!) {
+    project(slug: $Slug) {
+        list_view_title
+        year
+
+        hero_title
+        hero_description
+        hero_bullet_title
+        hero_bullets
+        hero_image {
+            rendition(fill: "2560x1440"){
+                url
+            }
+        }
+        body {
+        __typename
+            ...on FigmaBlock {
+                url
+            }
+            ...on GithubBlock {
+                title
+                owner
+                repo
+            }
+            ...on ProcessBlock {
+                items{
+                __typename
+                ...on ProcessTitle {
+                    process_title : title
+                }
+                ...on ProcessImage {
+                    process_image: image {
+                    rendition(max: "1000x1000"){
+                        url
+                    }
+                    }
+                }
+                ...on ProcessParagraph {
+                    title
+                    paragraph
+                    image {
+                    rendition(max: "600x600"){
+                        url
+                    }
+                    }
+                }
+                }
+            }
+        }
+    }
+}

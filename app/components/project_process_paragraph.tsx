@@ -18,13 +18,13 @@ const ProjectProcessParagraph = (props: Props) => {
     return (
         <div>
             <Row>
-                <h3 style={{textAlign: "left"}}>{props.title}</h3>
+                <h3 style={{textAlign: "left", marginBottom: "-10px"}}>{props.title}</h3>
             </Row>
-            <Row style={{marginTop: "-20px"}}>
-                <Col span={col_size}>
+            <Row gutter={[100,0]} align="middle">
+                <Col sm={{span: 24}} md={{span: col_size}}>
                     <p className="P-Lato">{props.paragraph}</p>
                 </Col>
-                {props.image && <Col span={col_size}><img src={props.image.rendition.url}></img></Col>}
+                {props.image && <Col span={col_size}><img src={props.image.rendition.url} style={{width:"100%"}}></img></Col>}
             </Row>
         </div>
     )

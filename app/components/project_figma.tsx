@@ -8,10 +8,10 @@ interface Props {
 
 const ProjectFigma = (props: Props) => {
     return (
-        <Row justify="center" style={{height:"800px", width: "1500px", paddingTop:"25px", paddingBottom:"25px"}}>
+        <Row justify="center" style={{height: "800px", width: "90%", position: "relative", left: "5%", paddingTop:"25px", paddingBottom:"25px"}}>
             <iframe 
                 title='figma'
-                style={{border: "0px", marginLeft:"15px", marginRight:"-15px"}}
+                style={{border: "0px"}}
                 width="100%" 
                 height="100%" 
                 src={props.url}>

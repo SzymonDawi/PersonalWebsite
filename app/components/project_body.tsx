@@ -11,22 +11,20 @@ interface Props {
 
 const ProjectBody = (props: Props) => {
     return(
-        <Row justify="center" style={{marginTop: "-500px"}}>
-            <Col>
-                {props.items.map((item) => {
-                    if (item.__typename === "ProcessBlock"){
-                        return <ProjectProcess key={item.__typename} items={item.items}/>
-                    }
-                    else if (item.__typename === "FigmaBlock") {
-                        
-                        return <ProjectFigma url={item.url} />
-                    }
-                    else {
-                        return <p key={item.__typename}>Test2</p>
-                    }
-                })}
-            </Col>
-        </Row>
+        <Col style={{width: "100vw"}}>
+            {props.items.map((item) => {
+                if (item.__typename === "ProcessBlock"){
+                    return <ProjectProcess key={item.__typename} items={item.items}/>
+                }
+                else if (item.__typename === "FigmaBlock") {
+                    
+                    return <ProjectFigma url={item.url} />
+                }
+                else {
+                    return <p key={item.__typename}>Test2</p>
+                }
+            })}
+        </Col>
     )
 }
 

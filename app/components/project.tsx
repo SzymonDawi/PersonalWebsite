@@ -19,22 +19,28 @@ const Project = (props: Props) => {
     const project = data?.project
 
     return(
-        <Row className="main">
+        <Row className="main" style={{height: "100%"}}>
             <Col span={24}>
                 <Title componentCat="projectComponent" title={project?.list_view_title} backUrl="/projects" />
-                <img src={project?.hero_image.rendition.url} width={"100%"}></img>
                 <Row justify="center">
-                    <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
-                        <ProjectHero 
-                            title={project?.hero_title} 
-                            description={project?.hero_description}
-                            bullet_title={project?.hero_bullet_title}
-                            bullets={project?.hero_bullets}
-                            image_url={project?.hero_image.rendition.url}
-                        />
+                    <Col style={{zIndex: "10"}}>
+                        <Row justify="center" style={{paddingTop: "15vh"}}>
+                            <Col>
+                                <ProjectHero 
+                                    title={project?.hero_title} 
+                                    description={project?.hero_description}
+                                    bullet_title={project?.hero_bullet_title}
+                                    bullets={project?.hero_bullets}
+                                    image_url={project?.hero_image.rendition.url}
+                                />
+                            </Col>
+                        </Row>
+                        <Row justify="center" style={{paddingTop: "25vh"}}>
+                            <ProjectBody items={project?.body}/>
+                        </Row>
                     </Col>
                 </Row>
-                <ProjectBody items={project?.body}/>
+                <img src={project?.hero_image.rendition.url} width={"100%"} style={{position: "absolute", top: "75px", left: "0%"}}></img>
             </Col>
         </Row>
     )

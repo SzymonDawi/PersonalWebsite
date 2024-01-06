@@ -21,11 +21,7 @@
   background-color: var(--about-me-accent-colour);
 }
 
-.shadedBaseComponent{
-  background-color: var(--shaded-base-colour);
-}
-
-body {
+.body {
   margin: 0px;
   padding: 0px;
 }

@@ -21,6 +21,10 @@
   background-color: var(--about-me-accent-colour);
 }
 
+.shadedBaseComponent{
+  background-color: var(--shaded-base-colour);
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -61,4 +65,12 @@ body {
 
 .nav-back-button{
   color: #000000;
+}
+
+.Scroll-y{
+  overflow-y: auto;
+}
+
+.Text-left{
+  text-align: left;
 }

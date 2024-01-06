@@ -4,7 +4,6 @@ import {Col, Row, Grid} from 'antd';
 import { ProcessBlockItem } from '../types/generated';
 import ProjectProcessParagraph from './project_process_paragraph';
 
-
 const { useBreakpoint } = Grid;
 
 interface Props {

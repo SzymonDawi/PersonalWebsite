@@ -1,0 +1,1 @@
+export const project_slugs = ["test-project", "test-project-2"]

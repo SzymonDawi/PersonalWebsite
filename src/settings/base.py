@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "src.apps.common",
     "src.apps.home",
     "src.apps.projects",
+    "src.apps.art",
     "src.apps.search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

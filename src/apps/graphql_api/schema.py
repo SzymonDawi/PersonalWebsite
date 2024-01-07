@@ -1,6 +1,7 @@
 import ariadne
 import graphql
 
+from src.apps.art.models import ArtPage
 from src.apps.common import models as common_models
 from src.apps.home.models import HomePage
 from src.apps.projects.models import ProjectPage
@@ -21,6 +22,7 @@ process_block = ariadne.ObjectType("ProcessBlock")
 process_paragraph = ariadne.ObjectType("ProcessParagraph")
 process_title = ariadne.ObjectType("ProcessTitle")
 process_image = ariadne.ObjectType("ProcessImage")
+art = ariadne.ObjectType("Art")
 
 
 @query.field("home")
@@ -36,6 +38,11 @@ def resolve_projects(source, info: graphql.GraphQLResolveInfo, *_):
 @query.field("project")
 def resolve_project(source, info: graphql.GraphQLResolveInfo, *_, slug):
     return ProjectPage.objects.live().filter(slug=slug).first()
+
+
+@query.field("art")
+def resolve_art(source, info: graphql.GraphQLResolveInfo, *_):
+    return ArtPage.objects.live()
 
 
 @home.field("links")

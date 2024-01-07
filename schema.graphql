@@ -6,6 +6,7 @@ type Query {
     home: Home!
     projects: [Project!]!
     project(slug: String!): Project!
+    art: [Art!]!
 }
 
 type Home {
@@ -13,6 +14,12 @@ type Home {
     greeting: String!
     description: String!
     links: [ExternalLink!]!
+}
+
+type Art {
+    slug: String!
+    title: String!
+    image: Image!
 }
 
 type Project {

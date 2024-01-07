@@ -29,11 +29,20 @@
 .main {
   text-align: center;
   background-color: var(--base-colour);
-  height: "100vh";
 }
 
 .fullRow{
   height: "100vh";
+}
+
+.mobileNav{
+  position: fixed;
+  bottom: 0;
+  right: 0
+}
+
+.mobileNavButton{
+  height: 100px;
 }
 
 .title{

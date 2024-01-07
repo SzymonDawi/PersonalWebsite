@@ -27,10 +27,12 @@ export default function Home() {
             </Col>
 
             <Col span={8} className={home_page_styles.artPillar}>
-              <Pillar     
-                  className={home_page_styles.artPillar}   
-                  title="Art">
-              </Pillar>    
+              <Link href="/art">
+                <Pillar     
+                    className={home_page_styles.artPillar}   
+                    title="Art">
+                </Pillar>    
+              </Link>
             </Col>
 
             <Col span={8} className={home_page_styles.aboutMePillar}>

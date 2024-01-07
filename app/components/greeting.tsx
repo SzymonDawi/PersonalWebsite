@@ -30,7 +30,7 @@ const Greeting = () => {
                     bordered = {false}
                     hoverable = {false}>
                     { fetching && <Loader/>}
-                    <Avatar size={256} src={data?.home.image.rendition.url}></Avatar>
+                    <Avatar style={{height: "auto", width: "40%"}} src={data?.home.image.rendition.url}></Avatar>
                     <p className={styles.greetingTitle} style={{marginTop: "-5px"}}>{data?.home.greeting}</p>  
                     <Row justify="center" style={{marginTop: "-70px"}}>
                         <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>

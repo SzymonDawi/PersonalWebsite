@@ -17,6 +17,13 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type Art = {
+  __typename?: 'Art';
+  image: Image;
+  slug: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
 export type ExternalLink = {
   __typename?: 'ExternalLink';
   icon_slug: IconType;
@@ -119,6 +126,7 @@ export type ProjectStreamBlock = FigmaBlock | GithubBlock | ProcessBlock;
 
 export type Query = {
   __typename?: 'Query';
+  art: Array<Art>;
   home: Home;
   project: Project;
   projects: Array<Project>;
@@ -128,6 +136,11 @@ export type Query = {
 export type QueryProjectArgs = {
   slug: Scalars['String']['input'];
 };
+
+export type ArtQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ArtQuery = { __typename?: 'Query', art: Array<{ __typename?: 'Art', slug: string, title: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
 
 export type HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -147,6 +160,23 @@ export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
 
 
+export const ArtDocument = gql`
+    query Art {
+  art {
+    slug
+    title
+    image {
+      rendition(max: "400x400") {
+        url
+      }
+    }
+  }
+}
+    `;
+
+export function useArtQuery(options?: Omit<Urql.UseQueryArgs<ArtQueryVariables>, 'query'>) {
+  return Urql.useQuery<ArtQuery, ArtQueryVariables>({ query: ArtDocument, ...options });
+};
 export const HomeDocument = gql`
     query Home {
   home {

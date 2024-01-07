@@ -1,0 +1,11 @@
+query Art {
+    art{
+        slug
+        title
+        image{
+            rendition(max: "400x400"){
+                url
+            }
+        }
+    }
+}

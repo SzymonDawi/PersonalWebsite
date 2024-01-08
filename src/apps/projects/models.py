@@ -63,6 +63,13 @@ class ProjectPage(common_models.BasePage):
         related_name="project_list_view_image",
         help_text="The image that shows on the projects page",
     )
+    mobile_list_view_image = django_models.ForeignKey(
+        "common.CustomImage",
+        null=True,
+        on_delete=django_models.SET_NULL,
+        related_name="project_mobile_list_view_image",
+        help_text="The image that shows on the projects page for the mobile",
+    )
     list_view_title = django_models.CharField(max_length=255, null=True, blank=True)
     year = django_models.IntegerField(
         null=True,
@@ -99,6 +106,7 @@ class ProjectPage(common_models.BasePage):
         panels.MultiFieldPanel(
             [
                 panels.FieldPanel("list_view_image"),
+                panels.FieldPanel("mobile_list_view_image"),
                 panels.FieldPanel("list_view_title"),
             ],
             heading="List Fields",

@@ -25,6 +25,7 @@ type Art {
 type Project {
     slug: String!
     list_view_image: Image!
+    mobile_list_view_image: Image!
     list_view_title: String!
     year: String!
     hero_title: String!

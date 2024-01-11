@@ -118,6 +118,7 @@ export type Project = {
   hero_title: Scalars['String']['output'];
   list_view_image: Image;
   list_view_title: Scalars['String']['output'];
+  mobile_list_view_image: Image;
   slug: Scalars['String']['output'];
   year: Scalars['String']['output'];
 };
@@ -157,7 +158,7 @@ export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Proj
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
+export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string, width: number, height: number } }, mobile_list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string, width: number, height: number } } }> };
 
 
 export const ArtDocument = gql`
@@ -262,6 +263,15 @@ export const ProjectsDocument = gql`
     list_view_image {
       rendition(max: "1000x1000") {
         url
+        width
+        height
+      }
+    }
+    mobile_list_view_image {
+      rendition(max: "250x250") {
+        url
+        width
+        height
       }
     }
     list_view_title

@@ -1,6 +1,7 @@
 import ariadne
 import graphql
 
+from src.apps.about_me.models import AboutMePage
 from src.apps.art.models import ArtPage
 from src.apps.common import models as common_models
 from src.apps.home.models import HomePage
@@ -23,6 +24,9 @@ process_paragraph = ariadne.ObjectType("ProcessParagraph")
 process_title = ariadne.ObjectType("ProcessTitle")
 process_image = ariadne.ObjectType("ProcessImage")
 art = ariadne.ObjectType("Art")
+about_me = ariadne.ObjectType("AboutMe")
+job = ariadne.ObjectType("Job")
+role = ariadne.ObjectType("Role")
 
 
 @query.field("home")
@@ -43,6 +47,21 @@ def resolve_project(source, info: graphql.GraphQLResolveInfo, *_, slug):
 @query.field("art")
 def resolve_art(source, info: graphql.GraphQLResolveInfo, *_):
     return ArtPage.objects.live()
+
+
+@query.field("about_me")
+def resolve_about_me(source, info: graphql.GraphQLResolveInfo, *_):
+    return AboutMePage.objects.live().first()
+
+
+@about_me.field("experience")
+def resolve_about_me_experience(obj, *_):
+    return obj.aboutmepage_job_experience.all()
+
+
+@job.field("roles")
+def resolve_about_me_experience_roles(obj, *_):
+    return obj.aboutmepage_job_experience_role.all()
 
 
 @home.field("links")
@@ -190,4 +209,7 @@ schema = ariadne.make_executable_schema(
     process_image,
     project_stream_block,
     process_block_item,
+    about_me,
+    job,
+    role,
 )

@@ -7,6 +7,7 @@ type Query {
     projects: [Project!]!
     project(slug: String!): Project!
     art: [Art!]!
+    about_me: AboutMe!
 }
 
 type Home {
@@ -20,6 +21,21 @@ type Art {
     slug: String!
     title: String!
     image: Image!
+}
+
+type AboutMe {
+    image: Image!
+    experience: [Job!]!
+}
+
+type Job {
+    employer: String!
+    roles: [Role!]!
+}
+
+type Role {
+    job_title: String!
+    work_period: String!
 }
 
 type Project {

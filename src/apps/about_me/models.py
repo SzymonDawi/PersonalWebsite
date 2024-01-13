@@ -30,11 +30,24 @@ class Role(ClusterableModel, models.Orderable):
         related_name="aboutmepage_job_role",
     )
 
+
     panels = [
         panels.FieldPanel("job_title"),
         panels.FieldPanel("work_period"),
+        panels.InlinePanel("aboutmepage_job_role_achievement"),
     ]
 
+
+class Achievement(ClusterableModel, models.Orderable):
+    achievement = django_models.TextField()
+    role = ParentalKey(
+        Role,
+        on_delete=django_models.CASCADE,
+        related_name="aboutmepage_job_role_achievement"
+    )
+
+    panels = [panels.FieldPanel("achievement")]
+    
 
 class AboutMePage(common_models.BasePage):
     image = django_models.ForeignKey(

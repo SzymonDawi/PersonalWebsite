@@ -25,7 +25,7 @@ type Art {
 
 type AboutMe {
     image: Image!
-    experience: [Job!]!
+    jobs: [Job!]!
 }
 
 type Job {

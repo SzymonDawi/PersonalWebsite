@@ -54,14 +54,14 @@ def resolve_about_me(source, info: graphql.GraphQLResolveInfo, *_):
     return AboutMePage.objects.live().first()
 
 
-@about_me.field("experience")
-def resolve_about_me_experience(obj, *_):
-    return obj.aboutmepage_job_experience.all()
+@about_me.field("jobs")
+def resolve_about_me_jobs(obj, *_):
+    return obj.aboutmepage_job.all()
 
 
 @job.field("roles")
 def resolve_about_me_experience_roles(obj, *_):
-    return obj.aboutmepage_job_experience_role.all()
+    return obj.aboutmepage_job_role.all()
 
 
 @home.field("links")

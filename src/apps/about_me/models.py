@@ -7,27 +7,27 @@ from wagtail.admin import panels
 from src.apps.common import models as common_models
 
 
-class Experience(ClusterableModel, models.Orderable):
+class Job(ClusterableModel, models.Orderable):
     employer = django_models.CharField(max_length=255, blank=True)
     page = ParentalKey(
         "AboutMePage",
         on_delete=django_models.CASCADE,
-        related_name="aboutmepage_job_experience",
+        related_name="aboutmepage_job",
     )
 
     panels = [
         panels.FieldPanel("employer"),
-        panels.InlinePanel("aboutmepage_job_experience_role", label="Roles"),
+        panels.InlinePanel("aboutmepage_job_role", label="Roles"),
     ]
 
 
-class Job(ClusterableModel, models.Orderable):
+class Role(ClusterableModel, models.Orderable):
     job_title = django_models.CharField(max_length=255, blank=True)
     work_period = django_models.CharField(max_length=255, blank=True)
     experience = ParentalKey(
-        Experience,
+        Job,
         on_delete=django_models.CASCADE,
-        related_name="aboutmepage_job_experience_role",
+        related_name="aboutmepage_job_role",
     )
 
     panels = [
@@ -42,12 +42,12 @@ class AboutMePage(common_models.BasePage):
         null=True,
         on_delete=django_models.SET_NULL,
         related_name="about_me_image",
-        help_text="",
+        help_text="", 
     )
 
     content_panels = models.Page.content_panels + [
         panels.FieldPanel("image"),
-        panels.InlinePanel("aboutmepage_job_experience"),
+        panels.InlinePanel("aboutmepage_job"),
     ]
 
     parent_page_types = ["home.HomePage"]

@@ -4,6 +4,15 @@ query Projects {
         list_view_image {
             rendition(max: "1000x1000"){
                 url
+                width
+                height
+            }
+        }
+        mobile_list_view_image {
+            rendition(max: "250x250"){
+                url
+                width
+                height
             }
         }
         list_view_title

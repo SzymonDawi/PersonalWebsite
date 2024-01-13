@@ -36,6 +36,7 @@ type Job {
 type Role {
     job_title: String!
     work_period: String!
+    achievements: [String!]!
 }
 
 type Project {

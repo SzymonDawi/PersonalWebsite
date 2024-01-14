@@ -56,10 +56,12 @@ class AboutMePage(common_models.BasePage):
         related_name="about_me_image",
         help_text="",
     )
+    resume_download_url = django_models.CharField(max_length=1000, blank=True)
 
     content_panels = models.Page.content_panels + [
         panels.FieldPanel("image"),
-        panels.InlinePanel("aboutmepage_job"),
+        panels.FieldPanel("resume_download_url"),
+        panels.InlinePanel("aboutmepage_job", label="Jobs"),
     ]
 
     parent_page_types = ["home.HomePage"]

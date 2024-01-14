@@ -26,6 +26,7 @@ type Art {
 type AboutMe {
     image: Image!
     jobs: [Job!]!
+    resume_download_url: String!
 }
 
 type Job {

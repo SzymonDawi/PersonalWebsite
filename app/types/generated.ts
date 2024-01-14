@@ -17,6 +17,13 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type AboutMe = {
+  __typename?: 'AboutMe';
+  image: Image;
+  jobs: Array<Job>;
+  resume_download_url: Scalars['String']['output'];
+};
+
 export type Art = {
   __typename?: 'Art';
   image: Image;
@@ -83,6 +90,12 @@ export type ImageRendition = {
   width: Scalars['Int']['output'];
 };
 
+export type Job = {
+  __typename?: 'Job';
+  employer: Scalars['String']['output'];
+  roles: Array<Role>;
+};
+
 export type ProcessBlock = {
   __typename?: 'ProcessBlock';
   items?: Maybe<Array<ProcessBlockItem>>;
@@ -118,6 +131,7 @@ export type Project = {
   hero_title: Scalars['String']['output'];
   list_view_image: Image;
   list_view_title: Scalars['String']['output'];
+  mobile_list_view_image: Image;
   slug: Scalars['String']['output'];
   year: Scalars['String']['output'];
 };
@@ -126,6 +140,7 @@ export type ProjectStreamBlock = FigmaBlock | GithubBlock | ProcessBlock;
 
 export type Query = {
   __typename?: 'Query';
+  about_me: AboutMe;
   art: Array<Art>;
   home: Home;
   project: Project;
@@ -136,6 +151,18 @@ export type Query = {
 export type QueryProjectArgs = {
   slug: Scalars['String']['input'];
 };
+
+export type Role = {
+  __typename?: 'Role';
+  achievements: Array<Scalars['String']['output']>;
+  job_title: Scalars['String']['output'];
+  work_period: Scalars['String']['output'];
+};
+
+export type AboutMeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', resume_download_url: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string> }> }> } };
 
 export type ArtQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -160,6 +187,30 @@ export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
 
 
+export const AboutMeDocument = gql`
+    query AboutMe {
+  about_me {
+    resume_download_url
+    image {
+      rendition(max: "800x800") {
+        url
+      }
+    }
+    jobs {
+      employer
+      roles {
+        job_title
+        work_period
+        achievements
+      }
+    }
+  }
+}
+    `;
+
+export function useAboutMeQuery(options?: Omit<Urql.UseQueryArgs<AboutMeQueryVariables>, 'query'>) {
+  return Urql.useQuery<AboutMeQuery, AboutMeQueryVariables>({ query: AboutMeDocument, ...options });
+};
 export const ArtDocument = gql`
     query Art {
   art {

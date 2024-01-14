@@ -7,6 +7,7 @@
   --project-accent-colour: #FDBFD0;
   --art-accent-colour: #FDD77C;
   --about-me-accent-colour: #5ED3DA;
+  --text-colour: #3E343C;
 }
 
 .projectComponent{
@@ -46,21 +47,21 @@
 }
 
 .title{
-  color: #3E343C;
+  color: var(--text-colour);
   font-family:'Lobster';
   font-size: 54px;
   margin: 0
 }
 
 .sub-title{
-  color: #3E343C;
+  color: var(--text-colour);
   font-family:'Lora';
   font-size: 30px;
   margin: 0
 }
 
 .P-Lato{
-    color: #3E343C;
+  color: var(--text-colour);
   font-family: 'Lato';
   font-size: 18px;
   line-height: 20px;
@@ -78,4 +79,25 @@
 
 .Text-left{
   text-align: left;
+}
+
+.medium-title {
+  color: var(--text-colour);
+  font-family: 'Lato';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.small-title {
+  color: var(--text-colour);
+  font-family: 'Lato';
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.small-sub-title {
+  color: var(--text-colour);
+  font-family: 'Lato';
+  font-size: 14px;
+  font-weight: normal;
 }

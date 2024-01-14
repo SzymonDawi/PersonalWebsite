@@ -47,10 +47,12 @@ export default function Home() {
             </Col>
 
             <Col span={button_col_with} className={home_page_styles.aboutMePillar} style={{height: nav_button_height}}>
-              <Pillar                         
-                  className={home_page_styles.aboutMePillar}
-                  title="WIP">
-              </Pillar>
+              <Link href="/about-me">
+                <Pillar                         
+                    className={home_page_styles.aboutMePillar}
+                    title="About Me">
+                </Pillar>
+              </Link>
             </Col>
           </Row>
         </Col>

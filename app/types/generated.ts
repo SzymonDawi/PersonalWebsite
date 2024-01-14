@@ -21,6 +21,7 @@ export type AboutMe = {
   __typename?: 'AboutMe';
   image: Image;
   jobs: Array<Job>;
+  resume_download_url: Scalars['String']['output'];
 };
 
 export type Art = {
@@ -161,7 +162,7 @@ export type Role = {
 export type AboutMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string> }> }> } };
+export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', resume_download_url: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string> }> }> } };
 
 export type ArtQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -189,6 +190,7 @@ export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename
 export const AboutMeDocument = gql`
     query AboutMe {
   about_me {
+    resume_download_url
     image {
       rendition(max: "800x800") {
         url

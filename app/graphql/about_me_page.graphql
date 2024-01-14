@@ -1,5 +1,6 @@
 query AboutMe {
     about_me {
+        resume_download_url
         image {
             rendition(max: "800x800"){
                 url

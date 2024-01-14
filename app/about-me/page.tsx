@@ -17,12 +17,14 @@ export default function AboutMe() {
     if (error) return <p>Oh no... {error.message}</p>;
 
     return (
-        <Row className="main" >
+        <Row className="main" style={{height: "100vh"}}>
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="About Me" backUrl="/" />
 
                 <Row justify="center" style={{paddingTop:"50px"}}>
-                    <Button href="">Download Resume</Button>
+                    <Button 
+                    href={data?.about_me.resume_download_url} 
+                    target="_blank">Download Resume</Button>
                 </Row>
                 <Row justify="center">
                     <Col style={{width: col_width}}>

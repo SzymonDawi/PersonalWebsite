@@ -1,6 +1,6 @@
 'use client';
 
-import {Col, Row, Grid} from 'antd';
+import {Col, Row, Grid, Button} from 'antd';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
@@ -8,7 +8,7 @@ import { useAboutMeQuery } from '../types/generated';
 
 const { useBreakpoint } = Grid;
 
-export default function Art() {
+export default function AboutMe() {
     const { xl } = useBreakpoint();
     const col_width = xl ? "60vw" : "90vw";
 
@@ -21,7 +21,10 @@ export default function Art() {
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="About Me" backUrl="/" />
 
-                <Row justify="center" style={{paddingTop:"150px"}}>
+                <Row justify="center" style={{paddingTop:"50px"}}>
+                    <Button href="">Download Resume</Button>
+                </Row>
+                <Row justify="center">
                     <Col style={{width: col_width}}>
                         {fetching && <Loader/>}
                         <Row>

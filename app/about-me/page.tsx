@@ -25,19 +25,29 @@ export default function Art() {
                     <Col style={{width: col_width}}>
                         {fetching && <Loader/>}
                         <Row>
-                            <Col span={5} offset={8}>
+                            <Col span={6} offset={6}>
                                 {data?.about_me.jobs.map(job => {
                                     return(
                                     <div className="Text-left" style={{paddingTop: "50px"}}>
-                                        <h1>{job.employer}</h1>
+                                        <h1 className='medium-title'>{job.employer}</h1>
                                         {job.roles.map(role => {
                                             return(
                                                 <div>
-                                                    <h4>{role.job_title}</h4>
-                                                    <h4>{role.work_period}</h4>
-                                                    {role.achievements.map(achievement => {
-                                                        return<p>{achievement}</p>
-                                                    })}
+                                                    <div style={{marginTop: "-20px"}}>
+                                                        <h4 className='small-title'>{role.job_title}</h4>
+                                                        <p className='small-sub-title' style={{marginTop: "-20px", paddingLeft: "10px"}}>{role.work_period}</p>
+                                                    </div>
+                                                    <ul>
+                                                        {role.achievements.map(achievement => {
+                                                            return (
+                                                                <li>
+                                                                    <p className="P-Lato" style={{marginTop: "-15px", paddingBottom: "5px"}}>
+                                                                        {achievement}
+                                                                    </p>
+                                                                </li>
+                                                            )
+                                                        })}
+                                                    </ul>
                                                 </div>
                                             )
                                         })}

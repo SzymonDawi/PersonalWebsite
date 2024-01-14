@@ -66,7 +66,10 @@ def resolve_about_me_job_roles(obj, *_):
 
 @role.field("achievements")
 def resolve_about_me_role_achievements(obj, *_):
-    return [achievement.achievement for achievement in obj.aboutmepage_job_role_achievement.all()]
+    return [
+        achievement.achievement
+        for achievement in obj.aboutmepage_job_role_achievement.all()
+    ]
 
 
 @home.field("links")

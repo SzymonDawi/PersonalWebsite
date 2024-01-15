@@ -55,7 +55,7 @@
 
 .sub-title{
   color: var(--text-colour);
-  font-family:'Lora';
+  font-family:'Lobster';
   font-size: 30px;
   margin: 0
 }
@@ -100,4 +100,23 @@
   font-family: 'Lato';
   font-size: 14px;
   font-weight: normal;
+}
+
+.about-me-button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: var(--about-me-accent-colour);
+  color: var(--text-colour);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.about-me-button:hover{
+  color: var(--base-colour);
 }

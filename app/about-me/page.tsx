@@ -1,6 +1,6 @@
 'use client';
 
-import {Col, Row, Grid, Button} from 'antd';
+import {Col, Row, Grid} from 'antd';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
@@ -11,26 +11,30 @@ const { useBreakpoint } = Grid;
 export default function AboutMe() {
     const { xl } = useBreakpoint();
     const col_width = xl ? "60vw" : "90vw";
+    const experience_col_span = xl ? 8 : 12;
+    const experience_col_offest = xl ? 6 : 0;
 
     const [{ data, fetching, error }] = useAboutMeQuery();
 
     if (error) return <p>Oh no... {error.message}</p>;
 
-    return (
+    return ( 
         <Row className="main" style={{height: "100vh"}}>
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="About Me" backUrl="/" />
 
                 <Row justify="center" style={{paddingTop:"50px"}}>
-                    <Button 
+                    <a
+                    className="about-me-button"
                     href={data?.about_me.resume_download_url} 
-                    target="_blank">Download Resume</Button>
+                    target="_blank"
+                    >Download Resume</a>
                 </Row>
                 <Row justify="center">
                     <Col style={{width: col_width}}>
                         {fetching && <Loader/>}
                         <Row>
-                            <Col span={6} offset={6}>
+                            <Col span={experience_col_span} offset={experience_col_offest}>
                                 {data?.about_me.jobs.map(job => {
                                     return(
                                     <div className="Text-left" style={{paddingTop: "50px"}}>

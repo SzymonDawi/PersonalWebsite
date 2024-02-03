@@ -2,10 +2,11 @@ databases:
   - name: personal_website
     databaseName: personal_website
     user: personal_website
+    plan: free
 
 services:
   - type: web
-    name: mysite
+    name: personal_website
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn src.wsgi:application"

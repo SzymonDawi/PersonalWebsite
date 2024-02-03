@@ -6,3 +6,5 @@ poetry install --no-root
 python manage.py migrate
 
 python manage.py createsuperuser --noinput
+
+echo "Deployed"

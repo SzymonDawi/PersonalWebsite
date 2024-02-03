@@ -1,7 +1,7 @@
 databases:
-  - name: personalWebsite
-    databaseName: personalWebsite
-    user: admin
+  - name: personal_website
+    databaseName: personal_website
+    user: personal_website
 
 services:
   - type: web
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: personalWebsite
+          name: personal_website
           property: connectionString
       - key: SECRET_KEY
         generateValue: true

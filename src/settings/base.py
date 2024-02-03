@@ -45,7 +45,6 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    "render.apps.RenderConfig",
     "src.apps.common",
     "src.apps.home",
     "src.apps.projects",

@@ -16,6 +16,8 @@ import os
 import dj_database_url
 import environ
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+
 ALLOWED_HOSTS = []
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+import dj_database_url
 import environ
+
+ALLOWED_HOSTS = []
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -22,10 +25,18 @@ env = environ.Env(
     FRONTEND_URL=(str, "http://localhost:3000"),
     BACKEND_URL=(str, "http://localhost:8000"),
     CORS_ALLOWED_ORIGINS=(list, []),
+    SECRET_KEY=(str, None),
+    RENDER=(str, False),
+    RENDER_EXTERNAL_HOSTNAME=(str, None),
 )
 
 FRONTEND_URL = env("FRONTEND_URL")
 BACKEND_URL = env("BACKEND_URL")
+SECRET_KEY = env("SECRET_KEY")
+RENDER_EXTERNAL_HOSTNAME = env("RENDER_EXTERNAL_HOSTNAME")
+
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -34,6 +45,7 @@ BACKEND_URL = env("BACKEND_URL")
 # Application definition
 
 INSTALLED_APPS = [
+    "render.apps.RenderConfig",
     "src.apps.common",
     "src.apps.home",
     "src.apps.projects",
@@ -105,10 +117,11 @@ WSGI_APPLICATION = "src.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    "default": dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default="postgresql://postgres:postgres@localhost:5432/mysite",
+        conn_max_age=600,
+    )
 }
 
 

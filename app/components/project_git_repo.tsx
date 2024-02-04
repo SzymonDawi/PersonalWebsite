@@ -5,7 +5,7 @@ import { Octokit } from 'octokit';
 import { useEffect, useState } from 'react';
 import {decode} from 'base-64';
 import ReactMarkdown from 'react-markdown';
-import style from './project_git_repo_style';
+import display_style from './project_git_repo_style';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import Loader from './loader';
 
@@ -25,7 +25,7 @@ const ProjectGitRepo = (props: Props) => {
     const [fetchingRepo, setFetchingRepo] = useState(true);   
     const [errorRepo, setErrorRepo] = useState(false);   
 
-    const [file, setFile] = useState();    
+    const [file, setFile] = useState("");    
     const [fetchingFile, setFetchingFile] = useState(true);   
     const [errorFile, setErrorFile] = useState(false);   
     
@@ -46,12 +46,14 @@ const ProjectGitRepo = (props: Props) => {
                     "Accept": "application/vnd.github.v3.raw"
                 }
             });
-    
+
             let content;
+            let raw_data = (res.data as any)
+
             if(type === "md"){
-                content = decode(res.data.content);
+                content = decode(raw_data.content);
             }else{
-                content = "```" + type + decode(res.data.content) + " ```";
+                content = "```" + type + decode(raw_data.content) + " ```";
             }
             return content;
     }
@@ -61,7 +63,7 @@ const ProjectGitRepo = (props: Props) => {
         let current_pos = 0;
     
         for (const [key, value] of Object.entries(input)) {
-            if (Object.keys(value).length === 0){
+            if (Object.keys(input).length === 0){
                 children.push({"title": key, 
                 "key": pos + "-" + current_pos, 
                 "isDir": false,
@@ -143,22 +145,25 @@ const ProjectGitRepo = (props: Props) => {
                     code(props) {
                       const {children, className, node, ...rest} = props
                       const match = /language-(\w+)/.exec(className || '')
+
                       return match ? (
                         <SyntaxHighlighter
                           {...rest}
                           PreTag="div"
-                          children={String(children).replace(/\n$/, '')}
                           language={match[1]}
-                          style={style}
-                        />
+                          // eslint-disable-next-line
+                          // @ts-expect-error
+                          style={display_style}
+                        >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
                       ) : (
                         <code {...rest} className={className}>
                           {children}
                         </code>
                       )
                     }
-                  }}
-                children={file}/>}
+                  }}> 
+                  {file}
+                </ReactMarkdown>}
             </Col>
         </Row>
     )

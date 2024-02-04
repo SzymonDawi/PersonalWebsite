@@ -179,6 +179,9 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesSto
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
@@ -188,12 +191,8 @@ if not DEBUG:
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
-
 
 # Wagtail settings
-
 WAGTAIL_SITE_NAME = "personal_website"
 
 # Search
@@ -218,5 +217,6 @@ WAGTAIL_HEADLESS_PREVIEW = {
 }
 
 CORS_ALLOWED_ORIGINS = [FRONTEND_URL]
+CORS_ALLOW_ALL_ORIGINS = True
 
 WAGTAILIMAGES_IMAGE_MODEL = "common.CustomImage"

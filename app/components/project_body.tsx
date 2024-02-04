@@ -1,14 +1,13 @@
 'use client';
 
 import {Col} from 'antd';
-import { ProjectStreamBlock } from '../types/generated';
 import ProjectProcess from './project_process';
 import ProjectFigma from './project_figma';
 import ProjectGitRepo from './project_git_repo';
 
 
 interface Props {
-    items: ProjectStreamBlock[];
+    items: any[];
 }
 
 const ProjectBody = (props: Props) => {
@@ -16,12 +15,12 @@ const ProjectBody = (props: Props) => {
         <Col style={{width: "70vw", paddingBottom: "100px"}}>
             {props.items.map((item) => {
                 if (item.__typename === "ProcessBlock"){
-                    return <ProjectProcess key={item.__typename} items={item.items}/>
+                    return <ProjectProcess key={item.__typename} items={item.items!}/>
                 }
                 else if (item.__typename === "FigmaBlock") {
-                    return <ProjectFigma url={item.url} />
+                    return <ProjectFigma key={item.__typename} url={item.url} />
                 } else if (item.__typename === "GithubBlock"){
-                    return <ProjectGitRepo owner={item.owner} repo={item.repo}/>
+                    return <ProjectGitRepo key={item.__typename} owner={item.owner} repo={item.repo}/>
                 }
                 else {
                     return <p key={item.__typename}>Test2</p>

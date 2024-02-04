@@ -45,7 +45,6 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "src.apps.common",
     "src.apps.home",
@@ -119,8 +118,7 @@ WSGI_APPLICATION = "src.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default="postgresql://postgres:postgres@localhost:5432/mysite",
+        default="postgresql://postgres:postgres@localhost:5432/personal_website",
         conn_max_age=600,
     )
 }

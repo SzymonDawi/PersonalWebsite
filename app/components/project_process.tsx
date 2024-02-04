@@ -19,18 +19,19 @@ const ProjectProcess = (props: Props) => {
     return(
         <Row justify="center">
             <Col style={{width: col_width}}>
-                {props.items.map((item) => {
+                {props.items.map((item, index) => {
                     if (item.__typename === "ProcessImage"){
-                        return <img src={item.process_image.rendition.url} style={{width:"100%"}}></img>
+                        return <img key={index} src={item.process_image.rendition.url} style={{width:"100%"}}></img>
                     } else if (item.__typename === "ProcessParagraph"){
                         return (
                             <ProjectProcessParagraph 
+                                key={index}
                                 title={item.title} 
                                 paragraph={item.paragraph} 
                                 image={item.image}/>
                         )
                     } else if (item.__typename === "ProcessTitle"){
-                        return <h1 key={item.__typename} >{item.process_title}</h1>
+                        return <h1 key={index} >{item.process_title}</h1>
                     }
                 })}
             </Col>

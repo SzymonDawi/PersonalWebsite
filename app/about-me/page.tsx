@@ -35,21 +35,21 @@ export default function AboutMe() {
                         {fetching && <Loader/>}
                         <Row>
                             <Col span={experience_col_span} offset={experience_col_offest}>
-                                {data?.about_me.jobs.map(job => {
+                                {data?.about_me.jobs.map((job, index )=> {
                                     return(
-                                    <div className="Text-left" style={{paddingTop: "50px"}}>
+                                    <div key={index} className="Text-left" style={{paddingTop: "50px"}}>
                                         <h1 className='medium-title'>{job.employer}</h1>
-                                        {job.roles.map(role => {
+                                        {job.roles.map((role, index) => {
                                             return(
-                                                <div>
+                                                <div key={index}>
                                                     <div style={{marginTop: "-20px"}}>
                                                         <h4 className='small-title'>{role.job_title}</h4>
                                                         <p className='small-sub-title' style={{marginTop: "-20px", paddingLeft: "10px"}}>{role.work_period}</p>
                                                     </div>
                                                     <ul>
-                                                        {role.achievements.map(achievement => {
+                                                        {role.achievements.map((achievement, index) => {
                                                             return (
-                                                                <li>
+                                                                <li key={index}>
                                                                     <p className="P-Lato" style={{marginTop: "-15px", paddingBottom: "5px"}}>
                                                                         {achievement}
                                                                     </p>

@@ -2,9 +2,10 @@
 
 import { FC, ReactNode } from 'react';
 import { createClient, Provider, cacheExchange, fetchExchange } from 'urql';
+import { backend_url } from './constants';
 
 const urqlclient = createClient({
-  url: 'http://127.0.0.1:8000/api/graphql/',
+  url: backend_url + '/api/graphql/',
   exchanges: [cacheExchange, fetchExchange],
 });
 

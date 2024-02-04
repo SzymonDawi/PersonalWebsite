@@ -26,3 +26,4 @@ services:
         generateValue: true
       - key: DJANGO_SETTINGS_MODULE
         value: src.settings.production
+      - fromGroup: PersonalWebsite

@@ -7,6 +7,7 @@ import {Col, Row, Grid} from 'antd';
 import Pillar from "./components/pillar";
 import Greeting from "./components/greeting";
 import home_page_styles from "./styles/home_page.module.css";
+import { backend_url } from './constants';
 
 const { useBreakpoint } = Grid;
 
@@ -19,6 +20,8 @@ export default function Home() {
   const row_height = sm ? "50vh" : "100vh"
   const nav_classname = sm ? "fullRow" : "mobileNav";
   const nav_button_height = sm ? "100vh" : "100px";
+
+  console.log(backend_url);
 
   return (
     <Row className="main">

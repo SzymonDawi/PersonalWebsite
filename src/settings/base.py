@@ -36,13 +36,10 @@ FRONTEND_URL = env("FRONTEND_URL")
 BACKEND_URL = env("BACKEND_URL")
 SECRET_KEY = env("SECRET_KEY")
 RENDER_EXTERNAL_HOSTNAME = env("RENDER_EXTERNAL_HOSTNAME")
+RENDER = env("RENDER")
 
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -116,12 +113,15 @@ WSGI_APPLICATION = "src.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default="postgresql://postgres:postgres@localhost:5432/personal_website",
-        conn_max_age=600,
-    )
-}
+
+if not RENDER:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }}
 
 
 # Password validation

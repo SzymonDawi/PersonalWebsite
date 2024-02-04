@@ -1,0 +1,26 @@
+databases:
+  - name: personal_website
+    databaseName: personal_website
+    user: personal_website
+    plan: free
+
+services:
+  - type: web
+    name: personal_website
+    runtime: python
+    buildCommand: "./scripts/build.sh"
+    startCommand: "gunicorn src.wsgi:application"
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: personal_website
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: DJANGO_ADMIN_URL
+        generateValue: true
+      - key: DJANGO_SETTINGS_MODULE
+        value: src.settings.production

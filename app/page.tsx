@@ -21,7 +21,7 @@ export default function Home() {
   const nav_classname = sm ? "fullRow" : "mobileNav";
   const nav_button_height = sm ? "100vh" : "100px";
 
-  console.log(backend_url);
+  console.log(process.env.BACKEND_URL);
 
   return (
     <Row className="main">

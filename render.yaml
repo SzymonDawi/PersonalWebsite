@@ -1,5 +1,5 @@
 databases:
-  - name: personal_website
+  - name: personalWebsiteDbProd
     databaseName: personal_website
     user: personal_website
     plan: starter
@@ -7,7 +7,7 @@ databases:
 
 services:
   - type: web
-    name: personal_website
+    name: personalWebsiteWagtailProd
     runtime: python
     buildCommand: "./scripts/build.sh"
     startCommand: "gunicorn src.wsgi:application"
@@ -26,4 +26,13 @@ services:
         generateValue: true
       - key: DJANGO_SETTINGS_MODULE
         value: src.settings.production
+      - fromGroup: PersonalWebsite
+  - type: web
+    name: personalWebsiteNextjsProd
+    runtime: node
+    buildCommand: npm install; npm run build
+    startCommand: npm run start
+    plan: free
+    region: Singapore
+    envVars:
       - fromGroup: PersonalWebsite

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import { backend_url } from './constants';
+import { backend_url } from 'app/constants.tsx';
 
 const nextConfig = {
     async headers() {

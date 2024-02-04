@@ -3,6 +3,7 @@ databases:
     databaseName: personal_website
     user: personal_website
     plan: starter
+    region: Singapore
 
 services:
   - type: web
@@ -11,6 +12,7 @@ services:
     buildCommand: "./scripts/build.sh"
     startCommand: "gunicorn src.wsgi:application"
     plan: starter
+    region: Singapore
     envVars:
       - key: DATABASE_URL
         fromDatabase:

@@ -156,8 +156,9 @@ const ProjectGitRepo = (props: Props) => {
                         </code>
                       )
                     }
-                  }}
-                children={file}/>}
+                  }}> 
+                  {file}
+                </ReactMarkdown>}
             </Col>
         </Row>
     )

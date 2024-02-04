@@ -26,9 +26,9 @@ const ProjectProcess = (props: Props) => {
                         return (
                             <ProjectProcessParagraph 
                                 key={index}
-                                title={item.title} 
+                                title={item.title!} 
                                 paragraph={item.paragraph} 
-                                image={item.image}/>
+                                image={item.image!}/>
                         )
                     } else if (item.__typename === "ProcessTitle"){
                         return <h1 key={index} >{item.process_title}</h1>

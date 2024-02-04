@@ -16,7 +16,7 @@ const ProjectBody = (props: Props) => {
         <Col style={{width: "70vw", paddingBottom: "100px"}}>
             {props.items.map((item) => {
                 if (item.__typename === "ProcessBlock"){
-                    return <ProjectProcess key={item.__typename} items={item.items}/>
+                    return <ProjectProcess key={item.__typename} items={item.items!}/>
                 }
                 else if (item.__typename === "FigmaBlock") {
                     return <ProjectFigma key={item.__typename} url={item.url} />

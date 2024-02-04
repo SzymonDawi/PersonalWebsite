@@ -21,22 +21,22 @@ const Project = (props: Props) => {
     return(
         <Row className="main" style={{height: "100%"}}>
             <Col span={24}>
-                <Title componentCat="projectComponent" title={project?.list_view_title} backUrl="/projects" />
+                <Title componentCat="projectComponent" title={project?.list_view_title!} backUrl="/projects" />
                 <Row justify="center">
                     <Col style={{zIndex: "10"}}>
                         <Row justify="center" style={{paddingTop: "15vh"}}>
                             <Col>
                                 <ProjectHero 
-                                    title={project?.hero_title} 
-                                    description={project?.hero_description}
+                                    title={project?.hero_title!} 
+                                    description={project?.hero_description!}
                                     bullet_title={project?.hero_bullet_title}
                                     bullets={project?.hero_bullets}
-                                    image_url={project?.hero_image.rendition.url}
+                                    image_url={project?.hero_image.rendition.url!}
                                 />
                             </Col>
                         </Row>
                         <Row justify="center" style={{paddingTop: "25vh"}}>
-                            <ProjectBody items={project?.body}/>
+                            <ProjectBody items={project?.body!}/>
                         </Row>
                     </Col>
                 </Row>

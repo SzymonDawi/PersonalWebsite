@@ -1,14 +1,13 @@
 'use client';
 
 import {Col} from 'antd';
-import { ProjectStreamBlock } from '../types/generated';
 import ProjectProcess from './project_process';
 import ProjectFigma from './project_figma';
 import ProjectGitRepo from './project_git_repo';
 
 
 interface Props {
-    items: ProjectStreamBlock[];
+    items: any[];
 }
 
 const ProjectBody = (props: Props) => {

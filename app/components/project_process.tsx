@@ -21,6 +21,8 @@ const ProjectProcess = (props: Props) => {
             <Col style={{width: col_width}}>
                 {props.items.map((item, index) => {
                     if (item.__typename === "ProcessImage"){
+                        // eslint-disable-next-line
+                        // @ts-expect-error
                         return <img key={index} src={item.process_image.rendition.url} style={{width:"100%"}}></img>
                     } else if (item.__typename === "ProcessParagraph"){
                         return (
@@ -31,6 +33,8 @@ const ProjectProcess = (props: Props) => {
                                 image={item.image!}/>
                         )
                     } else if (item.__typename === "ProcessTitle"){
+                        // eslint-disable-next-line
+                        // @ts-expect-error
                         return <h1 key={index} >{item.process_title}</h1>
                     }
                 })}

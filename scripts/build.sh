@@ -7,4 +7,6 @@ python manage.py migrate
 
 python manage.py createsuperuser --noinput
 
-echo "Deployed"
+python manage.py collectstatic
+
+echo "Built"

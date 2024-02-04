@@ -114,7 +114,7 @@ WSGI_APPLICATION = "src.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-if not RENDER:
+if RENDER:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     DATABASES = {

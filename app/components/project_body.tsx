@@ -19,7 +19,7 @@ const ProjectBody = (props: Props) => {
                     return <ProjectProcess key={item.__typename} items={item.items}/>
                 }
                 else if (item.__typename === "FigmaBlock") {
-                    return <ProjectFigma url={item.url} />
+                    return <ProjectFigma key={item.__typename} url={item.url} />
                 } else if (item.__typename === "GithubBlock"){
                     return <ProjectGitRepo key={item.__typename} owner={item.owner} repo={item.repo}/>
                 }

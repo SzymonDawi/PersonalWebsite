@@ -191,7 +191,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
+MEDIA_URL = "/media/"
 
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
@@ -203,9 +203,10 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
+    MEDIA_ROOT = MEDIA_URL
+
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-else:
-    MEDIA_URL = "/media/"
 
 
 # Wagtail settings

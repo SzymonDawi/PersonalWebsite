@@ -199,10 +199,6 @@ if not DEBUG:
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Turn on WhiteNoise storage backend that takes care of compressing static files
-    # and creating unique names for each version so they can safely be cached forever.
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
     # MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
     STORAGES = {
@@ -212,6 +208,9 @@ if not DEBUG:
                 "AWS_STORAGE_BUCKET_NAME": AWS_STORAGE_BUCKET_NAME,
                 "AWS_DEFAULT_ACL": "public-read",
             },
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
         },
     }
 

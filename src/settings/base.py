@@ -49,6 +49,7 @@ AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = env("AWS_REGION")
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com"
+AWS_DEFAULT_ACL='public-read'
 
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -206,12 +207,6 @@ if not DEBUG:
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-class MediaStorage(S3Boto3Storage):
-    location = 'media'  # Set the S3 path where media files will be stored
-    file_overwrite = False  # Set to True if you want to overwrite existing files
-
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

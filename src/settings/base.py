@@ -15,6 +15,7 @@ import os
 
 import dj_database_url
 import environ
+from storages.backends.s3boto3 import S3Boto3Storage
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
@@ -209,8 +210,14 @@ if not DEBUG:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
+class MediaStorage(S3Boto3Storage):
+    location = 'media'  # Set the S3 path where media files will be stored
+    file_overwrite = False  # Set to True if you want to overwrite existing files
+
+
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"
+WAGTAILMEDIA_SERVE_METHOD = 'redirect'
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html

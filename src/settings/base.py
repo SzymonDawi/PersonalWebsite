@@ -199,7 +199,8 @@ if not DEBUG:
         "default": {
             "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
             "OPTIONS": {
-                "AWS_DEFAULT_ACL": "public-read",
+                "bucket_name": AWS_STORAGE_BUCKET_NAME,
+                "default_acl": "public-read",
             },
         },
         "staticfiles": {

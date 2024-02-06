@@ -30,6 +30,9 @@ env = environ.Env(
     SECRET_KEY=(str, None),
     RENDER=(str, False),
     RENDER_EXTERNAL_HOSTNAME=(str, None),
+    AWS_STORAGE_BUCKET_NAME=(str, ""),
+    AWS_ACCESS_KEY_ID=(str, ""),
+    AWS_SECRET_ACCESS_KEY=(str, ""),
 )
 
 FRONTEND_URL = env("FRONTEND_URL")
@@ -38,6 +41,11 @@ SECRET_KEY = env("SECRET_KEY")
 RENDER_EXTERNAL_HOSTNAME = env("RENDER_EXTERNAL_HOSTNAME")
 RENDER = env("RENDER")
 DEBUG = not RENDER
+
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -50,6 +58,7 @@ INSTALLED_APPS = [
     "src.apps.art",
     "src.apps.about_me",
     "src.apps.search",
+    "storages",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -182,6 +191,8 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
+
+
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
@@ -191,6 +202,8 @@ if not DEBUG:
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

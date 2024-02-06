@@ -33,7 +33,6 @@ env = environ.Env(
     AWS_STORAGE_BUCKET_NAME=(str, ""),
     AWS_ACCESS_KEY_ID=(str, ""),
     AWS_SECRET_ACCESS_KEY=(str, ""),
-    AWS_S3_REGION_NAME=(str, ""),
 )
 
 FRONTEND_URL = env("FRONTEND_URL")
@@ -47,7 +46,6 @@ AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
 
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -60,7 +58,7 @@ INSTALLED_APPS = [
     "src.apps.art",
     "src.apps.about_me",
     "src.apps.search",
-    "wagtail_storages.apps.WagtailStoragesConfig",
+    "storages",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -204,32 +202,8 @@ if not DEBUG:
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-if "AWS_STORAGE_BUCKET_NAME" in os.environ:
-    # Add django-storages to the installed apps
-    INSTALLED_APPS = INSTALLED_APPS + ["storages"]
-
-    # https://docs.djangoproject.com/en/stable/ref/settings/#default-file-storage
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-    # Disables signing of the S3 objects' URLs. When set to True it
-    # will append authorization querystring to each URL.
-    AWS_QUERYSTRING_AUTH = False
-
-    # Do not allow overriding files on S3 as per Wagtail docs recommendation:
-    # https://docs.wagtail.io/en/stable/advanced_topics/deploying.html#cloud-storage
-    # Not having this setting may have consequences such as losing files.
-    AWS_S3_FILE_OVERWRITE = False
-
-    # Default ACL for new files should be "private" - not accessible to the
-    # public. Images should be made available to public via the bucket policy,
-    # where the documents should use wagtail-storages.
-    AWS_DEFAULT_ACL = "private"
-
-    # This settings lets you force using http or https protocol when generating
-    # the URLs to the files. Set https as default.
-    # https://github.com/jschneier/django-storages/blob/10d1929de5e0318dbd63d715db4bebc9a42257b5/storages/backends/s3boto3.py#L217
-    AWS_S3_URL_PROTOCOL = os.environ.get("AWS_S3_URL_PROTOCOL", "https:")
+    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Wagtail settings

@@ -186,10 +186,11 @@ def resolve_image_rendition(obj: common_models.CustomImage, *_, **kwargs):
     filters = "|".join([f"{key}-{val}" for key, val in kwargs.items()])
     rendition = obj.get_rendition(filters)
     url = rendition.url
+    seperator = "http"
     #Hacky fix for image url issue
     if setings.RENDER:
-        urls = rendition.url.split("http")
-        url = urls[-1]
+        urls = rendition.url.split(seperator)
+        url = f"{seperator}{urls[-1]}"
 
     return {"url": url,
             "width": rendition.width,

@@ -185,10 +185,12 @@ def resolve_image_rendition(obj: common_models.CustomImage, *_, **kwargs):
     # assume that all kwargs are rendition parameters
     filters = "|".join([f"{key}-{val}" for key, val in kwargs.items()])
     rendition = obj.get_rendition(filters)
+    
+    #Hacky fix for image url issue
     if setings.RENDER:
         urls = rendition.url.split("http")
         rendition.url = urls[-1]
-        
+
     return rendition
 
 

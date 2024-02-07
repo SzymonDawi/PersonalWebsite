@@ -185,13 +185,15 @@ def resolve_image_rendition(obj: common_models.CustomImage, *_, **kwargs):
     # assume that all kwargs are rendition parameters
     filters = "|".join([f"{key}-{val}" for key, val in kwargs.items()])
     rendition = obj.get_rendition(filters)
-    
+    url = rendition.url
     #Hacky fix for image url issue
     if setings.RENDER:
         urls = rendition.url.split("http")
-        rendition.url = urls[-1]
+        url = urls[-1]
 
-    return rendition
+    return {"url": url,
+            "width": rendition.width,
+            "height": rendition.height}
 
 
 # Shallow resolvers are for streamfields inside streamfields.

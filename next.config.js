@@ -2,8 +2,9 @@
 
 const cspHeader = `
     default-src 'self';
+    connect-src 'https://personalwebsitewagtailprod.onrender.com';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' 'https://fonts.googleapis.com/';
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';

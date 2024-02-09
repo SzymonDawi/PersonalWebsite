@@ -7,11 +7,11 @@ const cspHeader = `
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://wagtail-media-szymon.s3.ap-southeast-2.amazonaws.com;
     font-src 'self' https://fonts.gstatic.com;
-    frame-src 'self' https://www.figma.com/;
+    frame-src 'self' https://www.figma.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none';
+    frame-ancestors 'none' https://www.figma.com;
     block-all-mixed-content;
     upgrade-insecure-requests;
 `

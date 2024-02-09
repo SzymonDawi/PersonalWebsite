@@ -11,7 +11,7 @@ const cspHeader = `
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none' https://www.figma.com;
+    frame-ancestors 'self' https://www.figma.com;
     block-all-mixed-content;
     upgrade-insecure-requests;
 `

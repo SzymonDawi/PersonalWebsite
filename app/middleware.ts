@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none';
+    frame-ancestors 'https://www.figma.com/';
     block-all-mixed-content;
     upgrade-insecure-requests;
     

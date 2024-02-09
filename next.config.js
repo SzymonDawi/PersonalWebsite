@@ -2,7 +2,7 @@
 
 const cspHeader = `
     default-src 'self';
-    connect-src https://personalwebsitewagtailprod.onrender.com https://api.github.com;
+    connect-src 'self' https://personalwebsitewagtailprod.onrender.com https://api.github.com;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://wagtail-media-szymon.s3.ap-southeast-2.amazonaws.com;

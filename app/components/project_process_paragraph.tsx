@@ -20,7 +20,7 @@ const ProjectProcessParagraph = (props: Props) => {
             <Row>
                 <h3 style={{textAlign: "left", marginBottom: "-10px"}}>{props.title}</h3>
             </Row>
-            <Row gutter={[100,0]} align="middle">
+            <Row gutter={[100,0]} align="top">
                 <Col sm={{span: 24}} md={{span: col_size}}>
                     <p className="P-Lato">{props.paragraph}</p>
                 </Col>

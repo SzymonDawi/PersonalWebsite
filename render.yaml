@@ -32,7 +32,7 @@ services:
     runtime: node
     buildCommand: npm install; npm run build
     startCommand: npm run start
-    plan: free
+    plan: starter
     region: Singapore
     envVars:
       - fromGroup: PersonalWebsite

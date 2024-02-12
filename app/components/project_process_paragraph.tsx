@@ -1,5 +1,7 @@
 'use client';
 
+import parse from 'html-react-parser';
+
 import {Col, Row} from 'antd';
 import { Image } from '../types/generated';
 
@@ -22,7 +24,7 @@ const ProjectProcessParagraph = (props: Props) => {
             </Row>
             <Row gutter={[100,0]} align="top">
                 <Col sm={{span: 24}} md={{span: col_size}}>
-                    <p className="P-Lato">{props.paragraph}</p>
+                    {parse(props.paragraph)}
                 </Col>
                 {props.image && <Col span={col_size}><img src={props.image.rendition.url} style={{width:"100%"}}></img></Col>}
             </Row>

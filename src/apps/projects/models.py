@@ -33,7 +33,7 @@ class GithubBlock(blocks.StructBlock):
 
 class ParagraphBlock(blocks.StructBlock):
     title = blocks.CharBlock(blank=True, required=False)
-    paragraph = blocks.TextBlock()
+    paragraph = blocks.RichTextBlock()
     image = image_blocks.ImageChooserBlock(blank=True, required=False)
 
 

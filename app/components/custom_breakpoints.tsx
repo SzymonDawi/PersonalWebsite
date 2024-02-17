@@ -3,9 +3,21 @@ import { useState, useEffect } from 'react';
 import { customBreakpoints } from '../constants';
 
 function getBreakPoint() {
-  const { innerWidth: width, innerHeight: height } = window;
+
   let xs, sm, md, lg, xl, xxl;
 
+  if(typeof window == 'undefined') {
+    return {
+      xs: false,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      xxl: false
+    };
+  }
+  
+  const { innerWidth: width, innerHeight: height } = window;
 
   if (width > customBreakpoints["xs"]) {
     xs = true;

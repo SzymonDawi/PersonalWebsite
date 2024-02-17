@@ -1,9 +1,8 @@
 'use client';
 
-import {Col, Row, Grid} from 'antd';
+import {Col, Row } from 'antd';
 import Bullets from './bullets';
-
-const { useBreakpoint } = Grid;
+import useCustomBreakPoints from './custom_breakpoints';
 
 interface Props {
     title: string;
@@ -14,7 +13,7 @@ interface Props {
 }
 
 const ProjectHero = (props: Props) => {
-    const { lg } = useBreakpoint();
+    const { lg } = useCustomBreakPoints();
 
     // col width: half-width 45vw full-width 30vw
     const col_width = lg ? "30vw" : "45vw";

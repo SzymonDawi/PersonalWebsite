@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import {Col, Row, Button} from 'antd';
+import {Col, Row } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 
 interface Props {

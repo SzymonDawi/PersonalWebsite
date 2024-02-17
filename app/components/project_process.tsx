@@ -1,17 +1,17 @@
 'use client';
 
-import {Col, Row, Grid} from 'antd';
+import {Col, Row } from 'antd';
 import { ProcessBlockItem } from '../types/generated';
 import ProjectProcessParagraph from './project_process_paragraph';
+import useCustomBreakPoints from './custom_breakpoints';
 
-const { useBreakpoint } = Grid;
 
 interface Props {
     items: ProcessBlockItem[];
 }
 
 const ProjectProcess = (props: Props) => {
-    const { xl } = useBreakpoint();
+    const { xl } = useCustomBreakPoints();
 
     // col width: half-width 90vw full-width 50vw
     const col_width = xl ? "50vw" : "90vw";

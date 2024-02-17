@@ -6,7 +6,6 @@ from src.apps.art.models import ArtPage
 from src.apps.common import models as common_models
 from src.apps.home.models import HomePage
 from src.apps.projects.models import ProjectPage
-
 from src.settings import base as setings
 
 query = ariadne.QueryType()
@@ -188,14 +187,12 @@ def resolve_image_rendition(obj: common_models.CustomImage, *_, **kwargs):
     rendition = obj.get_rendition(filters)
     url = rendition.url
     seperator = "http"
-    #Hacky fix for image url issue
+    # Hacky fix for image url issue
     if setings.RENDER:
         urls = rendition.url.split(seperator)
         url = f"{seperator}{urls[-1]}"
 
-    return {"url": url,
-            "width": rendition.width,
-            "height": rendition.height}
+    return {"url": url, "width": rendition.width, "height": rendition.height}
 
 
 # Shallow resolvers are for streamfields inside streamfields.

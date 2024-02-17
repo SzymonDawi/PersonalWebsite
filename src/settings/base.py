@@ -16,7 +16,7 @@ import os
 import dj_database_url
 import environ
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 ALLOWED_HOSTS = []
 
@@ -128,13 +128,14 @@ WSGI_APPLICATION = "src.wsgi.application"
 
 
 if not DEBUG:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        }}
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "db.sqlite3",
+        }
+    }
 
 
 # Password validation
@@ -191,7 +192,7 @@ MEDIA_URL = "/media/"
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
     # MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
@@ -209,7 +210,7 @@ if not DEBUG:
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"
-WAGTAILMEDIA_SERVE_METHOD = 'redirect'
+WAGTAILMEDIA_SERVE_METHOD = "redirect"
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html

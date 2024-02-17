@@ -1,9 +1,9 @@
 'use client';
 
-import { Card, Grid } from 'antd';
+import { Card } from 'antd';
+import useCustomBreakPoints from './custom_breakpoints';
 
 const { Meta } = Card;
-const { useBreakpoint } = Grid;
 
 interface Props {
     title: string;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Pillar = (props: Props) => {
-    const { sm } = useBreakpoint();
+    const { sm } = useCustomBreakPoints();
     const topPadding = sm ? "40vh" : "0vh";
 
     return(

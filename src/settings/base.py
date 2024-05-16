@@ -193,14 +193,6 @@ MEDIA_URL = "/media/"
 WAGTAIL_SITE_NAME = "personal_website"
 WAGTAILMEDIA_SERVE_METHOD = "redirect"
 
-# Search
-# https://docs.wagtail.org/en/stable/topics/search/backends.html
-WAGTAILSEARCH_BACKENDS = {
-    "default": {
-        "BACKEND": "wagtail.search.backends.database",
-    }
-}
-
 
 WAGTAIL_HEADLESS_PREVIEW = {
     "CLIENT_URLS": {

@@ -16,7 +16,8 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
     },
-    "staticfiles": 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"}
 }
 
 

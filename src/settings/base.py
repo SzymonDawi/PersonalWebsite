@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "src.apps.art",
     "src.apps.about_me",
     "src.apps.search",
+    "storages",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -84,7 +85,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
-    "storages",
 ]
 
 MIDDLEWARE = [

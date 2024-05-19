@@ -12,6 +12,7 @@ AWS_REGION = env("AWS_REGION")
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com"
 
 MEDIA_URL = f'{AWS_S3_URL_PROTOCOL}://{AWS_S3_CUSTOM_DOMAIN}'
+MEDIA_HOST=f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 # Tell Django to copy statics to the `staticfiles` directory
 # in your application directory on Render.

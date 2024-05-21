@@ -199,7 +199,7 @@ if not DEBUG:
         },
     }
 
-    MEDIA_ROOT = 'media'
+    MEDIA_ROOT = '/'
     MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     MEDIA_URL = f'https://{MEDIA_HOST}/'
 

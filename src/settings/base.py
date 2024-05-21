@@ -201,7 +201,7 @@ if not DEBUG:
 
     MEDIA_ROOT = 'media'
     MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    MEDIA_URL = f'https://{MEDIA_HOST}/media/'
+    MEDIA_URL = f'https://{MEDIA_HOST}/'
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "src.apps.art",
     "src.apps.about_me",
     "src.apps.search",
+    "src",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -195,7 +196,7 @@ if not DEBUG:
 
     STORAGES = {
         "default": {
-            "BACKEND": "src.custom_storages.PublicMediaStorage",
+            "BACKEND": "src.storages.PublicMediaStorage",
         },
         "staticfiles": {
             "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",

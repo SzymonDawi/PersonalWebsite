@@ -181,6 +181,8 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 if not DEBUG:
     AWS_S3_URL_PROTOCOL = 'https'
@@ -206,9 +208,7 @@ if not DEBUG:
     MEDIA_ROOT = 'media'
     MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     MEDIA_URL = f'https://{MEDIA_HOST}/'
-else:
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-    MEDIA_URL = "/media/"
+    
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

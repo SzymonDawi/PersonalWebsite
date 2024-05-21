@@ -42,7 +42,9 @@ SECRET_KEY = env("SECRET_KEY")
 RENDER_EXTERNAL_HOSTNAME = env("RENDER_EXTERNAL_HOSTNAME")
 RENDER = env("RENDER")
 DEBUG = not RENDER
-
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -185,17 +187,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 if not DEBUG:
-    AWS_S3_URL_PROTOCOL = 'https'
-    AWS_S3_USE_SSL = True
-    AWS_S3_VERIFY = True
-    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
-    AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
     STORAGES = {
         "default": {
             "BACKEND": "src.storages.PublicMediaStorage",
@@ -207,8 +201,7 @@ if not DEBUG:
 
     MEDIA_ROOT = 'media'
     MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    MEDIA_URL = f'https://{MEDIA_HOST}/'
-    
+    MEDIA_URL = f'https://{MEDIA_HOST}/media/'
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

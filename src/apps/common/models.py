@@ -139,4 +139,4 @@ class CustomRendition(AbstractRendition):
 
     @property
     def url(self):
-        return f"{base_settings.BACKEND_URL}{self.file.url}"
+        return f"{self.file.url}"

@@ -15,7 +15,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STORAGES = {
     "default": {
-        "BACKEND": "src.storages.PublicMediaStorage",
+        "BACKEND": "src.custom_storages.PublicMediaStorage",
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
@@ -23,8 +23,8 @@ STORAGES = {
 }
 
 MEDIA_ROOT = 'media'
-MEDIA_HOST=f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-MEDIA_URL=f'https://{MEDIA_HOST}/'
+MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+MEDIA_URL = f'https://{MEDIA_HOST}/'
 
 
 try:

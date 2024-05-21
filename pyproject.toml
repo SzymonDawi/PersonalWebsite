@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-wagtail = "6.1"
+Django = "^4.2"
+wagtail = "^5.2"
 ariadne = "^0.21"
 ariadne-django = "^0.3.0"
 ruff = "^0.1.7"
@@ -20,7 +21,6 @@ gunicorn = "^21.2.0"
 whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 django-storages = "^1.14.2"
 boto3 = "^1.34.35"
-django = "^5"
 
 [tool.ruff.lint]
 select = [

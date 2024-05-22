@@ -5,7 +5,7 @@ from src.settings import base
 
 
 class PublicMediaStorage(S3Boto3Storage):
-    location = ''
+    location = 'media'
     default_acl = 'public-read'
     file_overwrite = False
     access_key = base.AWS_ACCESS_KEY_ID

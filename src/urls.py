@@ -17,7 +17,6 @@ urlpatterns = [
     path("api/auth/", include("rest_framework.urls")),
 ]
 
-
 if settings.DEBUG:
     from django.conf.urls.static import static
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns

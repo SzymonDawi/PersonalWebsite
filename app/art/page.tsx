@@ -16,7 +16,7 @@ export default function Art() {
     const [{ data, fetching, error }] = useArtQuery();
 
     return (
-        <Row className="main" style={{height: "100vh"}}>
+        <Row className="main" style={{height: "100%"}}>
             <Col span={24}>
                 <Title componentCat="artComponent" title="ART" backUrl="/" />
 

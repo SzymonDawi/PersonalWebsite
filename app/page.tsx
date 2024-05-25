@@ -30,7 +30,7 @@ export default function Home() {
             <Col span={button_col_with} className={home_page_styles.projectPillar} style={{height: nav_button_height}} >
               <Pillar 
                   className={home_page_styles.projectPillar}                        
-                  title="Projects"
+                  title="PROJECTS"
                   link="/projects"
                   nav_button_height={nav_button_height}
                   >
@@ -40,7 +40,7 @@ export default function Home() {
             <Col span={button_col_with} className={home_page_styles.artPillar} style={{height: nav_button_height}} >
               <Pillar     
                   className={home_page_styles.artPillar}   
-                  title="Art"
+                  title="ART"
                   link="/art"
                   nav_button_height={nav_button_height}
                   >
@@ -50,7 +50,7 @@ export default function Home() {
             <Col span={button_col_with} className={home_page_styles.aboutMePillar} style={{height: nav_button_height}}>
               <Pillar                         
                 className={home_page_styles.aboutMePillar}
-                title="About Me"
+                title="ABOUT ME"
                 link="/about-me"
                 nav_button_height={nav_button_height}
                 >

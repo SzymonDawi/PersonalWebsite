@@ -6,6 +6,7 @@ import styles from "../styles/greeting.module.css";
 import {  IconType, useHomeQuery } from '../types/generated';
 import Loader from '../components/loader';
 import { Sideboard } from "../constants";
+import GraphqlError from './graphql_error';
 
 function getLinkIconComponent(iconType: IconType) {
     if (iconType === IconType.Github){
@@ -20,7 +21,7 @@ function getLinkIconComponent(iconType: IconType) {
 const Greeting = () => {
     const [{ data, fetching, error }] = useHomeQuery();
   
-    if (error) return <p>Oh no... {error.message}</p>;
+    if (error) return(<GraphqlError/>);
 
     return(
         <Row>

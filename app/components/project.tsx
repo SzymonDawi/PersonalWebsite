@@ -6,6 +6,7 @@ import { useProjectQuery } from '../types/generated';
 import Loader from "../components/loader";
 import ProjectHero from './project_hero';
 import ProjectBody from './project_body';
+import GraphqlError from '../components/graphql_error';
 
 interface Props {
     slug: string;
@@ -13,8 +14,8 @@ interface Props {
 
 const Project = (props: Props) => {
     const [{ data, fetching, error }] = useProjectQuery({variables: {Slug: props.slug}});
-
-    if (error) return <p>Oh no... {error.message}</p>;
+    
+    if (error) return <GraphqlError />;
     if (fetching) return <Row className="main" style={{height:"100vh"}}><Loader/></Row>;
     const project = data?.project
 

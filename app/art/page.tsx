@@ -5,6 +5,7 @@ import {Col, Row, Grid} from 'antd';
 import Title from "../components/title";
 import Loader from "../components/loader";
 import { useArtQuery } from '../types/generated';
+import GraphqlError from '../components/graphql_error';
 
 const { useBreakpoint } = Grid;
 
@@ -14,16 +15,15 @@ export default function Art() {
 
     const [{ data, fetching, error }] = useArtQuery();
 
-    if (error) return <p>Oh no... {error.message}</p>;
-
     return (
-        <Row className="main" >
+        <Row className="main" style={{height: "100vh"}}>
             <Col span={24}>
                 <Title componentCat="artComponent" title="ART" backUrl="/" />
 
                 <Row justify="center" style={{paddingBottom:"50px"}}>
                     <Col style={{width: col_width}}>
                         { fetching && <Loader/>}
+                        { error && <GraphqlError /> }
                         <Row gutter={[40, 40]} style={{paddingTop: "40px"}}>
                             {data?.art.map(art => {
                                 return(

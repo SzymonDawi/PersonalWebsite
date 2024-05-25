@@ -33,7 +33,7 @@ const Greeting = () => {
                     { fetching && <Loader/>}
                     <Avatar style={{height: "auto", width: "40%"}} src={data?.home.image.rendition.url}></Avatar>
                     <p className={`${Sideboard.className} title`} style={{marginTop: "-20px"}}>{data?.home.greeting}</p>  
-                    <Row justify="center" style={{marginTop: "-40px"}}>
+                    <Row justify="center" style={{marginTop: "-30px"}}>
                         <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>
                             <p className="P-Lato" >{data?.home.description}</p>
                         </Col>

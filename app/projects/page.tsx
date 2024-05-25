@@ -7,17 +7,16 @@ import Link from 'next/link';
 import Title from "../components/title";
 import Loader from "../components/loader";
 import { useProjectsQuery } from '../types/generated';
+import GraphqlError from '../components/graphql_error';
 
 export default function Home() {
     const [{ data, fetching, error }] = useProjectsQuery();
-
-    if (error) return <p>Oh no... {error.message}</p>;
 
     return (
         <Row className="main">
             <Col span={24}>
                 <Title componentCat="projectComponent" title="PROJECTS" backUrl="/" />
-
+                { error && <GraphqlError /> }
                 <Row justify="center" style={{paddingBottom:"50px", height:"100vh"}}>
                     <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
                         { fetching && <Loader/>}

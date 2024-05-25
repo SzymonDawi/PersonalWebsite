@@ -5,6 +5,7 @@ import {Col, Row, Grid} from 'antd';
 import Title from "../components/title";
 import Loader from "../components/loader";
 import { useAboutMeQuery } from '../types/generated';
+import GraphqlError from '../components/graphql_error';
 
 const { useBreakpoint } = Grid;
 
@@ -15,24 +16,26 @@ export default function AboutMe() {
     const experience_col_offest = xl ? 6 : 0;
 
     const [{ data, fetching, error }] = useAboutMeQuery();
-
-    if (error) return <p>Oh no... {error.message}</p>;
+    let resume_button
+    if (!error) {
+      resume_button =  <Row justify="center" style={{paddingTop:"50px"}}>
+            <a
+            className="about-me-button"
+            href={data?.about_me.resume_download_url} 
+            target="_blank"
+            >Download Resume</a>
+        </Row>
+    }
 
     return ( 
         <Row className="main" style={{height: "100vh"}}>
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/" />
-
-                <Row justify="center" style={{paddingTop:"50px"}}>
-                    <a
-                    className="about-me-button"
-                    href={data?.about_me.resume_download_url} 
-                    target="_blank"
-                    >Download Resume</a>
-                </Row>
+                { error && <GraphqlError /> }
+                { fetching && <Loader/> }
+                { resume_button }
                 <Row justify="center">
                     <Col style={{width: col_width}}>
-                        {fetching && <Loader/>}
                         <Row>
                             <Col span={experience_col_span} offset={experience_col_offest}>
                                 {data?.about_me.jobs.map((job, index )=> {

@@ -56,7 +56,8 @@
 .sub-title{
   color: var(--text-colour);
   font-size: 30px;
-  letter-spacing: 3px;
+  font-family: 'Lato';
+  font-weight: bold;
   margin: 0;
 }
 

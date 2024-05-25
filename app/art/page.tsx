@@ -1,6 +1,7 @@
 'use client';
 
 import {Col, Row, Grid} from 'antd';
+import Image from 'next/image';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
@@ -29,7 +30,7 @@ export default function Art() {
                                 return(
                                     <Col key={art.slug} lg={{span:8}} md={{span: 12}} sm={{span: 24}} xs={{span: 24}}>
                                         <div>
-                                            <img src={art.image.rendition.url} style={{width: "100%"}}></img>
+                                            <Image alt="test" src={art.image.rendition.url} style={{width: "100%"}}></Image>
                                             <p className="P-Lato" style={{marginTop: "-3px"}}>{art.title}</p>
                                         </div>
                                     </Col>

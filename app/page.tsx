@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link'
-
 import {Col, Row, Grid} from 'antd';
 
 import Pillar from "./components/pillar";

@@ -3,6 +3,7 @@
 import {Col, Row} from 'antd';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
@@ -27,7 +28,7 @@ export default function Home() {
                             return(
                                 <Row key={project.slug}  justify="center" style={{cursor: "pointer", height: "540px", paddingTop:"30px"}}>
                                     <Link href={project_url}>
-                                        <img src={project.list_view_image.rendition.url}></img>
+                                        <Image alt="test" src={project.list_view_image.rendition.url}></Image>
                                     </Link>
                                 </Row>
                             )

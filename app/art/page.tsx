@@ -19,7 +19,7 @@ export default function Art() {
     return (
         <Row className="main" >
             <Col span={24}>
-                <Title componentCat="artComponent" title="Art" backUrl="/" />
+                <Title componentCat="artComponent" title="ART" backUrl="/" />
 
                 <Row justify="center" style={{paddingBottom:"50px"}}>
                     <Col style={{width: col_width}}>

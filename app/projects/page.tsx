@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <Row className="main">
             <Col span={24}>
-                <Title componentCat="projectComponent" title="Projects" backUrl="/" />
+                <Title componentCat="projectComponent" title="PROJECTS" backUrl="/" />
 
                 <Row justify="center" style={{paddingBottom:"50px", height:"100vh"}}>
                     <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>

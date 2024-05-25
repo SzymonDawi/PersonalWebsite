@@ -21,7 +21,7 @@ export default function AboutMe() {
     return ( 
         <Row className="main" style={{height: "100vh"}}>
             <Col span={24}>
-                <Title componentCat="aboutMeComponent" title="About Me" backUrl="/" />
+                <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/" />
 
                 <Row justify="center" style={{paddingTop:"50px"}}>
                     <a

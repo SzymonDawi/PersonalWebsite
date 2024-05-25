@@ -50,7 +50,7 @@ export default function Home() {
             <Col span={button_col_with} className={home_page_styles.aboutMePillar} style={{height: nav_button_height}}>
               <Pillar                         
                 className={home_page_styles.aboutMePillar}
-                title="About Me"
+                title="About Me"
                 link="/about-me"
                 nav_button_height={nav_button_height}
                 >

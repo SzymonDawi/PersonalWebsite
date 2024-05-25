@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Card } from 'antd';
-import useCustomBreakPoints from './custom_breakpoints';
+import { Sideboard } from "../constants";
 
 const { Meta } = Card;
 
@@ -22,7 +22,7 @@ const Pillar = (props: Props) => {
             hoverable
             style={{paddingTop: "40vh", height: "100vh"}}
             >
-                <Meta title={<span className="title">{props.title} </span> }/>
+                <Meta title={<span className={`${Sideboard.className} title`}>{props.title} </span> }/>
             </Card>
         </Link>
     )

@@ -28,31 +28,33 @@ export default function Home() {
         <Col span={nav_col_width} >  
           <Row align={"middle"} className={nav_classname}>
             <Col span={button_col_with} className={home_page_styles.projectPillar} style={{height: nav_button_height}} >
-              <Link href="/projects" style={{height: nav_button_height}}>
-                <Pillar 
-                    className={home_page_styles.projectPillar}                        
-                    title="Projects"
-                    >
-                </Pillar>    
-              </Link>
+              <Pillar 
+                  className={home_page_styles.projectPillar}                        
+                  title="Projects"
+                  link="/projects"
+                  nav_button_height={nav_button_height}
+                  >
+              </Pillar>    
             </Col>
 
             <Col span={button_col_with} className={home_page_styles.artPillar} style={{height: nav_button_height}} >
-              <Link href="/art" style={{height: nav_button_height}}>
-                <Pillar     
-                    className={home_page_styles.artPillar}   
-                    title="Art">
-                </Pillar>    
-              </Link>
+              <Pillar     
+                  className={home_page_styles.artPillar}   
+                  title="Art"
+                  link="/art"
+                  nav_button_height={nav_button_height}
+                  >
+              </Pillar>    
             </Col>
 
             <Col span={button_col_with} className={home_page_styles.aboutMePillar} style={{height: nav_button_height}}>
-              <Link href="/about-me">
-                <Pillar                         
-                    className={home_page_styles.aboutMePillar}
-                    title="About Me">
-                </Pillar>
-              </Link>
+              <Pillar                         
+                className={home_page_styles.aboutMePillar}
+                title="About Me"
+                link="/about-me"
+                nav_button_height={nav_button_height}
+                >
+              </Pillar>
             </Col>
           </Row>
         </Col>

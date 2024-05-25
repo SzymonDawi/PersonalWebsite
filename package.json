@@ -9,7 +9,7 @@
     "lint": "npm run lint:py",
     "lint:ts": "next lint",
     "lint:py": "poetry run ruff check src/",
-    "fix": "npm run fix:py",
+    "fix": "npm run fix:py && npm run lint:ts",
     "fix:py": "poetry run ruff format src/ && poetry run ruff check src/ --fix",
     "generate:types": "graphql-codegen"
   },

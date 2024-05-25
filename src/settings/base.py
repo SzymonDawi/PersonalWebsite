@@ -81,7 +81,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "corsheaders"
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -199,9 +199,9 @@ if not DEBUG:
         },
     }
 
-    MEDIA_ROOT = '/'
-    MEDIA_HOST = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    MEDIA_URL = f'https://{MEDIA_HOST}/'
+    MEDIA_ROOT = "/"
+    MEDIA_HOST = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+    MEDIA_URL = f"https://{MEDIA_HOST}/"
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "personal_website"

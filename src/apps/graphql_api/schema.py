@@ -6,7 +6,6 @@ from src.apps.art.models import ArtPage
 from src.apps.common import models as common_models
 from src.apps.home.models import HomePage
 from src.apps.projects.models import ProjectPage
-from src.settings import base as setings
 
 query = ariadne.QueryType()
 

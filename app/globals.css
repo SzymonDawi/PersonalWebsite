@@ -48,16 +48,16 @@
 
 .title{
   color: var(--text-colour);
-  font-family:'Lobster';
-  font-size: 52px;
-  margin: 0
+  font-size: 60px;
+  letter-spacing: 3px;
+  margin: 0;
 }
 
 .sub-title{
   color: var(--text-colour);
-  font-family:'Lobster';
   font-size: 30px;
-  margin: 0
+  letter-spacing: 3px;
+  margin: 0;
 }
 
 .P-Lato{

@@ -5,6 +5,7 @@ import {GithubOutlined, LinkedinOutlined, InstagramOutlined} from '@ant-design/i
 import styles from "../styles/greeting.module.css";
 import {  IconType, useHomeQuery } from '../types/generated';
 import Loader from '../components/loader';
+import { Sideboard } from "../constants";
 
 function getLinkIconComponent(iconType: IconType) {
     if (iconType === IconType.Github){
@@ -31,8 +32,8 @@ const Greeting = () => {
                     hoverable = {false}>
                     { fetching && <Loader/>}
                     <Avatar style={{height: "auto", width: "40%"}} src={data?.home.image.rendition.url}></Avatar>
-                    <p className={styles.greetingTitle} style={{marginTop: "-5px"}}>{data?.home.greeting}</p>  
-                    <Row justify="center" style={{marginTop: "-70px"}}>
+                    <p className={`${Sideboard.className} title`} style={{marginTop: "-20px"}}>{data?.home.greeting}</p>  
+                    <Row justify="center" style={{marginTop: "-30px"}}>
                         <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>
                             <p className="P-Lato" >{data?.home.description}</p>
                         </Col>

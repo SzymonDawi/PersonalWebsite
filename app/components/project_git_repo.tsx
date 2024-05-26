@@ -61,21 +61,13 @@ const ProjectGitRepo = (props: Props) => {
     function getChildren(input: any, pos: string, parent_path: string): any{
         let children = [];
         let current_pos = 0;
-    
         for (const [key, value] of Object.entries(input)) {
-            if (Object.keys(input).length === 0){
-                children.push({"title": key, 
+            let children_list = getChildren(value, pos + "-" + current_pos, parent_path + "/" + key);
+            children.push({"title": key, 
+                "children": children_list,
                 "key": pos + "-" + current_pos, 
-                "isDir": false,
-                "path": parent_path + "/" + key 
-            });
-            } else {
-                children.push({"title": key, 
-                   "children": getChildren(value, pos + "-" + current_pos, parent_path + "/" + key),
-                   "key": pos + "-" + current_pos, 
-                   "isDir": true, 
-                   "path": parent_path + "/" + key});
-            }
+                "isDir": children_list.length === 0 ?  false : true, 
+                "path": parent_path + "/" + key});
             current_pos += 1;
         }
         return children;
@@ -123,7 +115,6 @@ const ProjectGitRepo = (props: Props) => {
             }else if(info.node.title.search(".py") != -1){
                 type = "py"
             }
-
             let res = fetchFile(props.owner, props.repo, info.node.path, type);
             res.then(value => {
                 setFile(value)

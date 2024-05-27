@@ -64,7 +64,6 @@ const ProjectGitRepo = (props: Props) => {
         let current_pos = 0;
         let include = false;
 
-        console.log(parent_path);
         for (let path of props.included_dir){
             if (parent_path.includes(path) || parent_path === ""){
                 include = true;

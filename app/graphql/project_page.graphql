@@ -2,7 +2,6 @@ query Project($Slug: String!) {
     project(slug: $Slug) {
         list_view_title
         year
-
         hero_title
         hero_description
         hero_bullet_title
@@ -21,6 +20,7 @@ query Project($Slug: String!) {
                 title
                 owner
                 repo
+                dirs_to_include
             }
             ...on ProcessBlock {
                 items{

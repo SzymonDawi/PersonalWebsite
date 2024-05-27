@@ -29,6 +29,7 @@ class GithubBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     repo = blocks.CharBlock()
     owner = blocks.CharBlock()
+    dirs_to_include = blocks.ListBlock(blocks.CharBlock())
 
 
 class ParagraphBlock(blocks.StructBlock):

@@ -64,6 +64,7 @@ type GithubBlock {
     title: String!
     repo: String!
     owner: String!
+    dirs_to_include: [String!]!
 }
 
 type ProcessBlock {

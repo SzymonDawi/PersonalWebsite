@@ -45,6 +45,7 @@ export type FigmaBlock = {
 
 export type GithubBlock = {
   __typename?: 'GithubBlock';
+  dirs_to_include: Array<Scalars['String']['output']>;
   owner: Scalars['String']['output'];
   repo: Scalars['String']['output'];
   title: Scalars['String']['output'];
@@ -179,7 +180,7 @@ export type ProjectQueryVariables = Exact<{
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Project', list_view_title: string, year: string, hero_title: string, hero_description: string, hero_bullet_title: string, hero_bullets: Array<string>, hero_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, body: Array<{ __typename: 'FigmaBlock', url: string } | { __typename: 'GithubBlock', title: string, owner: string, repo: string } | { __typename: 'ProcessBlock', items?: Array<{ __typename: 'ProcessImage', process_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | { __typename: 'ProcessParagraph', title?: string | null, paragraph: string, image?: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } | null } | { __typename: 'ProcessTitle', process_title: string }> | null }> } };
+export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Project', list_view_title: string, year: string, hero_title: string, hero_description: string, hero_bullet_title: string, hero_bullets: Array<string>, hero_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, body: Array<{ __typename: 'FigmaBlock', url: string } | { __typename: 'GithubBlock', title: string, owner: string, repo: string, dirs_to_include: Array<string> } | { __typename: 'ProcessBlock', items?: Array<{ __typename: 'ProcessImage', process_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | { __typename: 'ProcessParagraph', title?: string | null, paragraph: string, image?: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } | null } | { __typename: 'ProcessTitle', process_title: string }> | null }> } };
 
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -273,6 +274,7 @@ export const ProjectDocument = gql`
         title
         owner
         repo
+        dirs_to_include
       }
       ... on ProcessBlock {
         items {

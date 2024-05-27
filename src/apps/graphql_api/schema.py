@@ -144,6 +144,11 @@ def resolve_repo(obj, *_):
     return obj["value"]["repo"]
 
 
+@github_block.field("dirs_to_include")
+def resolve_dirs_to_include(obj, *_):
+    return [item["value"] for item in obj["value"]["dirs_to_include"]]
+
+
 @github_block.field("owner")
 def resolve_owner(obj, *_):
     return obj["value"]["owner"]

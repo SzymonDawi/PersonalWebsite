@@ -17,6 +17,7 @@ const gitHub = new Octokit();
 interface Props {
     owner: string;
     repo: string;
+    included_dir: string[];
 }
 
 
@@ -61,14 +62,32 @@ const ProjectGitRepo = (props: Props) => {
     function getChildren(input: any, pos: string, parent_path: string): any{
         let children = [];
         let current_pos = 0;
+        let include = false;
+
+        console.log(parent_path);
+        for (let path of props.included_dir){
+            if (parent_path.includes(path) || parent_path === ""){
+                include = true;
+                break;
+            } 
+        }
+
+        if (!include){
+            return ["HIDE"];
+        }
+
         for (const [key, value] of Object.entries(input)) {
             let children_list = getChildren(value, pos + "-" + current_pos, parent_path + "/" + key);
-            children.push({"title": key, 
-                "children": children_list,
-                "key": pos + "-" + current_pos, 
-                "isDir": children_list.length === 0 ?  false : true, 
-                "path": parent_path + "/" + key});
-            current_pos += 1;
+            if (children_list[0] === "HIDE"){
+                continue;
+            }else{
+                children.push({"title": key, 
+                    "children": children_list,
+                    "key": pos + "-" + current_pos, 
+                    "isDir": children_list.length === 0 ?  false : true, 
+                    "path": parent_path + "/" + key});
+                current_pos += 1;
+            }
         }
         return children;
     }

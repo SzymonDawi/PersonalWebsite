@@ -7,6 +7,7 @@ import {  IconType, useHomeQuery } from '../types/generated';
 import Loader from '../components/loader';
 import { Sideboard } from "../constants";
 import GraphqlError from './graphql_error';
+import useCustomBreakPoints from './custom_breakpoints';
 
 function getLinkIconComponent(iconType: IconType) {
     if (iconType === IconType.Github){
@@ -19,8 +20,10 @@ function getLinkIconComponent(iconType: IconType) {
 }
 
 const Greeting = () => {
+    const { md } = useCustomBreakPoints();
+    const greeting_height = md ? "100vh": "80vh";
     const [{ data, fetching, error }] = useHomeQuery();
-  
+    
     if (error) return(<GraphqlError/>);
 
     return(
@@ -28,14 +31,14 @@ const Greeting = () => {
             <Col span={24}>
                 <Card 
                     className = {styles.greeting}
-                    style={{height: "100vh", paddingTop: "20vh"}}
+                    style={{height: greeting_height, paddingTop: "20vh"}}
                     bordered = {false}
                     hoverable = {false}>
                     { fetching && <Loader/>}
                     <Avatar style={{height: "auto", width: "40%"}} src={data?.home.image.rendition.url}></Avatar>
                     <p className={`${Sideboard.className} title`} style={{marginTop: "-0.5vw"}}>{data?.home.greeting}</p>  
                     <Row justify="center" style={{marginTop: "-30px"}}>
-                        <Col lg={{span: 18}} md={{span: 12}} xs={{span: 0}}>
+                        <Col lg={{span: 18}} md={{span: 12}}>
                             <p className="P-Lato" >{data?.home.description}</p>
                         </Col>
                     </Row>

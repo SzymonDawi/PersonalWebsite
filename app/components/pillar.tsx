@@ -10,17 +10,17 @@ interface Props {
     title: string;
     className: string;
     link: string;
-    nav_button_height: string;
+    padding: string;
 }
 
 const Pillar = (props: Props) => {
     return(
-        <Link href={props.link} style={{height: props.nav_button_height}}>
+        <Link href={props.link} >
             <Card 
             className={props.className}
             bordered = {false}
             hoverable
-            style={{paddingTop: "40vh", height: "100vh"}}
+            style={{paddingTop: props.padding, height: "100%"}}
             >
                 <Meta title={<span className={`${Sideboard.className} title`}>{props.title} </span> }/>
             </Card>

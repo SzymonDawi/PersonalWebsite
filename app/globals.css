@@ -68,6 +68,14 @@
   text-align: left;
 }
 
+.small-link{
+  color: var(--text-colour);
+  font-family: 'Lato';
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+
 .nav-back-button{
   color: #000000;
 }

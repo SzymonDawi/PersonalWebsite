@@ -25,10 +25,12 @@ const ProjectGitRepo = (props: Props) => {
     const [treeData, setTree] = useState([]);    
     const [fetchingRepo, setFetchingRepo] = useState(true);   
     const [errorRepo, setErrorRepo] = useState(false);   
+    const [githubLink, setGithubLink] = useState("");
 
     const [file, setFile] = useState("");    
     const [fetchingFile, setFetchingFile] = useState(true);   
     const [errorFile, setErrorFile] = useState(false);   
+    const GITHUB_BASE_URL = "https://github.com/";
     
     async function fetchRepo(owner: string, repo: string) {
         var res = await gitHub.request('GET /repos/{owner}/{repo}/git/trees/c7d53362655a850e73f1dedbbc4ed92300081b35?recursive=true', {
@@ -93,6 +95,8 @@ const ProjectGitRepo = (props: Props) => {
 
     useEffect(() => {
         let repo_res = fetchRepo(props.owner, props.repo);
+        setGithubLink(GITHUB_BASE_URL + props.owner + "/" + props.repo);
+
         repo_res.catch(value => {
             setErrorRepo(true);
             console.log("error");
@@ -142,39 +146,44 @@ const ProjectGitRepo = (props: Props) => {
     }
 
     return(
-        <Row justify="center" style={{ backgroundColor: "#faf8fa", width: "100%"}}>
-            <Col className="Scroll-y" span={5} style={{borderRightStyle: "solid", borderColor: "#3E343C", backgroundColor: "#faf8fa", height:"60vh", paddingBottom: "100px"}}>
-                {fetchingRepo &&  <Skeleton  loading={true} />}
-                {!errorRepo && !fetchingRepo && <DirectoryTree onSelect={onSelect} style={{backgroundColor: "#faf8fa"}} multiple treeData={treeData}/>}
-            </Col>
-            <Col className="Text-left Scroll-y" span={19} style={{backgroundColor: "#faf8fa", height:"60vh", paddingLeft: "20px"}}>
-                {fetchingFile && <Loader/>}
-                {!fetchingFile && <ReactMarkdown
-                 components={{
-                    code(props) {
-                      const {children, className, node, ...rest} = props
-                      const match = /language-(\w+)/.exec(className || '')
+        <div>
+            <Row>
+                <a className="small-link" target="_blank" href={githubLink} style={{textDecoration: "underline"}}>Github repo</a>
+            </Row>
+            <Row justify="center" style={{ backgroundColor: "#faf8fa", width: "100%"}}>
+                <Col className="Scroll-y" span={5} style={{borderRightStyle: "solid", borderColor: "#3E343C", backgroundColor: "#faf8fa", height:"60vh", paddingBottom: "100px"}}>
+                    {fetchingRepo &&  <Skeleton  loading={true} />}
+                    {!errorRepo && !fetchingRepo && <DirectoryTree onSelect={onSelect} style={{backgroundColor: "#faf8fa"}} multiple treeData={treeData}/>}
+                </Col>
+                <Col className="Text-left Scroll-y" span={19} style={{backgroundColor: "#faf8fa", height:"60vh", paddingLeft: "20px"}}>
+                    {fetchingFile && <Loader/>}
+                    {!fetchingFile && <ReactMarkdown
+                    components={{
+                        code(props) {
+                        const {children, className, node, ...rest} = props
+                        const match = /language-(\w+)/.exec(className || '')
 
-                      return match ? (
-                        <SyntaxHighlighter
-                          {...rest}
-                          PreTag="div"
-                          language={match[1]}
-                          // eslint-disable-next-line
-                          // @ts-expect-error
-                          style={display_style}
-                        >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
-                      ) : (
-                        <code {...rest} className={className}>
-                          {children}
-                        </code>
-                      )
-                    }
-                  }}> 
-                  {file}
-                </ReactMarkdown>}
-            </Col>
-        </Row>
+                        return match ? (
+                            <SyntaxHighlighter
+                            {...rest}
+                            PreTag="div"
+                            language={match[1]}
+                            // eslint-disable-next-line
+                            // @ts-expect-error
+                            style={display_style}
+                            >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
+                        ) : (
+                            <code {...rest} className={className}>
+                            {children}
+                            </code>
+                        )
+                        }
+                    }}> 
+                    {file}
+                    </ReactMarkdown>}
+                </Col>
+            </Row>
+        </div>
     )
 }
 

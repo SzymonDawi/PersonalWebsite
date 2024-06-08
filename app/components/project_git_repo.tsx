@@ -33,7 +33,7 @@ const ProjectGitRepo = (props: Props) => {
     const GITHUB_BASE_URL = "https://github.com/";
     
     async function fetchRepo(owner: string, repo: string) {
-        var res = await gitHub.request('GET /repos/{owner}/{repo}/git/trees/c7d53362655a850e73f1dedbbc4ed92300081b35?recursive=true', {
+        var res = await gitHub.request('GET /repos/{owner}/{repo}/git/trees/main?recursive=true', {
             owner: owner,
             repo: repo,
             });
@@ -85,7 +85,7 @@ const ProjectGitRepo = (props: Props) => {
                 children.push({"title": key, 
                     "children": children_list,
                     "key": pos + "-" + current_pos, 
-                    "isDir": children_list.length === 0 ?  false : true, 
+                    "isLeaf": children_list.length == 0 ?  true : false, 
                     "path": parent_path + "/" + key});
                 current_pos += 1;
             }
@@ -124,7 +124,7 @@ const ProjectGitRepo = (props: Props) => {
 
     function onSelect(keys: any, info: any): any {
         setFetchingFile(true);
-        if (info.node.isDir){
+        if (!info.node.isLeaf){
 
         }else{
             var type = "md";

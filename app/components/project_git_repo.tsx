@@ -110,6 +110,7 @@ const ProjectGitRepo = (props: Props) => {
         });
         setFetchingRepo(false);
 
+        setFetchingFile(true);
         let file_res = fetchFile(props.owner, props.repo, "/README.md", "md");
         file_res.catch(value => {
             setErrorFile(true);
@@ -123,10 +124,9 @@ const ProjectGitRepo = (props: Props) => {
     }, [])
 
     function onSelect(keys: any, info: any): any {
-        setFetchingFile(true);
-        if (!info.node.isLeaf){
-
+        if (!info.node.isLeaf){ 
         }else{
+            setFetchingFile(true);
             var type = "md";
             if(info.node.title.search(".tsx") != -1 || info.node.title.search(".ts") != -1 ){
                 type = "ts";
@@ -139,9 +139,9 @@ const ProjectGitRepo = (props: Props) => {
             }
             let res = fetchFile(props.owner, props.repo, info.node.path, type);
             res.then(value => {
-                setFile(value)
+                setFile(value);
+                setFetchingFile(false);
             })
-            setFetchingFile(false);
         }
     }
 
@@ -178,9 +178,7 @@ const ProjectGitRepo = (props: Props) => {
                             </code>
                         )
                         }
-                    }}> 
-                    {file}
-                    </ReactMarkdown>}
+                    }}>{file}</ReactMarkdown>}
                 </Col>
             </Row>
         </div>

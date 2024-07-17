@@ -27,6 +27,7 @@ art = ariadne.ObjectType("Art")
 about_me = ariadne.ObjectType("AboutMe")
 job = ariadne.ObjectType("Job")
 role = ariadne.ObjectType("Role")
+external_projects = ariadne.ObjectType("ExternalProjects")
 
 
 @query.field("home")
@@ -70,6 +71,11 @@ def resolve_about_me_role_achievements(obj, *_):
         achievement.achievement
         for achievement in obj.aboutmepage_job_role_achievement.all()
     ]
+
+
+@role.field("projects")
+def resolve_about_me_role_projects(obj, *_):
+    return obj.aboutmepage_job_role_external_project.all()
 
 
 @home.field("links")

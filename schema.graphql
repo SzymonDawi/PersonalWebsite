@@ -38,6 +38,13 @@ type Role {
     job_title: String!
     work_period: String!
     achievements: [String!]!
+    projects: [ExternalProjects]
+}
+
+type ExternalProjects {
+    label: String!
+    image: Image!
+    link: String!
 }
 
 type Project {

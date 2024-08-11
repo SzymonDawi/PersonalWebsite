@@ -7,6 +7,7 @@
   --project-accent-colour: #FDBFD0;
   --art-accent-colour: #FDD77C;
   --about-me-accent-colour: #5ED3DA;
+  --about-me-accent-colour-light: #94E0E2;
   --text-colour: #3E343C;
 }
 
@@ -100,6 +101,7 @@
   font-family: 'Lato';
   font-size: 16px;
   font-weight: normal;
+  text-align: left;
 }
 
 .small-sub-title {
@@ -107,6 +109,7 @@
   font-family: 'Lato';
   font-size: 14px;
   font-weight: normal;
+  text-align: left;
 }
 
 .about-me-button {
@@ -123,6 +126,11 @@
   font-weight: 400;
   font-size: 16px;
 }
+
+.work-porject-card {
+  background-color: var(--about-me-accent-colour-light);
+}
+
 
 .about-me-button:hover{
   color: var(--base-colour);

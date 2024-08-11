@@ -1,76 +1,101 @@
 'use client';
 
-import {Col, Row, Grid} from 'antd';
+import {Col, Row, Grid, Card} from 'antd';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
 import { useAboutMeQuery } from '../types/generated';
 import GraphqlError from '../components/graphql_error';
 
+const { Meta } = Card;
 const { useBreakpoint } = Grid;
 
 export default function AboutMe() {
     const { xl } = useBreakpoint();
-    const col_width = xl ? "60vw" : "90vw";
-    const experience_col_span = xl ? 8 : 12;
-    const experience_col_offest = xl ? 6 : 0;
+    const experience_col_span = xl ? 8: 10;
 
     const [{ data, fetching, error }] = useAboutMeQuery();
-    let resume_button
-    if (!error) {
-      resume_button =  <Row justify="center" style={{paddingTop:"50px"}}>
-            <a
-            className="about-me-button"
-            href={data?.about_me.resume_download_url} 
-            target="_blank"
-            >Download Resume</a>
-        </Row>
-    }
 
     return ( 
-        <Row className="main" style={{height: "100vh"}}>
+        <Row className="main" style={{height: "100vh"}} justify="center">
             <Col span={24}>
-                <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/" />
+                <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/"/>
+                <Row justify="center" style={{marginTop: "50px"}}>
                 { error && <GraphqlError /> }
                 { fetching && <Loader/> }
-                { resume_button }
-                <Row justify="center">
-                    <Col style={{width: col_width}}>
-                        <Row>
-                            <Col span={experience_col_span} offset={experience_col_offest}>
-                                {data?.about_me.jobs.map((job, index )=> {
-                                    return(
-                                    <div key={index} className="Text-left" style={{paddingTop: "50px"}}>
-                                        <h1 className='medium-title'>{job.employer}</h1>
-                                        {job.roles.map((role, index) => {
-                                            return(
-                                                <div key={index}>
-                                                    <div style={{marginTop: "-20px"}}>
-                                                        <h4 className='small-title'>{role.job_title}</h4>
-                                                        <p className='small-sub-title' style={{marginTop: "-20px", paddingLeft: "10px"}}>{role.work_period}</p>
+                    <Col offset={6} span={16}>
+                        {data?.about_me.jobs.map((job, index )=> {
+                            return(
+                                <div key={index}>
+                                    <Row style={{marginBottom: "-20px"}}>
+                                        <Col offset={3}>
+                                            <h1 className='medium-title'>{job.employer}</h1>
+                                        </Col>
+                                    </Row>
+                                    {job.roles.map((role, index) => {
+                                        let has_projects = false;
+                                        if (role.projects && role.projects?.length > 0) {
+                                            has_projects = true;
+                                        }
+                                        return( 
+                                            <div key={index} style={{ marginBottom: "10px" }}>
+                                                <Row>
+                                                    <Col span={experience_col_span} offset={3}>
+                                                        <Row>
+                                                            <div style={{marginTop: "-20px"}}>
+                                                                <h4 className='small-title'>{role.job_title}</h4>
+                                                                <p className='small-sub-title' style={{marginTop: "-20px", marginLeft: "10px"}}>{role.work_period}</p>
+                                                            </div>
+                                                        </Row>
+                                                        <Row>
+                                                            <ul style={{marginBottom: 0}}>
+                                                                {role.achievements.map((achievement, index) => {
+                                                                    return (
+                                                                        <li key={index}>
+                                                                            <p className="P-Lato" style={{marginTop: "-15px"}}>
+                                                                                {achievement}
+                                                                            </p>
+                                                                        </li>
+                                                                    )
+                                                                })}
+                                                            </ul>
+                                                        </Row>
+                                                    </Col>
+                                                </Row>
+                                                {has_projects && 
+                                                    <div>
+                                                        <Row style={{marginBottom: "10px"}}>
+                                                            <Col offset={3}>
+                                                                <div className='small-title'>Projects:</div>
+                                                            </Col>
+                                                        </Row>
+                                                        <Row gutter={[20, 16]} style={{marginBottom: "20px"}}>
+                                                            {role.projects?.map((project, index) => {
+                                                                return (
+                                                                    <Col key={index}>
+                                                                        <a href={project?.link}>
+                                                                            <Card key={index} 
+                                                                            style={{borderTopRightRadius: 0, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: "15px"}}
+                                                                            size="small"
+                                                                            cover={<img src={project?.image.rendition.url} height={200} width={200}/>}
+                                                                            className="work-porject-card"
+                                                                            bodyStyle={{paddingTop: "5px", paddingLeft: 0, paddingRight: 0, paddingBottom: 5}}
+                                                                            >
+                                                                                <Meta style={{marginLeft: "10px"}} className="small-title" title={project?.label} />
+                                                                            </Card >
+                                                                        </a>
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
                                                     </div>
-                                                    <ul>
-                                                        {role.achievements.map((achievement, index) => {
-                                                            return (
-                                                                <li key={index}>
-                                                                    <p className="P-Lato" style={{marginTop: "-15px", paddingBottom: "5px"}}>
-                                                                        {achievement}
-                                                                    </p>
-                                                                </li>
-                                                            )
-                                                        })}
-                                                    </ul>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                    )
-                                })}
-                            </Col>
-                            <Col span={9}>
-                                <img src={data?.about_me.image.rendition.url}></img>
-                            </Col>
-                        </Row>
+                                                }
+                                            </div>
+                                        )
+                                    })}
+                            </div>
+                            )
+                        })}
                     </Col>
                 </Row>
             </Col>

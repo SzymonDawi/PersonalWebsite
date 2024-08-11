@@ -38,6 +38,13 @@ export type ExternalLink = {
   url: Scalars['String']['output'];
 };
 
+export type ExternalProjects = {
+  __typename?: 'ExternalProjects';
+  image: Image;
+  label: Scalars['String']['output'];
+  link: Scalars['String']['output'];
+};
+
 export type FigmaBlock = {
   __typename?: 'FigmaBlock';
   url: Scalars['String']['output'];
@@ -157,13 +164,14 @@ export type Role = {
   __typename?: 'Role';
   achievements: Array<Scalars['String']['output']>;
   job_title: Scalars['String']['output'];
+  projects?: Maybe<Array<Maybe<ExternalProjects>>>;
   work_period: Scalars['String']['output'];
 };
 
 export type AboutMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', resume_download_url: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string> }> }> } };
+export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', resume_download_url: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string>, projects?: Array<{ __typename?: 'ExternalProjects', label: string, link: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | null> | null }> }> } };
 
 export type ArtQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -203,6 +211,15 @@ export const AboutMeDocument = gql`
         job_title
         work_period
         achievements
+        projects {
+          label
+          image {
+            rendition(max: "200x200") {
+              url
+            }
+          }
+          link
+        }
       }
     }
   }

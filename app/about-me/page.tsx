@@ -77,14 +77,20 @@ export default function AboutMe() {
                                                                         <a href={project?.link} target="_blank">
                                                                             <Card key={index} 
                                                                             style={{
+                                                                                width: "200px",
                                                                                 borderTopRightRadius: 0, 
                                                                                 borderTopLeftRadius: 0, 
                                                                                 borderBottomLeftRadius: 0, 
                                                                                 borderBottomRightRadius: "15px"}}
                                                                             size="small"
-                                                                            cover={<img src={project?.image.rendition.url} height={200} width={200}/>}
+                                                                            cover={<img style={{
+                                                                                borderTopRightRadius: 0, 
+                                                                                borderTopLeftRadius: 0, 
+                                                                                borderBottomLeftRadius: 0, 
+                                                                                borderBottomRightRadius: 0}} 
+                                                                                src={project?.image.rendition.url}/>}
                                                                             className="work-porject-card"
-                                                                            bodyStyle={{paddingTop: "5px", paddingLeft: 0, paddingRight: 0, paddingBottom: 5}}
+                                                                            bodyStyle={{paddingTop: "5px", paddingLeft: 0, paddingRight: 0, paddingBottom: "5px"}}
                                                                             >
                                                                                 <Meta style={{marginLeft: "10px"}} className="small-title" title={project?.label} />
                                                                             </Card >

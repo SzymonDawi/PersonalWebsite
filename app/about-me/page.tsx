@@ -12,7 +12,8 @@ const { useBreakpoint } = Grid;
 
 export default function AboutMe() {
     const { xl } = useBreakpoint();
-    const experience_col_span = xl ? 8: 10;
+    const experience_col_span = xl ? 10: 12;
+    const center_offset = xl? 8 : 5;
 
     const [{ data, fetching, error }] = useAboutMeQuery();
 
@@ -23,12 +24,12 @@ export default function AboutMe() {
                 <Row justify="center" style={{marginTop: "50px"}}>
                 { error && <GraphqlError /> }
                 { fetching && <Loader/> }
-                    <Col offset={6} span={16}>
+                    <Col span={16}>
                         {data?.about_me.jobs.map((job, index )=> {
                             return(
                                 <div key={index}>
                                     <Row style={{marginBottom: "-20px"}}>
-                                        <Col offset={3}>
+                                        <Col offset={center_offset}>
                                             <h1 className='medium-title'>{job.employer}</h1>
                                         </Col>
                                     </Row>
@@ -40,7 +41,7 @@ export default function AboutMe() {
                                         return( 
                                             <div key={index} style={{ marginBottom: "10px" }}>
                                                 <Row>
-                                                    <Col span={experience_col_span} offset={3}>
+                                                    <Col span={experience_col_span} offset={center_offset}>
                                                         <Row>
                                                             <div style={{marginTop: "-20px"}}>
                                                                 <h4 className='small-title'>{role.job_title}</h4>
@@ -65,17 +66,21 @@ export default function AboutMe() {
                                                 {has_projects && 
                                                     <div>
                                                         <Row style={{marginBottom: "10px"}}>
-                                                            <Col offset={3}>
+                                                            <Col offset={center_offset}>
                                                                 <div className='small-title'>Projects:</div>
                                                             </Col>
                                                         </Row>
-                                                        <Row gutter={[20, 16]} style={{marginBottom: "20px"}}>
+                                                        <Row justify="center" gutter={[20, 16]} style={{marginBottom: "20px"}}>
                                                             {role.projects?.map((project, index) => {
                                                                 return (
                                                                     <Col key={index}>
                                                                         <a href={project?.link}>
                                                                             <Card key={index} 
-                                                                            style={{borderTopRightRadius: 0, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: "15px"}}
+                                                                            style={{
+                                                                                borderTopRightRadius: 0, 
+                                                                                borderTopLeftRadius: 0, 
+                                                                                borderBottomLeftRadius: 0, 
+                                                                                borderBottomRightRadius: "15px"}}
                                                                             size="small"
                                                                             cover={<img src={project?.image.rendition.url} height={200} width={200}/>}
                                                                             className="work-porject-card"

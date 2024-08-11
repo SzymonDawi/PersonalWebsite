@@ -11,9 +11,10 @@ const { Meta } = Card;
 const { useBreakpoint } = Grid;
 
 export default function AboutMe() {
-    const { xl } = useBreakpoint();
+    const { xl, md } = useBreakpoint();
     const experience_col_span = xl ? 10: 12;
     const center_offset = xl? 8 : 5;
+    const content_width = md? 16 : 18;
 
     const [{ data, fetching, error }] = useAboutMeQuery();
 
@@ -24,7 +25,7 @@ export default function AboutMe() {
                 <Row justify="center" style={{marginTop: "50px", height:"100vh"}}>
                 { error && <GraphqlError /> }
                 { fetching && <Loader/> }
-                    <Col span={16}>
+                    <Col span={content_width}>
                         {data?.about_me.jobs.map((job, index )=> {
                             return(
                                 <div key={index}>

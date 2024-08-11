@@ -26,11 +26,11 @@
 .body {
   margin: 0px;
   padding: 0px;
+  background-color: var(--base-colour);
 }
 
 .main {
   text-align: center;
-  background-color: var(--base-colour);
   height: "100vh";
 }
 

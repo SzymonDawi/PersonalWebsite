@@ -74,7 +74,7 @@ export default function AboutMe() {
                                                             {role.projects?.map((project, index) => {
                                                                 return (
                                                                     <Col key={index}>
-                                                                        <a href={project?.link}>
+                                                                        <a href={project?.link} target="_blank">
                                                                             <Card key={index} 
                                                                             style={{
                                                                                 borderTopRightRadius: 0, 

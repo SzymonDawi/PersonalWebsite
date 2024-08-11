@@ -21,7 +21,7 @@ export default function AboutMe() {
         <Row className="main" justify="center">
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/"/>
-                <Row justify="center" style={{marginTop: "50px"}}>
+                <Row justify="center" style={{marginTop: "50px", height:"100vh"}}>
                 { error && <GraphqlError /> }
                 { fetching && <Loader/> }
                     <Col span={16}>

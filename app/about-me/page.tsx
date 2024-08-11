@@ -18,7 +18,7 @@ export default function AboutMe() {
     const [{ data, fetching, error }] = useAboutMeQuery();
 
     return ( 
-        <Row className="main" style={{height: "100vh"}} justify="center">
+        <Row className="main" justify="center">
             <Col span={24}>
                 <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/"/>
                 <Row justify="center" style={{marginTop: "50px"}}>

@@ -1,10 +1,5 @@
 query AboutMe {
     about_me {
-        image {
-            rendition(max: "800x800"){
-                url
-            }
-        }
         jobs {
             employer
             roles {

@@ -33,7 +33,8 @@ class Role(ClusterableModel, models.Orderable):
     panels = [
         panels.FieldPanel("job_title"),
         panels.FieldPanel("work_period"),
-        panels.InlinePanel("aboutmepage_job_role_achievement"),
+        panels.InlinePanel("aboutmepage_job_role_achievement", label="Achievement"),
+        panels.InlinePanel("aboutmepage_job_role_external_project", label="Proejct"),
     ]
 
 
@@ -48,6 +49,30 @@ class Achievement(ClusterableModel, models.Orderable):
     panels = [panels.FieldPanel("achievement")]
 
 
+class ExternalProject(ClusterableModel, models.Orderable):
+    role = ParentalKey(
+        Role,
+        on_delete=django_models.CASCADE,
+        related_name="aboutmepage_job_role_external_project",
+    )
+
+    label = django_models.TextField()
+    image = django_models.ForeignKey(
+        "common.CustomImage",
+        null=True,
+        on_delete=django_models.SET_NULL,
+        related_name="aboutmepage_job_role_external_project_image",
+        help_text="",
+    )
+    link = django_models.URLField("ExternalProjectLink", blank=False)
+
+    panels = [
+        panels.FieldPanel("label"),
+        panels.FieldPanel("image"),
+        panels.FieldPanel("link"),
+    ]
+
+
 class AboutMePage(common_models.BasePage):
     image = django_models.ForeignKey(
         "common.CustomImage",
@@ -59,8 +84,6 @@ class AboutMePage(common_models.BasePage):
     resume_download_url = django_models.CharField(max_length=1000, blank=True)
 
     content_panels = models.Page.content_panels + [
-        panels.FieldPanel("image"),
-        panels.FieldPanel("resume_download_url"),
         panels.InlinePanel("aboutmepage_job", label="Jobs"),
     ]
 

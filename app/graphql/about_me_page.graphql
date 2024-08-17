@@ -1,17 +1,20 @@
 query AboutMe {
     about_me {
-        resume_download_url
-        image {
-            rendition(max: "800x800"){
-                url
-            }
-        }
         jobs {
             employer
             roles {
                 job_title
                 work_period
                 achievements
+                projects {
+                    label
+                    image {
+                        rendition(max:"200x200"){
+                            url
+                        }
+                    }
+                    link
+                }
             }
         }
     }

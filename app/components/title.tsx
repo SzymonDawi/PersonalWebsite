@@ -22,7 +22,7 @@ const Title = (props: Props) => {
                 </Link>
             </Col>
             <Col span={6} offset={2}>
-                <h1 className={`${Sideboard.className} title`}>{props.title}</h1>
+                <h1 className={`${Sideboard.className} title-nav`}>{props.title}</h1>
             </Col>
         </Row>
     )

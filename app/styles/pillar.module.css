@@ -11,3 +11,7 @@
     letter-spacing: 3px;
     margin-bottom: 250px;
 }
+
+.link {
+    text-decoration: none;
+}

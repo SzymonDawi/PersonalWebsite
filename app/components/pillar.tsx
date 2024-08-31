@@ -11,13 +11,12 @@ interface Props {
     title: string;
     className: string;
     link: string;
-    nav_button_height: string;
 }
 
 const Pillar = (props: Props) => {
     return(
-        <a href={props.link}>
-            <Card className={pillar_styles.fullCard}>
+        <a href={props.link} className={pillar_styles.link}>
+            <Card className={`${pillar_styles.fullCard} ${pillar_styles.className}`}>
                 <CardTitle className={`${Sideboard.className} ${pillar_styles.title}`}>{props.title}</CardTitle>
             </Card>
         </a>

@@ -1,15 +1,67 @@
-.test{
-    height: "100vh"; 
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 250px 0 auto;
 }
 
-.greeting{
-    background-color: var(--base-colour);
+.image {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
 }
 
-.greetingDescription{
-    margin-top: "-70px";
+.title {
+    color: var(--text-colour);
+    font-size: 35px;
+    letter-spacing: 3px;
+    margin: 0; /*Override shadcn margin*/
 }
 
-.greetingLink {
-    color: #000000;
-  }
+.description {
+    color: var(--text-colour);
+    font-family: 'Lato';
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+    text-align: left;
+    max-width: 500px;
+    padding: 0 20px;
+}
+
+.iconContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    transform: scale(0.75);
+    color: var(--text-colour);
+}
+
+.github {
+    background-image: url("../assets/github.png");
+}
+
+.linkedIn {
+    background-image: url("../assets/linkedin.png");
+}
+
+.instagram {
+    background-image: url("../assets/instagram.png");
+}
+
+/* Mobile styling */
+@media screen and (max-width: 600px){
+    .imageContainer {
+        margin: 0;
+    }
+}
+
+/* Low height styling */
+@media screen and (max-height: 800px) {
+    .imageContainer {
+        margin-top: 15vh;
+    }
+}

@@ -1,0 +1,47 @@
+.artContainer {
+    display: flex;
+    width: 1300px;
+    flex-wrap: wrap;
+    margin: 50px auto 0;
+}
+
+.artPiece {
+    margin: 0 16px;
+}
+
+.image {
+    width: 400px;
+    height: 400px;
+}
+
+.imageTitle {
+    font-family: 'Lato';
+    font-size: 18px;
+    line-height: 20px;
+}
+
+/* smaller screens styles */
+@media screen and (max-width: 1300px){
+    .artContainer {
+        max-width: 700px;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .artContainer {
+        max-width: 464px;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    .artContainer {
+        max-width: 232px;
+    }
+    
+}

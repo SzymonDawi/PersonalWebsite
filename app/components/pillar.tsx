@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Sideboard } from "../constants";
 import {
     Card,
@@ -17,11 +16,11 @@ interface Props {
 
 const Pillar = (props: Props) => {
     return(
-        <Link href={props.link}>
+        <a href={props.link}>
             <Card className={pillar_styles.fullCard}>
                 <CardTitle className={`${Sideboard.className} ${pillar_styles.title}`}>{props.title}</CardTitle>
             </Card>
-        </Link>
+        </a>
     )
 }
 

@@ -1,10 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-
-import {Col, Row } from 'antd';
-import { LeftOutlined } from '@ant-design/icons';
 import { Sideboard } from "../constants";
+import title_styles from "../styles/title.module.css";
 
 interface Props {
     componentCat: string;
@@ -15,16 +12,12 @@ interface Props {
 const Title = (props: Props) => {
 
     return(
-        <Row align="middle" className={props.componentCat} style={{height:"75px"}}> 
-            <Col span={5} offset={2}>
-                <Link className="nav-back-button" href={props.backUrl}>
-                    <p className={`${Sideboard.className} sub-title`}> <LeftOutlined /></p>
-                </Link>
-            </Col>
-            <Col span={6} offset={2}>
-                <h1 className={`${Sideboard.className} title`}>{props.title}</h1>
-            </Col>
-        </Row>
+        <div className={`${props.componentCat} ${title_styles.titleContainer}`}>
+            <a className={title_styles.BackButtonLink} href={props.backUrl}>
+                <div className={`${Sideboard.className} ${title_styles.backButton}`}>Back</div>
+            </a>
+            <div className={`${Sideboard.className} ${title_styles.title}`}>{props.title}</div>
+        </div>
     )
 }
 

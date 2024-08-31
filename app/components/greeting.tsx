@@ -25,7 +25,7 @@ const Greeting = () => {
     const [{ data, fetching, error }] = useHomeQuery();
   
     if (error) return(<GraphqlError/>);
-    if (fetching) return(<Loader/>);
+    if (fetching) return(<div className={styles.loader}><Loader/></div>);
 
     return(
         <div className={styles.greetingContainer}>

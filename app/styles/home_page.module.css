@@ -1,14 +1,31 @@
-.projectPillar{
+.pillar{
+  width: 20%;
+}
+
+.projectPillar {
   background-color: var(--project-accent-colour);
-  height: 100vh;
 }
 
-.artPillar{
+.artPillar {
   background-color: var(--art-accent-colour);
+}
+
+.aboutMePillar {
+  background-color: var(--about-me-accent-colour);
+}
+
+.navContainer {
+  display: flex;
   height: 100vh;
 }
 
-.aboutMePillar{
-  background-color: var(--about-me-accent-colour);
-  height: 100vh;
+/* Mobile styling */
+@media screen and (max-width: 1200px){
+  .navContainer {
+    flex-direction: column;
+  }
+
+  .pillar {
+    width: 100%;
+  }
 }

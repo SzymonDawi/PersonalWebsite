@@ -28,9 +28,9 @@ const Greeting = () => {
     if (fetching) return(<Loader/>);
 
     return(
-        <div className={styles.imageContainer}>
+        <div className={styles.greetingContainer}>
             <Card>
-                <CardImage className={styles.image} src={`http://localhost:8000${data?.home.image.rendition.url}`}/>
+                <CardImage className={styles.image} src={data?.home.image.rendition.url}/>
                 <CardTitle className={`${Sideboard.className} ${styles.title}`}>{data?.home.greeting}</CardTitle>
                 <div className={styles.description}>{data?.home.description}</div>
                 <div className={styles.iconContainer}>

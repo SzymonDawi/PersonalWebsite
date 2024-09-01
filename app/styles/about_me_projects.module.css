@@ -1,0 +1,25 @@
+.title {
+    color: var(--text-colour);
+    font-family: 'Lato';
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    margin: 0 0 5px; /*Override h4 margin*/
+  }
+
+.projectsContainer {
+    display: flex;
+}
+
+.project {
+    margin: 0 4px;
+}
+
+.projectTitle {
+    margin: 0;
+    color: var(--text-colour);
+    font-family: 'Lato';
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+}

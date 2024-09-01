@@ -6,10 +6,12 @@ import {
     CardImage,
 } from "../components/ui/card";
 import styles from "../styles/about_me_projects.module.css";
-import { Project } from '../types/generated';
+import {AboutMeQuery} from '../types/generated';
+
+type Project = NonNullable<NonNullable<NonNullable<AboutMeQuery['about_me']>['jobs']>[number]['roles'][number]['projects']>[number];
 
 interface Props {
-    projects: any[];
+    projects: Project[] | null | undefined;
 }
 
 export default function AboutMeProjects(props: Props) {

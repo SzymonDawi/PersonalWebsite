@@ -2,9 +2,12 @@
 
 import styles from "../styles/about_me_roles.module.css";
 import AboutMeProjects from "../components/about_me_projects";
+import {AboutMeQuery } from '../types/generated';
+
+type Role = NonNullable<AboutMeQuery['about_me']>['jobs'][number]['roles'][number];
 
 interface Props {
-    roles: any[];
+    roles: Role[];
 }
 
 export default function AboutMeRoles(props: Props) {

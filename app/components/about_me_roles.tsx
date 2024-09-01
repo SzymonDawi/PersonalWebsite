@@ -5,7 +5,7 @@ import AboutMeProjects from "../components/about_me_projects";
 import { Role } from '../types/generated';
 
 interface Props {
-    roles: Role[];
+    roles: any[];
 }
 
 export default function AboutMeRoles(props: Props) {

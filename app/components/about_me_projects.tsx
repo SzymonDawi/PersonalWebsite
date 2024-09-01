@@ -9,7 +9,7 @@ import styles from "../styles/about_me_projects.module.css";
 import { Project } from '../types/generated';
 
 interface Props {
-    projects: Project[] | null | undefined;
+    projects: any[] | null | undefined;
 }
 
 export default function AboutMeProjects(props: Props) {

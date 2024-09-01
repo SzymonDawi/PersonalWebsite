@@ -18,7 +18,9 @@ export default function AboutMe() {
             <div>
                 {data?.about_me.jobs.map((job, index) => {
                     return (
-                        <AboutMeRoles key={index} roles={job.roles}/>
+                        <div key={index} >
+                        <AboutMeRoles roles={job.roles}/>
+                        </div>
                     )
                 })}
             </div>

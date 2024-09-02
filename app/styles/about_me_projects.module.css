@@ -1,6 +1,6 @@
 .title {
     color: var(--text-colour);
-    font-family: 'Lato';
+    font-family: var(--font-lato);
     font-size: 16px;
     font-weight: normal;
     text-align: left;
@@ -29,7 +29,7 @@
 .projectTitle {
     margin: 0 0 0 10px;
     color: var(--text-colour);
-    font-family: 'Lato';
+    font-family: var(--font-lato);
     font-size: 16px;
     font-weight: 600;
     text-align: left;

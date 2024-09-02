@@ -15,7 +15,7 @@
 }
 
 .imageTitle {
-    font-family: 'Lato';
+    font-family: var(--font-lato);
     font-size: 18px;
     line-height: 20px;
 }

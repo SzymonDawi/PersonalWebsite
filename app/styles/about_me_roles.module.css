@@ -1,15 +1,25 @@
 .contentContainer {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     max-width: 900px;
+}
+
+.jobContainer {
+    margin-bottom: 25px;
+}
+
+.jobDescription {
+    display: block;
+    margin: 0 auto;
+    max-width: 700px;
 }
 
 .jobTitle {
     color: var(--text-colour);
     font-family: 'Lato';
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 18px;
+    font-weight: bold;
     text-align: left;
     margin: 0;
 }
@@ -21,4 +31,17 @@
     font-weight: normal;
     text-align: left;
     margin: 0;
-  }
+    padding-left: 20px;
+}
+
+.jobAchievementList {
+    margin: 5px;
+}
+
+.jobAchievement {
+    color: var(--text-colour);
+    font-family: 'Lato';
+    font-size: 16px;
+    text-align: left;
+    margin: 0 0 8px;
+}

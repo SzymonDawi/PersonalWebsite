@@ -24,12 +24,12 @@ export default function AboutMeProjects(props: Props) {
             <div className={styles.projectsContainer}>
                 {props.projects.map((project, index) => {
                     return(
-                        <div key={index} className={styles.project}>
+                        <a key={index} href={project?.link} className={styles.projectLink} target="_blank">
                             <Card className={styles.project}>
-                                <CardImage src={project?.image.rendition.url}></CardImage>
+                                <CardImage className={styles.projectImage} src={project?.image.rendition.url}></CardImage>
                                 <CardTitle className={styles.projectTitle}>{project?.label}</CardTitle>
                             </Card>
-                        </div>
+                        </a>
                     )
                 })}
             </div>

@@ -15,108 +15,16 @@ export default function AboutMe() {
             <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/"/>
             { error && <GraphqlError /> }
             { fetching && <Loader/> }
-            <div>
+            <div className={styles.contentContainer}>
                 {data?.about_me.jobs.map((job, index) => {
                     return (
                         <div key={index} >
-                        <AboutMeRoles roles={job.roles}/>
+                            <h1 className={styles.employer}>{job.employer}</h1>
+                            <AboutMeRoles roles={job.roles}/>
                         </div>
                     )
                 })}
             </div>
         </div>
-        // <Row className="main" justify="center">
-        //     <Col span={24}>
-        //         <Title componentCat="aboutMeComponent" title="ABOUT ME" backUrl="/"/>
-        //         <Row justify="center" style={{marginTop: "50px", height:"100vh"}}>
-        //         { error && <GraphqlError /> }
-        //         { fetching && <Loader/> }
-        //             <Col span={content_width}>
-        //                 {data?.about_me.jobs.map((job, index )=> {
-        //                     return(
-        //                         <div key={index}>
-        //                             <Row style={{marginBottom: "-20px"}}>
-        //                                 <Col offset={center_offset}>
-        //                                     <h1 className='medium-title'>{job.employer}</h1>
-        //                                 </Col>
-        //                             </Row>
-        //                             {job.roles.map((role, index) => {
-        //                                 let has_projects = false;
-        //                                 if (role.projects && role.projects?.length > 0) {
-        //                                     has_projects = true;
-        //                                 }
-        //                                 return( 
-        //                                     <div key={index} style={{ marginBottom: "10px" }}>
-        //                                         <Row>
-        //                                             <Col span={experience_col_span} offset={center_offset}>
-        //                                                 <Row>
-        //                                                     <div style={{marginTop: "-20px"}}>
-        //                                                         <h4 className='small-title'>{role.job_title}</h4>
-        //                                                         <p className='small-sub-title' style={{marginTop: "-20px", marginLeft: "10px"}}>{role.work_period}</p>
-        //                                                     </div>
-        //                                                 </Row>
-        //                                                 <Row>
-        //                                                     <ul style={{marginBottom: 0}}>
-        //                                                         {role.achievements.map((achievement, index) => {
-        //                                                             return (
-        //                                                                 <li key={index}>
-        //                                                                     <p className="P-Lato" style={{marginTop: "-15px"}}>
-        //                                                                         {achievement}
-        //                                                                     </p>
-        //                                                                 </li>
-        //                                                             )
-        //                                                         })}
-        //                                                     </ul>
-        //                                                 </Row>
-        //                                             </Col>
-        //                                         </Row>
-        //                                         {has_projects && 
-        //                                             <div>
-        //                                                 <Row style={{marginBottom: "10px"}}>
-        //                                                     <Col offset={center_offset}>
-        //                                                         <div className='small-title'>Projects:</div>
-        //                                                     </Col>
-        //                                                 </Row>
-        //                                                 <Row justify="center" gutter={[20, 16]} style={{marginBottom: "20px"}}>
-        //                                                     {role.projects?.map((project, index) => {
-        //                                                         return (
-        //                                                             <Col key={index}>
-        //                                                                 <a href={project?.link} target="_blank">
-        //                                                                     <Card key={index} 
-        //                                                                     style={{
-        //                                                                         width: "200px",
-        //                                                                         borderTopRightRadius: 0, 
-        //                                                                         borderTopLeftRadius: 0, 
-        //                                                                         borderBottomLeftRadius: 0, 
-        //                                                                         borderBottomRightRadius: "15px"}}
-        //                                                                     size="small"
-        //                                                                     cover={<img style={{
-        //                                                                         borderTopRightRadius: 0, 
-        //                                                                         borderTopLeftRadius: 0, 
-        //                                                                         borderBottomLeftRadius: 0, 
-        //                                                                         borderBottomRightRadius: 0}} 
-        //                                                                         src={project?.image.rendition.url}/>}
-        //                                                                     className="work-porject-card"
-        //                                                                     bodyStyle={{paddingTop: "5px", paddingLeft: 0, paddingRight: 0, paddingBottom: "5px"}}
-        //                                                                     >
-        //                                                                         <Meta style={{marginLeft: "10px"}} className="small-title" title={project?.label} />
-        //                                                                     </Card >
-        //                                                                 </a>
-        //                                                             </Col>
-        //                                                         )
-        //                                                     })}
-        //                                                 </Row>
-        //                                             </div>
-        //                                         }
-        //                                     </div>
-        //                                 )
-        //                             })}
-        //                     </div>
-        //                     )
-        //                 })}
-        //             </Col>
-        //         </Row>
-        //     </Col>
-        // </Row>
     )
 }

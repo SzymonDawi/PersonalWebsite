@@ -5,8 +5,8 @@
 .greetingContainer {
     display: flex;
     justify-content: center;
-    margin: 25vh 0 auto;
-    flex-grow: 1;
+    margin: auto;
+    height: 450px;
 }
 
 .image {
@@ -21,7 +21,7 @@
     color: var(--text-colour);
     font-size: 35px;
     letter-spacing: 3px;
-    margin: 0; /*Override shadcn margin*/
+    margin: 0 0 5px; /*Override shadcn margin*/
     text-align: center;
 }
 
@@ -39,6 +39,7 @@
 .iconContainer{
     display: flex;
     justify-content: center;
+    margin-top: 5px;
 }
 
 .icon {
@@ -58,13 +59,4 @@
 
 .instagram {
     background-image: url("../assets/instagram.png");
-}
-
-/* Mobile styling */
-@media screen and (max-width: 1200px){
-    .greetingContainer {
-        margin-bottom: 50px;
-        bottom: 0;
-        margin-top: 10vh;
-    }
 }

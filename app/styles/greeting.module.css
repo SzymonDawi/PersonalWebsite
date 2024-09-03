@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    height: 450px;
+    height: 490px;
 }
 
 .image {
@@ -39,7 +39,7 @@
 .iconContainer{
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin: 5px 0 10px;
 }
 
 .icon {

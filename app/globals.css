@@ -93,14 +93,14 @@
 .sub-title{
   color: var(--text-colour);
   font-size: 30px;
-  font-family: 'Lato';
+  font-family: var(--font-lato);
   font-weight: bold;
   margin: 0;
 }
 
 .P-Lato{
   color: var(--text-colour);
-  font-family: 'Lato';
+  font-family: var(--font-lato);
   font-size: 18px;
   line-height: 20px;
   font-weight: normal;
@@ -109,7 +109,7 @@
 
 .small-link{
   color: var(--text-colour);
-  font-family: 'Lato';
+  font-family: var(--font-lato);
   font-size: 15px;
   font-weight: bold;
   text-align: left;

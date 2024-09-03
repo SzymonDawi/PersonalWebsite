@@ -27,7 +27,7 @@
 
 .description {
     color: var(--text-colour);
-    font-family: 'Lato';
+    font-family: var(--font-lato);
     font-size: 18px;
     line-height: 20px;
     font-weight: normal;

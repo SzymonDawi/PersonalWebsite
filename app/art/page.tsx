@@ -16,9 +16,9 @@ export default function Art() {
             { fetching && <Loader/>}
             { error && <GraphqlError /> }
             <div className={art_styles.artContainer}>
-                {data?.art.map(art => {
+                {data?.art.map((art, index) => {
                     return(
-                        <div className={art_styles.artPiece}>
+                        <div key={index} className={art_styles.artPiece}>
                             <img className={art_styles.image} src={art.image.rendition.url}></img>
                             <p className="P-Lato" style={{marginTop: "-3px"}}>{art.title}</p>
                         </div>

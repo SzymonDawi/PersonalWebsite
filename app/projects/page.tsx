@@ -22,7 +22,7 @@ export default function Home() {
                     return(
                         <div key={index}>
                             <Link href={project_url}>
-                                <img className={styles.image} src={`http://localhost:8000/${project.list_view_image.rendition.url}`}></img>
+                                <img className={styles.image} src={project.list_view_image.rendition.url}></img>
                             </Link>
                         </div>
                     )

@@ -6,6 +6,11 @@ query Projects {
                 url
             }
         }
+        mobile_list_view_image {
+            rendition(max: "400x400"){
+                url
+            }
+        }
         list_view_title
         year
     }

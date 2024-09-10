@@ -1,39 +1,33 @@
 'use client';
 
-import {Col, Row} from 'antd';
-
 import Link from 'next/link';
 
 import Title from "../components/title";
 import Loader from "../components/loader";
 import { useProjectsQuery } from '../types/generated';
 import GraphqlError from '../components/graphql_error';
+import styles from "../styles/projects_page.module.css";
 
 export default function Home() {
     const [{ data, fetching, error }] = useProjectsQuery();
 
     return (
-        <Row className="main">
-            <Col span={24}>
-                <Title componentCat="projectComponent" title="PROJECTS" backUrl="/" />
-                { error && <GraphqlError /> }
-                <Row justify="center" style={{paddingBottom:"50px", height:"100vh"}}>
-                    <Col xxl={{span:12}} xl={{span:18}} lg={{span: 18}} md={{span: 12}} sm={{span: 8}} xs={{span: 8}}>
-                        { fetching && <Loader/>}
-
-                        {data?.projects.map(project => {
-                            const project_url = "/project/" + project.slug;
-                            return(
-                                <Row key={project.slug}  justify="center" style={{cursor: "pointer", height: "540px", paddingTop:"30px"}}>
-                                    <Link href={project_url}>
-                                        <img src={project.list_view_image.rendition.url}></img>
-                                    </Link>
-                                </Row>
-                            )
-                        })}
-                    </Col>
-                </Row>
-            </Col>
-        </Row>
+        <div>
+            <Title componentCat="projectComponent" title="PROJECTS" backUrl="/" />
+            { fetching && <Loader /> }
+            { error && <GraphqlError/> }
+            <div className={styles.projectsContainer}>
+                {data?.projects.map((project, index) => {
+                    const project_url = "/project/" + project.slug;
+                    return(
+                        <div key={index}>
+                            <Link href={project_url}>
+                                <img className={styles.image} src={`http://localhost:8000/${project.list_view_image.rendition.url}`}></img>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
     )
 }

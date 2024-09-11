@@ -6,8 +6,8 @@
 }
 
 .image {
-    width: 1100px;
-    height: 750px;
+    width: 1220px;
+    height: 670px;
 }
 
 /* smaller screens styles */
@@ -17,8 +17,8 @@
     }
 
     .image {
-        width: 500px;
-        height: 500px;
+        width: 488px;
+        height: 268px;
     }
 }
 

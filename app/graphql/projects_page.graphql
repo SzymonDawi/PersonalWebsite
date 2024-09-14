@@ -2,7 +2,12 @@ query Projects {
     projects {
         slug
         list_view_image {
-            rendition(max: "1000x1000"){
+            rendition(max: "1000x760"){
+                url
+            }
+        }
+        mobile_list_view_image {
+            rendition(max: "400x400"){
                 url
             }
         }

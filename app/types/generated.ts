@@ -171,7 +171,7 @@ export type Role = {
 export type AboutMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', resume_download_url: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string>, projects?: Array<{ __typename?: 'ExternalProjects', label: string, link: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | null> | null }> }> } };
+export type AboutMeQuery = { __typename?: 'Query', about_me: { __typename?: 'AboutMe', jobs: Array<{ __typename?: 'Job', employer: string, roles: Array<{ __typename?: 'Role', job_title: string, work_period: string, achievements: Array<string>, projects?: Array<{ __typename?: 'ExternalProjects', label: string, link: string, image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | null> | null }> }> } };
 
 export type ArtQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -193,18 +193,12 @@ export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Proj
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
+export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', slug: string, list_view_title: string, year: string, list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, mobile_list_view_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } }> };
 
 
 export const AboutMeDocument = gql`
     query AboutMe {
   about_me {
-    resume_download_url
-    image {
-      rendition(max: "800x800") {
-        url
-      }
-    }
     jobs {
       employer
       roles {
@@ -331,6 +325,11 @@ export const ProjectsDocument = gql`
     slug
     list_view_image {
       rendition(max: "1000x1000") {
+        url
+      }
+    }
+    mobile_list_view_image {
+      rendition(max: "400x400") {
         url
       }
     }

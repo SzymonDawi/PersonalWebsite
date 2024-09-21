@@ -1,13 +1,4 @@
 {
     "version": 2,
-    "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "src/wsgi.py"
-      }
-    ]
+    "rewrites": [{ "source": "/(.*)", "destination": "src/wsgi.py" }]
 }

@@ -8,6 +8,6 @@ echo "running migrations"
 python3 manage.py migrate
 
 echo "Creating admin"
-python3 manage.py createsuperuser --noinput
+python3 manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_EMAIL --password $DJANGO_SUPERUSER_PASSWORD
 
 python3 manage.py collectstatic

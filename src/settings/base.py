@@ -18,7 +18,7 @@ import environ
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".vercel.app"]
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -117,7 +117,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "src.wsgi.application"
+WSGI_APPLICATION = "src.wsgi.app"
 
 
 # Database

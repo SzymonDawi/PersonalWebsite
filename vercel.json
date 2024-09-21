@@ -1,9 +1,13 @@
 {
     "version": 2,
-    "rewrites": [
+    "routes": [
       {
-        "source": "/(.*)",
-        "destination": "src/wsgi.py"
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "src/wsgi.py"
       }
     ]
 }

@@ -2,8 +2,8 @@
     "version": 2,
     "rewrites": [
       {
-        "src": "/(.*)",
-        "dest": "src/wsgi.py"
+        "source": "/(.*)",
+        "destination": "src/wsgi.py"
       }
     ]
 }

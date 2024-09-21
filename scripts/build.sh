@@ -5,9 +5,9 @@ set -0 errexit
 # poetry install --no-root
 
 echo "running migrations"
-python manage.py migrate
+python3 manage.py migrate
 
 echo "Creating admin"
-python manage.py createsuperuser --noinput
+python3 manage.py createsuperuser --noinput
 
-python manage.py collectstatic
+python3 manage.py collectstatic

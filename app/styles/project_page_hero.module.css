@@ -1,0 +1,14 @@
+.heroContainter {
+    max-width: 600px;
+    margin: 100px auto;
+}
+
+.title {
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .heroContainter {
+        margin: 100px 50px;
+    }
+}

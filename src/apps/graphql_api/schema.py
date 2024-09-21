@@ -177,8 +177,7 @@ def resolve_process_item_type(obj, *_):
 
 @process_paragraph.field("paragraph")
 def resolve_paragraph(obj, *_):
-    value = obj["value"]["paragraph"]
-    return value[0:3] + 'classname="P-Lato"' + value[3:]
+    return obj["value"]["paragraph"]
 
 
 @process_paragraph.field("image")

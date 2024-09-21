@@ -64,6 +64,8 @@
   margin: 0px;
   padding: 0px;
   background-color: var(--base-colour);
+  font-family: var(--font-lato);
+  color: var(--text-colour);
 }
 
 .main {
@@ -96,6 +98,15 @@
   font-family: var(--font-lato);
   font-weight: bold;
   margin: 0;
+}
+
+p {
+  color: var(--text-colour);
+  margin: 0;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
 }
 
 .P-Lato{

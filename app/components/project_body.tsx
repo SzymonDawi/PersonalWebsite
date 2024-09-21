@@ -1,6 +1,5 @@
 'use client';
 
-import {Col} from 'antd';
 import ProjectProcess from './project_process';
 import ProjectFigma from './project_figma';
 import ProjectGitRepo from './project_git_repo';
@@ -12,7 +11,7 @@ interface Props {
 
 const ProjectBody = (props: Props) => {
     return(
-        <Col style={{width: "70vw", paddingBottom: "100px"}}>
+        <div>
             {props.items.map((item) => {
                 if (item.__typename === "ProcessBlock"){
                     return <ProjectProcess key={item.__typename} items={item.items!}/>
@@ -26,7 +25,7 @@ const ProjectBody = (props: Props) => {
                     return <p key={item.__typename}>Test2</p>
                 }
             })}
-        </Col>
+        </div>
     )
 }
 

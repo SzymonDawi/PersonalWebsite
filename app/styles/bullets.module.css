@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+.title {
+    text-align: center;
+}
+
+.bullets {
+    margin: 0 auto;
+    width: 60%;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+}

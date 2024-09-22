@@ -13,4 +13,4 @@ python3 manage.py migrate
 echo "Creating admin"
 python3 manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_EMAIL
 
-python3 manage.py collectstatic
+python3 manage.py collectstatic --noinput

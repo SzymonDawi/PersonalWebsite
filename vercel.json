@@ -12,5 +12,6 @@
         "src": "/(.*)",
         "dest": "src/wsgi.py"
       }
-    ]
+    ],
+    "outputDirectory": "staticfiles"
 }

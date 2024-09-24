@@ -1,6 +1,6 @@
 .container {
-    margin: 50px auto;
-    width: 800px;
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
 .image {

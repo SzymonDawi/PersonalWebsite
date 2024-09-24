@@ -10,11 +10,28 @@
 }
 
 .image {
-    width: 400px;
+    width: 335px;
     height: auto;
     object-fit: contain;
 }
 
 .paragraph {
-    width: 400px;
+    width: 335px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .contentContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .image {
+        width: 100%;
+    }
+    
+    .paragraph {
+        width: 300px;
+    }
+    
 }

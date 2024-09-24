@@ -17,7 +17,7 @@ const ProjectProcessParagraph = (props: Props) => {
             <h3 className={styles.title}>{props.title}</h3>
             <div className={styles.contentContainer}>
                 <span>{parse(props.paragraph)}</span>
-                {props.image && <img className={styles.image} src={`http://localhost:8000/${props.image.rendition.url}`}></img>}
+                {props.image && <img className={styles.image} src={props.image.rendition.url}></img>}
             </div>
         </div>
     )

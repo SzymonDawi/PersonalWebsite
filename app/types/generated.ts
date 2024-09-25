@@ -141,6 +141,7 @@ export type Project = {
   list_view_title: Scalars['String']['output'];
   mobile_list_view_image: Image;
   slug: Scalars['String']['output'];
+  title: Scalars['String']['output'];
   year: Scalars['String']['output'];
 };
 
@@ -188,7 +189,7 @@ export type ProjectQueryVariables = Exact<{
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Project', list_view_title: string, year: string, hero_title: string, hero_description: string, hero_bullet_title: string, hero_bullets: Array<string>, hero_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, body: Array<{ __typename: 'FigmaBlock', url: string } | { __typename: 'GithubBlock', title: string, owner: string, repo: string, dirs_to_include: Array<string> } | { __typename: 'ProcessBlock', items?: Array<{ __typename: 'ProcessImage', process_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | { __typename: 'ProcessParagraph', title?: string | null, paragraph: string, image?: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } | null } | { __typename: 'ProcessTitle', process_title: string }> | null }> } };
+export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'Project', title: string, list_view_title: string, year: string, hero_title: string, hero_description: string, hero_bullet_title: string, hero_bullets: Array<string>, hero_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } }, body: Array<{ __typename: 'FigmaBlock', url: string } | { __typename: 'GithubBlock', title: string, owner: string, repo: string, dirs_to_include: Array<string> } | { __typename: 'ProcessBlock', items?: Array<{ __typename: 'ProcessImage', process_image: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } } | { __typename: 'ProcessParagraph', title?: string | null, paragraph: string, image?: { __typename?: 'Image', rendition: { __typename?: 'ImageRendition', url: string } } | null } | { __typename: 'ProcessTitle', process_title: string }> | null }> } };
 
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -271,6 +272,7 @@ export function useHomeQuery(options?: Omit<Urql.UseQueryArgs<HomeQueryVariables
 export const ProjectDocument = gql`
     query Project($Slug: String!) {
   project(slug: $Slug) {
+    title
     list_view_title
     year
     hero_title
@@ -330,7 +332,7 @@ export const ProjectsDocument = gql`
   projects {
     slug
     list_view_image {
-      rendition(max: "1000x1000") {
+      rendition(max: "1000x760") {
         url
       }
     }

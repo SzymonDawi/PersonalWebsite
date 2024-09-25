@@ -49,6 +49,7 @@ type ExternalProjects {
 
 type Project {
     slug: String!
+    title: String!
     list_view_image: Image!
     mobile_list_view_image: Image!
     list_view_title: String!

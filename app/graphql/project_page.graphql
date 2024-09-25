@@ -1,5 +1,6 @@
 query Project($Slug: String!) {
     project(slug: $Slug) {
+        title
         list_view_title
         year
         hero_title

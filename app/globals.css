@@ -92,6 +92,13 @@
   margin: 0;
 }
 
+.title-nav{
+  color: var(--text-colour);
+  font-size: 64px;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
 .sub-title{
   color: var(--text-colour);
   font-size: 30px;

@@ -16,7 +16,7 @@ const ProjectProcess = (props: Props) => {
                 if (item.__typename === "ProcessImage"){
                     // eslint-disable-next-line
                     // @ts-expect-error
-                    return <img className={styles.image} key={index} src={`http://localhost:8000/${item.process_image.rendition.url}`}></img>
+                    return <img className={styles.image} key={index} src={item.process_image.rendition.url}></img>
                 } else if (item.__typename === "ProcessParagraph"){
                     return (
                         <ProjectProcessParagraph 

@@ -16,8 +16,12 @@ const ProjectProcessParagraph = (props: Props) => {
         <div>
             <h3 className={styles.title}>{props.title}</h3>
             <div className={styles.contentContainer}>
-                <span>{parse(props.paragraph)}</span>
-                {props.image && <img className={styles.image} src={props.image.rendition.url}></img>}
+                <span className={styles.paragraph}>{parse(props.paragraph)}</span>
+                {props.image && 
+                    <div className={styles.imageContainer}>
+                        <img className={styles.image} src={props.image.rendition.url}></img>
+                    </div>
+                }
             </div>
         </div>
     )

@@ -22,7 +22,7 @@ const Project = (props: Props) => {
 
     return(
         <div>
-            <Title componentCat="projectComponent" title={project!.title} backUrl="/" />
+            <Title componentCat="projectComponent" title={project!.title} backUrl="/projects" />
             <div className={styles.projectContainer}>
                 <ProjectHero 
                     title={project?.hero_title!} 

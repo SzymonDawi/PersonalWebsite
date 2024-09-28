@@ -35,10 +35,12 @@
 
     .title {
         font-size: 48px;
-        padding-right: 10px;
+        line-height: 45px;
+        padding: 0 0 10px 0;
     }
 
     .backButton{
         font-size: 28px;
+        line-height: 35px;
     }
 }

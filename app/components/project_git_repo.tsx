@@ -149,7 +149,7 @@ const ProjectGitRepo = (props: Props) => {
 
     return(
         <div className={styles.container}>
-            <a className="small-link" target="_blank" href={githubLink} style={{textDecoration: "underline"}}>Github repo</a>
+            <a className={styles.githubLink} target="_blank" href={githubLink}>Github repo</a>
             <div className={styles.repoContainer}>
                 <div className={styles.docTree}>
                     {fetchingRepo &&  <Skeleton  loading={true} />}

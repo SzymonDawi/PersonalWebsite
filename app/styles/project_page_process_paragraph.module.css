@@ -5,18 +5,26 @@
 
 .contentContainer {
     display: flex;
-    gap: 25px;
+    gap: 50px;
     margin: 10px 0;
 }
 
+.imageContainer {
+    width: 500px;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
 .image {
-    width: 335px;
+    display: block;
+    width: 90%;
     height: auto;
     object-fit: contain;
+    margin: 0 auto;
 }
 
 .paragraph {
-    width: 335px;
+    min-width: 335px;
 }
 
 
@@ -25,6 +33,10 @@
         flex-direction: column;
         gap: 10px;
     }
+
+    .imageContainer {
+        width: 100%;
+    }    
 
     .image {
         width: 100%;

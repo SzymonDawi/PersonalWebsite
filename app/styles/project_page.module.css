@@ -19,7 +19,9 @@
         max-width: 700px;
         justify-content: center;
     }
+}
 
+@media screen and (max-width: 1250px) {
     .backgroundImage {
         display: none;
     }

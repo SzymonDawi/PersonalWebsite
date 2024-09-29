@@ -1,12 +1,13 @@
 .projectsContainer {
     display: flex;
+    flex-direction: column;
     max-width: 1300px;
     justify-content: center;
     margin: 50px auto 0;
 }
 
 .image {
-    width: 1220px;
+    width: 1217px;
     height: auto;
 }
 

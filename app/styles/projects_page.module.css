@@ -7,7 +7,7 @@
 
 .image {
     width: 1220px;
-    height: 670px;
+    height: auto;
 }
 
 /* smaller screens styles */

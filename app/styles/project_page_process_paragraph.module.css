@@ -10,8 +10,8 @@
 }
 
 .imageContainer {
-    width: 500px;
-    flex-shrink: 0;
+    max-width: 500px;
+    flex-shrink: 0.1;
     justify-content: center;
 }
 
@@ -43,7 +43,7 @@
     }
     
     .paragraph {
-        width: 300px;
+        width: 100%;
     }
     
 }

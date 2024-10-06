@@ -326,7 +326,7 @@ export const ProjectsDocument = gql`
   projects {
     slug
     list_view_image {
-      rendition(max: "1000x760") {
+      rendition(max: "1217x783") {
         url
       }
     }

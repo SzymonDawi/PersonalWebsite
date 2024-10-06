@@ -1,8 +1,7 @@
 'use client';
 
-import {Col, Row } from 'antd';
 import Bullets from './bullets';
-import useCustomBreakPoints from './custom_breakpoints';
+import styles from '../styles/project_page_hero.module.css';
 
 interface Props {
     title: string;
@@ -13,20 +12,12 @@ interface Props {
 }
 
 const ProjectHero = (props: Props) => {
-    const { lg } = useCustomBreakPoints();
-
-    // col width: half-width 45vw full-width 30vw
-    const col_width = lg ? "30vw" : "45vw";
-
     return(
-        <Row justify="center" style={{paddingTop: "50px"}}>
-            <Col style={{width: col_width}}>
-                <h1>{props.title}</h1>
-                <p className="P-Lato">{props.description}</p>
-                
-                <Bullets title={props.bullet_title} items={props.bullets}/>
-            </Col>
-        </Row>
+        <div className={styles.heroContainter}>
+            <h1 className={styles.title}>{props.title}</h1>
+            <p>{props.description}</p>
+            <Bullets title={props.bullet_title} items={props.bullets}/>
+        </div>
     )
 }
 

@@ -1,13 +1,15 @@
 'use client';
 
-import {Col, Row, Skeleton, Tree} from 'antd';
+import { Tree } from 'antd';
 import { Octokit } from 'octokit';
 import { useEffect, useState } from 'react';
-import {decode} from 'base-64';
+import { decode } from 'base-64';
 import ReactMarkdown from 'react-markdown';
 import display_style from './project_git_repo_style';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import Loader from './loader';
+import styles from '../styles/project_page_git_repo.module.css';
+import { Skeleton } from './ui/skeleton'; 
 
 
 const {DirectoryTree} = Tree;
@@ -146,16 +148,14 @@ const ProjectGitRepo = (props: Props) => {
     }
 
     return(
-        <div>
-            <Row>
-                <a className="small-link" target="_blank" href={githubLink} style={{textDecoration: "underline"}}>Github repo</a>
-            </Row>
-            <Row justify="center" style={{ backgroundColor: "#faf8fa", width: "100%"}}>
-                <Col className="Scroll-y" span={5} style={{borderRightStyle: "solid", borderColor: "#3E343C", backgroundColor: "#faf8fa", height:"60vh", paddingBottom: "100px"}}>
-                    {fetchingRepo &&  <Skeleton  loading={true} />}
+        <div className={styles.container}>
+            <a className={styles.githubLink} target="_blank" href={githubLink}>Github repo</a>
+            <div className={styles.repoContainer}>
+                <div className={styles.docTree}>
+                    {fetchingRepo &&  <Skeleton/>}
                     {!errorRepo && !fetchingRepo && <DirectoryTree onSelect={onSelect} style={{backgroundColor: "#faf8fa"}} multiple treeData={treeData}/>}
-                </Col>
-                <Col className="Text-left Scroll-y" span={19} style={{backgroundColor: "#faf8fa", height:"60vh", paddingLeft: "20px"}}>
+                </div>
+                <div className={styles.codeDoc}>
                     {fetchingFile && <Loader/>}
                     {!fetchingFile && <ReactMarkdown
                     components={{
@@ -179,8 +179,8 @@ const ProjectGitRepo = (props: Props) => {
                         )
                         }
                     }}>{file}</ReactMarkdown>}
-                </Col>
-            </Row>
+                </div>
+            </div>
         </div>
     )
 }

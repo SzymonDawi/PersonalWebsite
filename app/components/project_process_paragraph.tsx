@@ -2,8 +2,8 @@
 
 import parse from 'html-react-parser';
 
-import {Col, Row} from 'antd';
 import { Image } from '../types/generated';
+import styles from '../styles/project_page_process_paragraph.module.css';
 
 interface Props {
     title: string | undefined;
@@ -12,22 +12,17 @@ interface Props {
 }
 
 const ProjectProcessParagraph = (props: Props) => {
-    let col_size: number = 12;
-    if (props.image === null) {
-        col_size = 24;
-    }
-
     return (
         <div>
-            <Row>
-                <h3 style={{textAlign: "left", marginBottom: "-10px"}}>{props.title}</h3>
-            </Row>
-            <Row gutter={[100,0]} align="top">
-                <Col sm={{span: 24}} md={{span: col_size}}>
-                    {parse(props.paragraph)}
-                </Col>
-                {props.image && <Col span={col_size}><img src={props.image.rendition.url} style={{width:"100%"}}></img></Col>}
-            </Row>
+            <h3 className={styles.title}>{props.title}</h3>
+            <div className={styles.contentContainer}>
+                <span className={styles.paragraph}>{parse(props.paragraph)}</span>
+                {props.image && 
+                    <div className={styles.imageContainer}>
+                        <img className={styles.image} src={props.image.rendition.url}></img>
+                    </div>
+                }
+            </div>
         </div>
     )
 }

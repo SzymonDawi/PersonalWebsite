@@ -1,15 +1,15 @@
 'use client';
 
-import { Skeleton, Tree } from 'antd';
+import { Tree } from 'antd';
 import { Octokit } from 'octokit';
 import { useEffect, useState } from 'react';
-import {decode} from 'base-64';
+import { decode } from 'base-64';
 import ReactMarkdown from 'react-markdown';
 import display_style from './project_git_repo_style';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import Loader from './loader';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 import styles from '../styles/project_page_git_repo.module.css';
+import { Skeleton } from './ui/skeleton'; 
 
 
 const {DirectoryTree} = Tree;
@@ -152,7 +152,7 @@ const ProjectGitRepo = (props: Props) => {
             <a className={styles.githubLink} target="_blank" href={githubLink}>Github repo</a>
             <div className={styles.repoContainer}>
                 <div className={styles.docTree}>
-                    {fetchingRepo &&  <Skeleton  loading={true} />}
+                    {fetchingRepo &&  <Skeleton/>}
                     {!errorRepo && !fetchingRepo && <DirectoryTree onSelect={onSelect} style={{backgroundColor: "#faf8fa"}} multiple treeData={treeData}/>}
                 </div>
                 <div className={styles.codeDoc}>

@@ -1,6 +1,5 @@
 'use client';
 
-import {Row} from 'antd';
 import Title from './title';
 import { useProjectQuery } from '../types/generated';
 import Loader from "../components/loader";
@@ -17,7 +16,7 @@ const Project = (props: Props) => {
     const [{ data, fetching, error }] = useProjectQuery({variables: {Slug: props.slug}});
     
     if (error) return <GraphqlError />;
-    if (fetching) return <Row className="main" style={{height:"100vh"}}><Loader/></Row>;
+    if (fetching) return <Loader/>;
     const project = data?.project
 
     return(

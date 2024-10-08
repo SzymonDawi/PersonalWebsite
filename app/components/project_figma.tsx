@@ -1,6 +1,6 @@
 'use client';
 
-import {Row} from 'antd';
+import styles from '../styles/project_page_figma.module.css';
 
 interface Props {
     url: string | undefined;
@@ -8,7 +8,7 @@ interface Props {
 
 const ProjectFigma = (props: Props) => {
     return (
-        <Row justify="center" style={{height: "800px", width: "90%", position: "relative", left: "5%", paddingTop:"25px", paddingBottom:"25px"}}>
+        <div className={styles.container}>
             <iframe 
                 title='figma'
                 style={{border: "0px"}}
@@ -16,7 +16,7 @@ const ProjectFigma = (props: Props) => {
                 height="100%" 
                 src={props.url}>
             </iframe>
-        </Row>
+        </div>
     )
 }
 

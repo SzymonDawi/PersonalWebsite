@@ -1,7 +1,29 @@
 .fullCard{
-    height: "100vh";
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-.fullCardTitle{
-    padding-top: "40vh";
+.title {
+    align-self: center;
+    color: var(--text-colour);
+    font-size: 45px;
+    letter-spacing: 3px;
+    text-align: center;
 }
+
+.link {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .fullCard {
+        height: 75px;
+        width: 100%;
+    }
+
+    .title{
+        margin: 0;
+        justify-self: center;
+    }
+  }

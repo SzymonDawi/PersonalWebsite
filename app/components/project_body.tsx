@@ -1,10 +1,9 @@
 'use client';
 
-import {Col} from 'antd';
 import ProjectProcess from './project_process';
 import ProjectFigma from './project_figma';
 import ProjectGitRepo from './project_git_repo';
-
+import styles from '../styles/project_page_body.module.css';
 
 interface Props {
     items: any[];
@@ -12,21 +11,21 @@ interface Props {
 
 const ProjectBody = (props: Props) => {
     return(
-        <Col style={{width: "70vw", paddingBottom: "100px"}}>
-            {props.items.map((item) => {
+        <div className={styles.container}>
+            {props.items.map((item, index) => {
                 if (item.__typename === "ProcessBlock"){
-                    return <ProjectProcess key={item.__typename} items={item.items!}/>
+                    return <ProjectProcess key={index} items={item.items!}/>
                 }
                 else if (item.__typename === "FigmaBlock") {
-                    return <ProjectFigma key={item.__typename} url={item.url} />
+                    return <ProjectFigma key={index} url={item.url} />
                 } else if (item.__typename === "GithubBlock"){
-                    return <ProjectGitRepo included_dir={item.dirs_to_include} key={item.__typename} owner={item.owner} repo={item.repo}/>
+                    return <ProjectGitRepo key={index} included_dir={item.dirs_to_include} owner={item.owner} repo={item.repo}/>
                 }
                 else {
                     return <p key={item.__typename}>Test2</p>
                 }
             })}
-        </Col>
+        </div>
     )
 }
 

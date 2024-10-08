@@ -1,5 +1,7 @@
 'use client';
 
+import styles from '../styles/bullets.module.css';
+
 interface Props {
     title: string | undefined;
     items: string[] | undefined;
@@ -11,15 +13,13 @@ const Bullets = (props: Props) => {
     }
 
     return(
-        <div>
-            <h1 style={{paddingTop:"50px"}}>{props.title}</h1>
-            <div style={{textAlign: "center"}}>
-                <ul style={{display: "inline-block", marginTop: "-10px"}}>
-                    {props.items.map((bullet) => {
-                        return(<li key={bullet} className="P-Lato">{bullet}</li>)
-                    })}
-                </ul>
-            </div>
+        <div className={styles.container}>
+            <h1 className={styles.title}>{props.title}</h1>
+            <ul className={styles.bullets}>
+                {props.items.map((bullet) => {
+                    return(<li key={bullet}>{bullet}</li>)
+                })}
+            </ul>
         </div>
     )
 }

@@ -1,0 +1,40 @@
+.projectsContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    justify-content: center;
+    margin: 50px auto 0;
+    padding-left: 100px;
+}
+
+.image {
+    width: 1217px;
+    height: auto;
+}
+
+/* smaller screens styles */
+@media screen and (max-width: 1300px){
+    .projectsContainer {
+        max-width: 600px;
+        padding-left: 15px;
+    }
+
+    .image {
+        width: 600px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .projectsContainer {
+        padding-left: 0;
+        width: 300px;
+    }
+
+
+    .image {
+        width: 300px;
+        height: 300px;
+    }
+}

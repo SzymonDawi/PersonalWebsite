@@ -1,0 +1,49 @@
+.title {
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+.contentContainer {
+    display: flex;
+    gap: 50px;
+    margin: 10px 0;
+}
+
+.imageContainer {
+    max-width: 500px;
+    flex-shrink: 0.1;
+    justify-content: center;
+}
+
+.image {
+    display: block;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+}
+
+.paragraph {
+    min-width: 335px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .contentContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .imageContainer {
+        width: 100%;
+    }    
+
+    .image {
+        width: 100%;
+    }
+    
+    .paragraph {
+        width: 100%;
+    }
+    
+}

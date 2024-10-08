@@ -1,0 +1,15 @@
+.employer {
+    margin: 0 auto;
+    color: var(--text-colour);
+    font-family: var(--font-lato);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto 0;
+    max-width: 700px;
+    padding: 0 30px;
+}
